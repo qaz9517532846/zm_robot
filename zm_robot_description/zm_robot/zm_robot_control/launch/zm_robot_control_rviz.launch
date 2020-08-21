@@ -1,0 +1,22 @@
+<launch>
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find zm_robot_control)/config/zm_robot_control.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/zm_robot" args="joint1_velocity_controller joint2_velocity_controller joint3_velocity_controller joint4_velocity_controller joint_state_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/zm_robot/joint_states" />
+  </node>
+
+  <!-- Show zm_robot odom in Rviz   -->
+  <node name="zm_robot_odom" pkg="zm_robot_control" type="zm_robot_controller_odom"/>
+
+  <!-- Show in Rviz   -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find zm_robot_description)/config/zm_robot.rviz"/>
+
+</launch>
