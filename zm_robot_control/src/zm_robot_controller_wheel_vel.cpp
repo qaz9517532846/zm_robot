@@ -2,6 +2,7 @@
 #include <std_msgs/Float64.h>
 #include <nav_msgs/Odometry.h>
 #include <geometry_msgs/Twist.h>
+#include <control_msgs/JointControllerState.h>
 #include <string>
 
 float linear_x, linear_y, angular_z;
@@ -16,7 +17,7 @@ void call_twist(const geometry_msgs::Twist::ConstPtr& msg)
 int main(int argc, char** argv)
 {
     // Node initialization
-    ros::init(argc, argv, "zm_robot_controller_odom");
+    ros::init(argc, argv, "zm_robot_controller_wheel_vel");
     ros::NodeHandle n;
 
     ros::Subscriber odom_pub = n.subscribe("cmd_vel", 50, &call_twist);
@@ -37,40 +38,40 @@ int main(int argc, char** argv)
 
        if(linear_x != 0 && linear_y == 0 && angular_z == 0)
        {
-           wheel_1_control = linear_x;
-           wheel_2_control = linear_x;
-           wheel_3_control = linear_x;
-           wheel_4_control = linear_x;
+           wheel_1_control.data = linear_x;
+           wheel_2_control.data = linear_x;
+           wheel_3_control.data = linear_x;
+           wheel_4_control.data = linear_x;
        }
        else if(linear_x == 0 && linear_y != 0 && angular_z == 0)
        {
-           wheel_1_control = linear_y;
-           wheel_2_control = -linear_y;
-           wheel_3_control = linear_y;
-           wheel_4_control = -linear_y;
+           wheel_1_control.data = linear_y;
+           wheel_2_control.data = -linear_y;
+           wheel_3_control.data = linear_y;
+           wheel_4_control.data = -linear_y;
        }
        else if(linear_x == 0 && linear_y == 0 && angular_z < 0)
        {
-          wheel_1_control = angular_z * 2.2 / 0.065;
-          wheel_2_control = 0;
-          wheel_3_control = angular_z * 2.2 / 0.065;
-          wheel_4_control = 0;
+          wheel_1_control.data = angular_z * 2.2 / 0.065;
+          wheel_2_control.data = 0;
+          wheel_3_control.data = angular_z * 2.2 / 0.065;
+          wheel_4_control.data = 0;
        }
        else if(linear_x == 0 && linear_y == 0 && angular_z > 0)
        {
-          wheel_1_control = 0;
-          wheel_2_control = angular_z * 2.2 / 0.065;
-          wheel_3_control = 0;
-          wheel_4_control = angular_z * 2.2 / 0.065;
+          wheel_1_control.data = 0;
+          wheel_2_control.data = angular_z * 2.2 / 0.065;
+          wheel_3_control.data = 0;
+          wheel_4_control.data = angular_z * 2.2 / 0.065;
        }
        else
        {
-          wheel_1_control = 0;
-          wheel_2_control = 0;
-          wheel_3_control = 0;
-          wheel_4_control = 0;
+          wheel_1_control.data = 0;
+          wheel_2_control.data = 0;
+          wheel_3_control.data = 0;
+          wheel_4_control.data = 0;
        }
-       
+
        //publish the message
        wheel1_command.publish(wheel_1_control);
        wheel2_command.publish(wheel_2_control);
