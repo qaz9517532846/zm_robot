@@ -38,31 +38,24 @@ int main(int argc, char** argv)
 
        if(linear_x != 0 && linear_y == 0 && angular_z == 0)
        {
-           wheel_1_control.data = linear_x;
-           wheel_2_control.data = linear_x;
-           wheel_3_control.data = linear_x;
-           wheel_4_control.data = linear_x;
+           wheel_1_control.data = linear_x / 0.065;
+           wheel_2_control.data = linear_x / 0.065;;
+           wheel_3_control.data = linear_x / 0.065;;
+           wheel_4_control.data = linear_x / 0.065;;
        }
        else if(linear_x == 0 && linear_y != 0 && angular_z == 0)
        {
-           wheel_1_control.data = linear_y;
-           wheel_2_control.data = -linear_y;
-           wheel_3_control.data = linear_y;
-           wheel_4_control.data = -linear_y;
+           wheel_1_control.data = linear_y / 0.065;;
+           wheel_2_control.data = -linear_y / 0.065;;
+           wheel_3_control.data = linear_y / 0.065;;
+           wheel_4_control.data = -linear_y / 0.065;;
        }
-       else if(linear_x == 0 && linear_y == 0 && angular_z < 0)
+       else if(linear_x == 0 && linear_y == 0 && angular_z != 0)
        {
           wheel_1_control.data = angular_z * 2.2 / 0.065;
-          wheel_2_control.data = 0;
+          wheel_2_control.data = -angular_z * 2.2 / 0.065;
           wheel_3_control.data = angular_z * 2.2 / 0.065;
-          wheel_4_control.data = 0;
-       }
-       else if(linear_x == 0 && linear_y == 0 && angular_z > 0)
-       {
-          wheel_1_control.data = 0;
-          wheel_2_control.data = angular_z * 2.2 / 0.065;
-          wheel_3_control.data = 0;
-          wheel_4_control.data = angular_z * 2.2 / 0.065;
+          wheel_4_control.data = -angular_z * 2.2 / 0.065;
        }
        else
        {

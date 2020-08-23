@@ -33,6 +33,8 @@ e = """
 Communications Failed
 """
 
+move_vector = 0
+
 def getKey():
     if os.name == 'nt':
       return msvcrt.getch()
@@ -98,17 +100,21 @@ if __name__=="__main__":
             if key == 'w' :
                 target_linear_vel = checkLinearLimitVelocity(target_linear_vel + LIN_VEL_STEP_SIZE)
                 status = status + 1
+                move_vector = 0
                 print(vels(target_linear_vel,target_angular_vel))
             elif key == 'x' :
                 target_linear_vel = checkLinearLimitVelocity(target_linear_vel - LIN_VEL_STEP_SIZE)
                 status = status + 1
+                move_vector = 0
                 print(vels(target_linear_vel,target_angular_vel))
             elif key == 'a' :
                 target_linear_vel = checkLinearLimitVelocity(target_linear_vel + LIN_VEL_STEP_SIZE)
                 status = status + 1
+                move_vector = 1
                 print(vels(target_linear_vel,target_angular_vel))
             elif key == 'd' :
                 target_linear_vel = checkLinearLimitVelocity(target_linear_vel - LIN_VEL_STEP_SIZE)
+                move_vector = 1
                 status = status + 1
                 print(vels(target_linear_vel,target_angular_vel))
             elif key == 'q' :
@@ -134,12 +140,12 @@ if __name__=="__main__":
                 status = 0
 
             twist = Twist()
+
+            control_linear_vel = makeSimpleProfile(control_linear_vel, target_linear_vel, (LIN_VEL_STEP_SIZE/2.0))
      
-            if key == 'w' or key == 'x':
-                control_linear_vel = makeSimpleProfile(control_linear_vel, target_linear_vel, (LIN_VEL_STEP_SIZE/2.0))
+            if move_vector == 0:
                 twist.linear.x = control_linear_vel; twist.linear.y = 0.0; twist.linear.z = 0.0
-            elif key == 'a' or key == 'd':
-                control_linear_vel = makeSimpleProfile(control_linear_vel, target_linear_vel, (LIN_VEL_STEP_SIZE/2.0))
+            elif move_vector == 1:
                 twist.linear.x = 0.0; twist.linear.y = control_linear_vel; twist.linear.z = 0.0
 
             control_angular_vel = makeSimpleProfile(control_angular_vel, target_angular_vel, (ANG_VEL_STEP_SIZE/2.0))
