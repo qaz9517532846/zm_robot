@@ -60,7 +60,7 @@ int main(int argc, char** argv) {
 
        vx = 0.065 * (wheel_1_value + wheel_2_value + wheel_3_value + wheel_4_value) / 4 * cos(th) * dt;
        vy = 0.065 * (-wheel_1_value + wheel_2_value - wheel_3_value + wheel_4_value) / 4 * cos(th) * dt;
-       vth = 0.065 * (wheel_1_value + wheel_2_value - wheel_3_value - wheel_4_value) / 0.55 / 4 * dt;
+       vth = 0.065 * (-wheel_1_value - wheel_2_value + wheel_3_value + wheel_4_value) / 0.55 / 4 * dt;
 
        x = x + vx;
        y = y + vy;

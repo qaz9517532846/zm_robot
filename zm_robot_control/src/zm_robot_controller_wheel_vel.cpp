@@ -10,7 +10,7 @@ float linear_x, linear_y, angular_z;
 void call_twist(const geometry_msgs::Twist::ConstPtr& msg)
 {
     linear_x = msg->linear.x;
-    linear_y = msg->linear.x;
+    linear_y = msg->linear.y;
     angular_z = msg->angular.z;
 }
 
@@ -45,17 +45,17 @@ int main(int argc, char** argv)
        }
        else if(linear_x == 0 && linear_y != 0 && angular_z == 0)
        {
-           wheel_1_control.data = linear_y / 0.065;;
-           wheel_2_control.data = -linear_y / 0.065;;
-           wheel_3_control.data = linear_y / 0.065;;
-           wheel_4_control.data = -linear_y / 0.065;;
+           wheel_1_control.data = -linear_y / 0.065;;
+           wheel_2_control.data = linear_y / 0.065;;
+           wheel_3_control.data = -linear_y / 0.065;;
+           wheel_4_control.data = linear_y / 0.065;;
        }
        else if(linear_x == 0 && linear_y == 0 && angular_z != 0)
        {
-          wheel_1_control.data = angular_z * 2.2 / 0.065;
+          wheel_1_control.data = -angular_z * 2.2 / 0.065;
           wheel_2_control.data = -angular_z * 2.2 / 0.065;
           wheel_3_control.data = angular_z * 2.2 / 0.065;
-          wheel_4_control.data = -angular_z * 2.2 / 0.065;
+          wheel_4_control.data = angular_z * 2.2 / 0.065;
        }
        else
        {
