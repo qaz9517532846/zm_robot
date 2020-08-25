@@ -3,10 +3,57 @@
 
   <!-- ros_control plugin -->
   <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/zm_robot</robotNamespace>
-      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-      <legacyModeNS>true</legacyModeNS>
+    <plugin name="zm_robot_control" filename="libgazebo_ros_diff_mecanum_drive.so">
+      <!-- Plugin update rate in Hz -->
+      <updateRate>50.0</updateRate>
+
+      <!-- Name of left joint, defaults to `left_joint_front` -->
+      <left_front_Joint>wheel_joint2</left_front_Joint>
+
+      <!-- Name of right joint, defaults to `right_joint_front` -->
+      <right_front_Joint>wheel_joint3</right_front_Joint>
+
+      <!-- Name of left joint, defaults to `left_joint_back` -->
+      <left_back_Joint>wheel_joint1</left_back_Joint>
+
+      <!-- Name of right joint, defaults to `right_joint_back` -->
+      <right_back_Joint>wheel_joint4</right_back_Joint>
+
+      <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+      <wheelSeparation>0.6</wheelSeparation>
+
+      <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
+      <wheelDiameter>0.13</wheelDiameter>
+
+      <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+      <wheelAcceleration>1.0</wheelAcceleration>
+
+      <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+      <wheelTorque>20</wheelTorque>
+
+      <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
+      <commandTopic>cmd_vel</commandTopic>
+
+      <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
+      <odometryTopic>odom</odometryTopic>
+
+      <!-- Odometry frame, defaults to `odom` -->
+      <odometryFrame>odom</odometryFrame>
+
+      <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+
+      <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+      <odometrySource>1</odometrySource>
+
+      <!-- Set to true to publish transforms for the wheel links, defaults to false -->
+      <publishWheelTF>true</publishWheelTF>
+
+      <!-- Set to true to publish transforms for the odometry, defaults to true -->
+      <publishOdomTF>true</publishOdomTF>
+
+      <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
+      <publishWheelJointState>true</publishWheelJointState>
     </plugin>
   </gazebo>
 

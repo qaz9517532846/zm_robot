@@ -58,8 +58,8 @@ int main(int argc, char** argv) {
        current_time = ros::Time::now(); 
        double dt = (current_time - last_time).toSec();
 
-       vx = 0.065 * (wheel_1_value + wheel_2_value + wheel_3_value + wheel_4_value) / 4 * cos(th) * dt - 0.065 * (-wheel_1_value + wheel_2_value - wheel_3_value + wheel_4_value) / 4 * sin(th) * dt;
-       vy = 0.065 * (-wheel_1_value + wheel_2_value - wheel_3_value + wheel_4_value) / 4 * cos(th) * dt + 0.065 * (wheel_1_value + wheel_2_value + wheel_3_value + wheel_4_value) / 4 * sin(th) * dt;
+       vx = 0.065 * (wheel_1_value + wheel_2_value + wheel_3_value + wheel_4_value) / 4 * cos(th) * dt;
+       vy = 0.065 * (-wheel_1_value + wheel_2_value - wheel_3_value + wheel_4_value) / 4 * cos(th) * dt;
        vth = 0.065 * (-wheel_1_value - wheel_2_value + wheel_3_value + wheel_4_value) / 0.55 / 4 * dt;
 
        x = x + vx;
