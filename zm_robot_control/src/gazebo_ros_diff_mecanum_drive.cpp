@@ -337,8 +337,8 @@ void GazeboRosDiffDrive::UpdateOdometryEncoder()
     double ssum_y = -sl_front + sr_front - sl_back + sr_back;
     double ssum_rot = -sl_front - sr_front + sl_back + sr_back;
 
-    double dx = ( ssum_x ) / 4.0 * cos ( pose_encoder_.theta + ( ssum_rot ) / ( 2.0*b ) );
-    double dy = ( ssum_x ) / 4.0 * sin ( pose_encoder_.theta + ( ssum_rot ) / ( 2.0*b ) );
+    double dx = ( ssum_x ) / 4.0 * cos ( pose_encoder_.theta + ( ssum_rot ) / ( 2.0*b ) ) - ( ssum_y ) / 4.0 * sin ( pose_encoder_.theta + ( ssum_rot ) / ( 2.0*b ) );
+    double dy = ( ssum_x ) / 4.0 * sin ( pose_encoder_.theta + ( ssum_rot ) / ( 2.0*b ) ) + ( ssum_y ) / 4.0 * cos ( pose_encoder_.theta + ( ssum_rot ) / ( 2.0*b ) );
     double dtheta = ( ssum_rot ) / 0.55 / 4;
 
     pose_encoder_.x += dx;
