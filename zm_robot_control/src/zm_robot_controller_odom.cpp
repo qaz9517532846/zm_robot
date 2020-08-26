@@ -10,24 +10,24 @@ float wheel_2_value = 0;
 float wheel_3_value = 0;
 float wheel_4_value = 0;
 
-void wheel1(const control_msgs::JointControllerState::ConstPtr& msg)
+void wheel1(const std_msgs::Float64::ConstPtr& msg)
 {
-    wheel_1_value = msg->process_value;
+    wheel_1_value = msg->data;
 }
 
-void wheel2(const control_msgs::JointControllerState::ConstPtr& msg)
+void wheel2(const std_msgs::Float64::ConstPtr& msg)
 {
-    wheel_2_value = msg->process_value;
+    wheel_2_value = msg->data;
 }
 
-void wheel3(const control_msgs::JointControllerState::ConstPtr& msg)
+void wheel3(const std_msgs::Float64::ConstPtr& msg)
 {
-    wheel_3_value = msg->process_value;
+    wheel_3_value = msg->data;
 }
 
-void wheel4(const control_msgs::JointControllerState::ConstPtr& msg)
+void wheel4(const std_msgs::Float64::ConstPtr& msg)
 {
-    wheel_4_value = msg->process_value;
+    wheel_4_value = msg->data;
 }
 
 int main(int argc, char** argv) {
@@ -45,10 +45,10 @@ int main(int argc, char** argv) {
 
     ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);
 
-    ros::Subscriber wheel1_encoder = n.subscribe("/zm_robot/joint1_velocity_controller/state", 1000, &wheel1);
-    ros::Subscriber wheel2_encoder = n.subscribe("/zm_robot/joint2_velocity_controller/state", 1000, &wheel2);
-    ros::Subscriber wheel3_encoder = n.subscribe("/zm_robot/joint3_velocity_controller/state", 1000, &wheel3);
-    ros::Subscriber wheel4_encoder = n.subscribe("/zm_robot/joint4_velocity_controller/state", 1000, &wheel4);
+    ros::Subscriber wheel1_encoder = n.subscribe("/wheel1_velocity", 1000, &wheel1);
+    ros::Subscriber wheel2_encoder = n.subscribe("/wheel2_velocity", 1000, &wheel2);
+    ros::Subscriber wheel3_encoder = n.subscribe("/wheel3_velocity", 1000, &wheel3);
+    ros::Subscriber wheel4_encoder = n.subscribe("/wheel5_velocity", 1000, &wheel4);
 
     ros::Time current_time, last_time;
     current_time = ros::Time::now();

@@ -24,10 +24,10 @@ int main(int argc, char** argv)
 
     ros::Subscriber odom_pub = n.subscribe("cmd_vel", 50, &call_twist);
 
-    ros::Publisher wheel1_command = n.advertise<std_msgs::Float64>("/zm_robot/joint1_velocity_controller/command", 50);
-    ros::Publisher wheel2_command = n.advertise<std_msgs::Float64>("/zm_robot/joint2_velocity_controller/command", 50);
-    ros::Publisher wheel3_command = n.advertise<std_msgs::Float64>("/zm_robot/joint3_velocity_controller/command", 50);
-    ros::Publisher wheel4_command = n.advertise<std_msgs::Float64>("/zm_robot/joint4_velocity_controller/command", 50);
+    ros::Publisher wheel1_command = n.advertise<std_msgs::Float64>("/wheel1_velocity", 50);
+    ros::Publisher wheel2_command = n.advertise<std_msgs::Float64>("/wheel2_velocity", 50);
+    ros::Publisher wheel3_command = n.advertise<std_msgs::Float64>("/wheel3_velocity", 50);
+    ros::Publisher wheel4_command = n.advertise<std_msgs::Float64>("/wheel4_velocity", 50);
 
     ros::Rate loop_rate(50);
 

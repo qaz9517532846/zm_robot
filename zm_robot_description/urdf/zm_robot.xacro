@@ -31,18 +31,22 @@
   <xacro:property name="roller_9_x" value="0.049792"/>
 
   <!-- rollor friction -->
-  <xacro:property name="roller_friction" value="0.2"/>
+  <xacro:property name="roller_friction" value="0.4"/>
   <xacro:property name="roller_dampling" value="0"/>
+
+  <!-- wheel friction -->
+  <xacro:property name="roller_friction_wheel" value="0.2"/>
+  <xacro:property name="roller_dampling_wheel" value="1.5"/>
 
   <!-- Import all Gazebo-customization elements, including Gazebo colors -->
   <xacro:include filename="$(find zm_robot_description)/urdf/zm_robot.gazebo" />
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find zm_robot_description)/urdf/materials.xacro" />
   <!-- Import rollor actuator -->
-  <xacro:include filename="$(find zm_robot_description)/urdf/rollor_1.gazebo" />
-  <xacro:include filename="$(find zm_robot_description)/urdf/rollor_2.gazebo" />
-  <xacro:include filename="$(find zm_robot_description)/urdf/rollor_3.gazebo" />
-  <xacro:include filename="$(find zm_robot_description)/urdf/rollor_4.gazebo" />
+  <!--xacro:include filename="$(find zm_robot_description)/urdf/rollor_1.gazebo" /-->
+  <!--xacro:include filename="$(find zm_robot_description)/urdf/rollor_2.gazebo" /-->
+  <!--xacro:include filename="$(find zm_robot_description)/urdf/rollor_3.gazebo" /-->
+  <!--xacro:include filename="$(find zm_robot_description)/urdf/rollor_4.gazebo" /-->
 
   <!-- Used for fixing robot to Gazebo 'base_link' -->
   <link name="base_footprint"/>
@@ -72,11 +76,11 @@
 
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="9.987"/>
+      <mass value="29.964"/>
       <inertia
-	  ixx="0.297561439" ixy="0.0" ixz="0.0"
-	  iyy="0.655537494" iyz="0.0"
-	  izz="0.892409275"/>
+	  ixx="0.892684320" ixy="0.0" ixz="0.0"
+	  iyy="1.966612482" iyz="0.0"
+	  izz="2.677227828"/>
     </inertial>
   </link>
 
@@ -86,7 +90,7 @@
     <child link="wheel_1"/>
     <origin xyz="${wheel_after_L} ${wheel_left_W} 0" rpy="${wheel_rotationx} 0 0"/>
     <axis xyz="0 0 1"/>
-    <dynamics damping="0.3" friction="0.2"/>
+    <dynamics damping="${roller_dampling_wheel}" friction="${roller_friction_wheel}"/>
   </joint>
 
   <link name="wheel_1">
@@ -436,7 +440,7 @@
     <child link="wheel_2"/>
     <origin xyz="${wheel_before_L} ${wheel_left_W} 0" rpy="${wheel_rotationx} 0 0"/>
     <axis xyz="0 0 1"/>
-    <dynamics damping="0.3" friction="0.2"/>
+    <dynamics damping="${roller_dampling_wheel}" friction="${roller_friction_wheel}"/>
   </joint>
 
   <link name="wheel_2">
@@ -786,7 +790,7 @@
     <child link="wheel_3"/>
     <origin xyz="${wheel_before_L} ${wheel_right_W} 0" rpy="${wheel_rotationx} 0 0"/>
     <axis xyz="0 0 1"/>
-    <dynamics damping="0.3" friction="0.2"/>
+    <dynamics damping="${roller_dampling_wheel}" friction="${roller_friction_wheel}"/>
   </joint>
 
   <link name="wheel_3">
@@ -1136,7 +1140,7 @@
     <child link="wheel_4"/>
     <origin xyz="${wheel_after_L} ${wheel_right_W} 0" rpy="${wheel_rotationx} 0 0"/>
     <axis xyz="0 0 1"/>
-    <dynamics damping="0.3" friction="0.2"/>
+    <dynamics damping="${roller_dampling_wheel}" friction="${roller_friction_wheel}"/>
   </joint>
 
   <link name="wheel_4">
@@ -1479,48 +1483,4 @@
 	  izz="0.000013891"/>
     </inertial>
   </link>
-
-  <transmission name="tran1">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="wheel_joint1">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor1">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="tran2">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="wheel_joint2">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor2">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
- 
-  <transmission name="tran3">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="wheel_joint3">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor3">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="tran4">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="wheel_joint4">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor4">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
 </robot>

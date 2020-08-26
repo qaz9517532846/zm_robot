@@ -2,10 +2,15 @@
 #include <gazebo/gazebo.hh>
 #include <gazebo/physics/physics.hh>
 #include <gazebo/common/common.hh>
+#include <ignition/math/Angle.hh>
+#include <ignition/math/Pose3.hh>
+#include <ignition/math/Quaternion.hh>
+#include <ignition/math/Vector3.hh>
+#include <tf/transform_broadcaster.h>
+#include <tf/transform_listener.h>
 #include <stdio.h>
 #include <ros/ros.h>
-#include <control_msgs/JointControllerState.h>
-#include <std_msgs/Float32.h>
+#include <std_msgs/Float64.h>
 #include <iostream>
 
 // These need to be pulled out to parameters...
@@ -29,10 +34,10 @@ namespace gazebo
 
       mRosnode.reset(new ros::NodeHandle(""));
 
-      mfl_sub = mRosnode->subscribe("/zm_robot/joint1_velocity_controller/state", 1000, &Mecanum::wheel1, this);
-      mfr_sub = mRosnode->subscribe("/zm_robot/joint2_velocity_controller/state", 1000, &Mecanum::wheel2, this);
-      mbl_sub = mRosnode->subscribe("/zm_robot/joint3_velocity_controller/state", 1000, &Mecanum::wheel3, this);
-      mbr_sub = mRosnode->subscribe("/zm_robot/joint4_velocity_controller/state", 1000, &Mecanum::wheel4, this);
+      mfl_sub = mRosnode->subscribe("/wheel2_velocity", 1000, &Mecanum::wheel2, this);
+      mfr_sub = mRosnode->subscribe("/wheel3_velocity", 1000, &Mecanum::wheel3, this);
+      mbl_sub = mRosnode->subscribe("/wheel1_velocity", 1000, &Mecanum::wheel1, this);
+      mbr_sub = mRosnode->subscribe("/wheel4_velocity", 1000, &Mecanum::wheel4, this);
 
 
       // Listen to the update event. This event is broadcast every
@@ -52,30 +57,33 @@ namespace gazebo
         
         float rot = r * (-l * wheel_2_value + l * wheel_3_value - l * wheel_1_value + l * wheel_4_value);
 
-        math::Pose pose = this->model->GetWorldPose();
+        ignition::math::Pose3d pose = this->model->WorldPose();
 
-        float yaw = pose.rot.GetYaw();
+        float yaw = pose.Rot().Yaw();
 
-        this->model->SetLinearVel(math::Vector3(x * cosf(yaw) - y * sinf(yaw), y * cosf(yaw) + x * sinf(yaw), 0));
-        this->model->SetAngularVel(math::Vector3(0, 0, rot));
+        float x_a = x * cosf(yaw) - y * sinf(yaw);
+        float y_a = y * cosf(yaw) + x * sinf(yaw);
+
+        this->model->SetLinearVel(ignition::math::Vector3d(x_a, y_a, 0));
+        this->model->SetAngularVel(ignition::math::Vector3d(0, 0, rot));
 
         }
 
-        public: void wheel1(const control_msgs::JointControllerState::ConstPtr& msg)
+        public: void wheel1(const std_msgs::Float64::ConstPtr& msg)
         {
-          wheel_1_value = msg->process_value;
+          wheel_1_value = msg->data;
         }
-        public: void wheel2(const control_msgs::JointControllerState::ConstPtr& msg)
+        public: void wheel2(const std_msgs::Float64::ConstPtr& msg)
         {
-          wheel_2_value = msg->process_value;
+          wheel_2_value = msg->data;
         }
-        public: void wheel3(const control_msgs::JointControllerState::ConstPtr& msg)
+        public: void wheel3(const std_msgs::Float64::ConstPtr& msg)
         {
-          wheel_3_value = msg->process_value;
+          wheel_3_value = msg->data;
         }
-        public: void wheel4(const control_msgs::JointControllerState::ConstPtr& msg)
+        public: void wheel4(const std_msgs::Float64::ConstPtr& msg)
         {
-          wheel_4_value = msg->process_value;
+          wheel_4_value = msg->data;
         }
 
       private:
