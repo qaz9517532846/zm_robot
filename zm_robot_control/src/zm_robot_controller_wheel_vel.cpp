@@ -47,10 +47,10 @@ int main(int argc, char** argv)
        }
        else if(linear_x == 0 && linear_y != 0 && angular_z == 0)
        {
-           wheel_1_control.data = -linear_y / 0.065;;
-           wheel_2_control.data = linear_y / 0.065;;
-           wheel_3_control.data = -linear_y / 0.065;;
-           wheel_4_control.data = linear_y / 0.065;;
+           wheel_1_control.data = linear_y / 0.065;;
+           wheel_2_control.data = -linear_y / 0.065;;
+           wheel_3_control.data = linear_y / 0.065;;
+           wheel_4_control.data = -linear_y / 0.065;;
        }
        else if(linear_x == 0 && linear_y == 0 && angular_z != 0)
        {
