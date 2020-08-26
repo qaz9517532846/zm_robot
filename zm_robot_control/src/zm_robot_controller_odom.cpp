@@ -5,7 +5,10 @@
 #include <std_msgs/Float64.h>
 #include <string>
 
-float wheel_1_value, wheel_2_value, wheel_3_value, wheel_4_value;
+float wheel_1_value = 0;
+float wheel_2_value = 0;
+float wheel_3_value = 0;
+float wheel_4_value = 0;
 
 void wheel1(const control_msgs::JointControllerState::ConstPtr& msg)
 {

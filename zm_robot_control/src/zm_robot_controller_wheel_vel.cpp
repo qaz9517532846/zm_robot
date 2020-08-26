@@ -5,7 +5,9 @@
 #include <control_msgs/JointControllerState.h>
 #include <string>
 
-float linear_x, linear_y, angular_z;
+float linear_x = 0;
+float linear_y = 0;
+float angular_z = 0;
 
 void call_twist(const geometry_msgs::Twist::ConstPtr& msg)
 {

@@ -8,16 +8,24 @@ zm_robot:
   joint1_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: wheel_joint1
-    pid: {p: 17.0, i: 0.01, d: 0.0}
+    max_speed: 25 # rad/s
+    min_speed: 25 # rad/s
+    pid: {p: 1.0, i: 0.01, d: 0.0}
   joint2_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: wheel_joint2
-    pid: {p: 17.0, i: 0.01, d: 0.0}
+    max_speed: 25 # rad/s
+    min_speed: 25 # rad/s
+    pid: {p: 1.0, i: 0.01, d: 0.0}
   joint3_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: wheel_joint3
-    pid: {p: 17.0, i: 0.01, d: 0.0}
+    max_speed: 25 # rad/s
+    min_speed: 25 # rad/s
+    pid: {p: 1.0, i: 0.01, d: 0.0}
   joint4_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: wheel_joint4
-    pid: {p: 17.0, i: 0.01, d: 0.0}
+    max_speed: 25 # rad/s
+    min_speed: 25 # rad/s
+    pid: {p: 1.0, i: 0.01, d: 0.0}
