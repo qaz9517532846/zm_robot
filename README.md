@@ -81,3 +81,11 @@ $ roslaunch zm_robot_control zm_robot_control_rviz.launch
 ```
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_controller_rviz.png)
+
+------
+
+Reference:
+
+[1]. turtlebot3_teleop, https://github.com/ROBOTIS-GIT/turtlebot3/tree/master/turtlebot3_teleop
+
+[2]. mecanum_sim, https://github.com/joelillo/mecanum_sim
