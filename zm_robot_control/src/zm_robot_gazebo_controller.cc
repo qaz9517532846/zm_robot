@@ -57,7 +57,11 @@ namespace gazebo
         
         float rot = r * (-l * wheel_2_value + l * wheel_3_value - l * wheel_1_value + l * wheel_4_value);
 
+        #if GAZEBO_MAJOR_VERSION >= 8
         ignition::math::Pose3d pose = this->model->WorldPose();
+        #else
+        ignition::math::Pose3d pose = this->model->GetWorldPose().Ign();
+        #endif
 
         float yaw = pose.Rot().Yaw();
 

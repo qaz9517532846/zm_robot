@@ -2,7 +2,6 @@
 #include <std_msgs/Float64.h>
 #include <nav_msgs/Odometry.h>
 #include <geometry_msgs/Twist.h>
-#include <control_msgs/JointControllerState.h>
 #include <string>
 
 float linear_x = 0;
@@ -41,16 +40,16 @@ int main(int argc, char** argv)
        if(linear_x != 0 && linear_y == 0 && angular_z == 0)
        {
            wheel_1_control.data = linear_x / 0.065;
-           wheel_2_control.data = linear_x / 0.065;;
-           wheel_3_control.data = linear_x / 0.065;;
-           wheel_4_control.data = linear_x / 0.065;;
+           wheel_2_control.data = linear_x / 0.065;
+           wheel_3_control.data = linear_x / 0.065;
+           wheel_4_control.data = linear_x / 0.065;
        }
        else if(linear_x == 0 && linear_y != 0 && angular_z == 0)
        {
-           wheel_1_control.data = linear_y / 0.065;;
-           wheel_2_control.data = -linear_y / 0.065;;
-           wheel_3_control.data = linear_y / 0.065;;
-           wheel_4_control.data = -linear_y / 0.065;;
+           wheel_1_control.data = linear_y / 0.065;
+           wheel_2_control.data = -linear_y / 0.065;
+           wheel_3_control.data = linear_y / 0.065;
+           wheel_4_control.data = -linear_y / 0.065;
        }
        else if(linear_x == 0 && linear_y == 0 && angular_z != 0)
        {

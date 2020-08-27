@@ -1,0 +1,31 @@
+zm_robot:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  # Position Controllers ---------------------------------------
+  joint1_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: wheel_joint1
+    max_speed: 25 # rad/s
+    min_speed: 25 # rad/s
+    pid: {p: 1.0, i: 0.01, d: 0.0}
+  joint2_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: wheel_joint2
+    max_speed: 25 # rad/s
+    min_speed: 25 # rad/s
+    pid: {p: 1.0, i: 0.01, d: 0.0}
+  joint3_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: wheel_joint3
+    max_speed: 25 # rad/s
+    min_speed: 25 # rad/s
+    pid: {p: 1.0, i: 0.01, d: 0.0}
+  joint4_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: wheel_joint4
+    max_speed: 25 # rad/s
+    min_speed: 25 # rad/s
+    pid: {p: 1.0, i: 0.01, d: 0.0}

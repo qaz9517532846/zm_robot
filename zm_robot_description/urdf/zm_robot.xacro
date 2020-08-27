@@ -120,7 +120,7 @@
   </link>
 
   <!-- roller_1_1 -->
-  <joint name="roller_1_1_joint" type="continuous">
+  <joint name="roller_1_1_joint" type="fixed">
     <parent link="wheel_1"/>
     <child link="roller_1_1"/>
     <origin xyz="${roller_1_y} ${roller_1_x} 0" rpy="0.7854 0 1.5708"/>
@@ -155,7 +155,7 @@
   </link>
 
   <!-- roller_1_2 -->
-  <joint name="roller_1_2_joint" type="continuous">
+  <joint name="roller_1_2_joint" type="fixed">
     <parent link="wheel_1"/>
     <child link="roller_1_2"/>
     <origin xyz="${roller_2_y} ${roller_2_x} 0" rpy="0.7854 0 0.8727"/>
@@ -190,7 +190,7 @@
   </link>
 
   <!-- roller_1_3 -->
-  <joint name="roller_1_3_joint" type="continuous">
+  <joint name="roller_1_3_joint" type="fixed">
     <parent link="wheel_1"/>
     <child link="roller_1_3"/>
     <origin xyz="${roller_3_y} ${roller_3_x} 0" rpy="0.7854 0 0.1746"/>
@@ -225,7 +225,7 @@
   </link>
 
   <!-- roller_1_4 -->
-  <joint name="roller_1_4_joint" type="continuous">
+  <joint name="roller_1_4_joint" type="fixed">
     <parent link="wheel_1"/>
     <child link="roller_1_4"/>
     <origin xyz="${roller_4_y} ${roller_4_x} 0" rpy="0.7854 0 -0.5235"/>
@@ -260,7 +260,7 @@
   </link>
 
   <!-- roller_1_5 -->
-  <joint name="roller_1_5_joint" type="continuous">
+  <joint name="roller_1_5_joint" type="fixed">
     <parent link="wheel_1"/>
     <child link="roller_1_5"/>
     <origin xyz="${roller_5_y} ${roller_5_x} 0" rpy="0.7854 0 -1.2216"/>
@@ -295,7 +295,7 @@
   </link>
 
   <!-- roller_1_6 -->
-  <joint name="roller_1_6_joint" type="continuous">
+  <joint name="roller_1_6_joint" type="fixed">
     <parent link="wheel_1"/>
     <child link="roller_1_6"/>
     <origin xyz="${roller_6_y} ${roller_6_x} 0" rpy="0.7854 0 4.3632"/>
@@ -330,7 +330,7 @@
   </link>
 
   <!-- roller_1_7 -->
-  <joint name="roller_1_7_joint" type="continuous">
+  <joint name="roller_1_7_joint" type="fixed">
     <parent link="wheel_1"/>
     <child link="roller_1_7"/>
     <origin xyz="${roller_7_y} ${roller_7_x} 0" rpy="0.7854 0 3.6651"/>
@@ -365,7 +365,7 @@
   </link>
 
   <!-- roller_1_8 -->
-  <joint name="roller_1_8_joint" type="continuous">
+  <joint name="roller_1_8_joint" type="fixed">
     <parent link="wheel_1"/>
     <child link="roller_1_8"/>
     <origin xyz="${roller_8_y} ${roller_8_x} 0" rpy="0.7854 0 2.967"/>
@@ -400,7 +400,7 @@
   </link>
 
   <!-- roller_1_9 -->
-  <joint name="roller_1_9_joint" type="continuous">
+  <joint name="roller_1_9_joint" type="fixed">
     <parent link="wheel_1"/>
     <child link="roller_1_9"/>
     <origin xyz="${roller_9_y} ${roller_9_x} 0" rpy="0.7854 0 2.2689"/>
@@ -470,7 +470,7 @@
   </link>
 
   <!-- roller_2_1 -->
-  <joint name="roller_2_1_joint" type="continuous">
+  <joint name="roller_2_1_joint" type="fixed">
     <parent link="wheel_2"/>
     <child link="roller_2_1"/>
     <origin xyz="${roller_1_x} ${roller_1_y} 0" rpy="-0.7854 0 0"/>
@@ -505,7 +505,7 @@
   </link>
 
   <!-- roller_2_2 -->
-  <joint name="roller_2_2_joint" type="continuous">
+  <joint name="roller_2_2_joint" type="fixed">
     <parent link="wheel_2"/>
     <child link="roller_2_2"/>
     <origin xyz="${roller_2_x} ${roller_2_y} 0" rpy="-0.7854 0 0.6981"/>
@@ -540,7 +540,7 @@
   </link>
 
   <!-- roller_2_3 -->
-  <joint name="roller_2_3_joint" type="continuous">
+  <joint name="roller_2_3_joint" type="fixed">
     <parent link="wheel_2"/>
     <child link="roller_2_3"/>
     <origin xyz="${roller_3_x} ${roller_3_y} 0" rpy="-0.7854 0 1.3962"/>
@@ -575,7 +575,7 @@
   </link>
 
   <!-- roller_2_4 -->
-  <joint name="roller_2_4_joint" type="continuous">
+  <joint name="roller_2_4_joint" type="fixed">
     <parent link="wheel_2"/>
     <child link="roller_2_4"/>
     <origin xyz="${roller_4_x} ${roller_4_y} 0" rpy="-0.7854 0 2.0943"/>
@@ -610,7 +610,7 @@
   </link>
 
   <!-- roller_2_5 -->
-  <joint name="roller_2_5_joint" type="continuous">
+  <joint name="roller_2_5_joint" type="fixed">
     <parent link="wheel_2"/>
     <child link="roller_2_5"/>
     <origin xyz="${roller_5_x} ${roller_5_y} 0" rpy="-0.7854 0 2.7924"/>
@@ -645,7 +645,7 @@
   </link>
 
   <!-- roller_2_6 -->
-  <joint name="roller_2_6_joint" type="continuous">
+  <joint name="roller_2_6_joint" type="fixed">
     <parent link="wheel_2"/>
     <child link="roller_2_6"/>
     <origin xyz="${roller_6_x} ${roller_6_y} 0" rpy="-0.7854 0 -2.7924"/>
@@ -680,7 +680,7 @@
   </link>
 
   <!-- roller_2_7 -->
-  <joint name="roller_2_7_joint" type="continuous">
+  <joint name="roller_2_7_joint" type="fixed">
     <parent link="wheel_2"/>
     <child link="roller_2_7"/>
     <origin xyz="${roller_7_x} ${roller_7_y} 0" rpy="-0.7854 0 -2.0943"/>
@@ -715,7 +715,7 @@
   </link>
 
   <!-- roller_2_8 -->
-  <joint name="roller_2_8_joint" type="continuous">
+  <joint name="roller_2_8_joint" type="fixed">
     <parent link="wheel_2"/>
     <child link="roller_2_8"/>
     <origin xyz="${roller_8_x} ${roller_8_y} 0" rpy="-0.7854 0 -1.3962"/>
@@ -750,7 +750,7 @@
   </link>
 
   <!-- roller_2_9 -->
-  <joint name="roller_2_9_joint" type="continuous">
+  <joint name="roller_2_9_joint" type="fixed">
     <parent link="wheel_2"/>
     <child link="roller_2_9"/>
     <origin xyz="${roller_9_x} ${roller_9_y} 0" rpy="-0.7854 0 -0.6981"/>
@@ -820,7 +820,7 @@
   </link>
 
   <!-- roller_3_1 -->
-  <joint name="roller_3_1_joint" type="continuous">
+  <joint name="roller_3_1_joint" type="fixed">
     <parent link="wheel_3"/>
     <child link="roller_3_1"/>
     <origin xyz="${roller_1_y} ${roller_1_x} 0" rpy="0.7854 0 1.5708"/>
@@ -855,7 +855,7 @@
   </link>
 
   <!-- roller_3_2 -->
-  <joint name="roller_3_2_joint" type="continuous">
+  <joint name="roller_3_2_joint" type="fixed">
     <parent link="wheel_3"/>
     <child link="roller_3_2"/>
     <origin xyz="${roller_2_y} ${roller_2_x} 0" rpy="0.7854 0 0.8727"/>
@@ -890,7 +890,7 @@
   </link>
 
   <!-- roller_3_3 -->
-  <joint name="roller_3_3_joint" type="continuous">
+  <joint name="roller_3_3_joint" type="fixed">
     <parent link="wheel_3"/>
     <child link="roller_3_3"/>
     <origin xyz="${roller_3_y} ${roller_3_x} 0" rpy="0.7854 0 0.1746"/>
@@ -925,7 +925,7 @@
   </link>
 
   <!-- roller_3_4 -->
-  <joint name="roller_3_4_joint" type="continuous">
+  <joint name="roller_3_4_joint" type="fixed">
     <parent link="wheel_3"/>
     <child link="roller_3_4"/>
     <origin xyz="${roller_4_y} ${roller_4_x} 0" rpy="0.7854 0 -0.5235"/>
@@ -960,7 +960,7 @@
   </link>
 
   <!-- roller_3_5 -->
-  <joint name="roller_3_5_joint" type="continuous">
+  <joint name="roller_3_5_joint" type="fixed">
     <parent link="wheel_3"/>
     <child link="roller_3_5"/>
     <origin xyz="${roller_5_y} ${roller_5_x} 0" rpy="0.7854 0 -1.2216"/>
@@ -995,7 +995,7 @@
   </link>
 
   <!-- roller_3_6 -->
-  <joint name="roller_3_6_joint" type="continuous">
+  <joint name="roller_3_6_joint" type="fixed">
     <parent link="wheel_3"/>
     <child link="roller_3_6"/>
     <origin xyz="${roller_6_y} ${roller_6_x} 0" rpy="0.7854 0 4.3632"/>
@@ -1030,7 +1030,7 @@
   </link>
 
   <!-- roller_3_7 -->
-  <joint name="roller_3_7_joint" type="continuous">
+  <joint name="roller_3_7_joint" type="fixed">
     <parent link="wheel_3"/>
     <child link="roller_3_7"/>
     <origin xyz="${roller_7_y} ${roller_7_x} 0" rpy="0.7854 0 3.6651"/>
@@ -1065,7 +1065,7 @@
   </link>
 
   <!-- roller_3_8 -->
-  <joint name="roller_3_8_joint" type="continuous">
+  <joint name="roller_3_8_joint" type="fixed">
     <parent link="wheel_3"/>
     <child link="roller_3_8"/>
     <origin xyz="${roller_8_y} ${roller_8_x} 0" rpy="0.7854 0 2.967"/>
@@ -1100,7 +1100,7 @@
   </link>
 
   <!-- roller_3_9 -->
-  <joint name="roller_3_9_joint" type="continuous">
+  <joint name="roller_3_9_joint" type="fixed">
     <parent link="wheel_3"/>
     <child link="roller_3_9"/>
     <origin xyz="${roller_9_y} ${roller_9_x} 0" rpy="0.7854 0 2.2689"/>
@@ -1170,7 +1170,7 @@
   </link>
 
   <!-- roller_4_1 -->
-  <joint name="roller_4_1_joint" type="continuous">
+  <joint name="roller_4_1_joint" type="fixed">
     <parent link="wheel_4"/>
     <child link="roller_4_1"/>
     <origin xyz="${roller_1_x} ${roller_1_y} 0" rpy="-0.7854 0 0"/>
@@ -1205,7 +1205,7 @@
   </link>
 
   <!-- roller_4_2 -->
-  <joint name="roller_4_2_joint" type="continuous">
+  <joint name="roller_4_2_joint" type="fixed">
     <parent link="wheel_4"/>
     <child link="roller_4_2"/>
     <origin xyz="${roller_2_x} ${roller_2_y} 0" rpy="-0.7854 0 0.6981"/>
@@ -1240,7 +1240,7 @@
   </link>
 
   <!-- roller_4_3 -->
-  <joint name="roller_4_3_joint" type="continuous">
+  <joint name="roller_4_3_joint" type="fixed">
     <parent link="wheel_4"/>
     <child link="roller_4_3"/>
     <origin xyz="${roller_3_x} ${roller_3_y} 0" rpy="-0.7854 0 1.3962"/>
@@ -1275,7 +1275,7 @@
   </link>
 
   <!-- roller_4_4 -->
-  <joint name="roller_4_4_joint" type="continuous">
+  <joint name="roller_4_4_joint" type="fixed">
     <parent link="wheel_4"/>
     <child link="roller_4_4"/>
     <origin xyz="${roller_4_x} ${roller_4_y} 0" rpy="-0.7854 0 2.0943"/>
@@ -1310,7 +1310,7 @@
   </link>
 
   <!-- roller_4_5 -->
-  <joint name="roller_4_5_joint" type="continuous">
+  <joint name="roller_4_5_joint" type="fixed">
     <parent link="wheel_4"/>
     <child link="roller_4_5"/>
     <origin xyz="${roller_5_x} ${roller_5_y} 0" rpy="-0.7854 0 2.7924"/>
@@ -1345,7 +1345,7 @@
   </link>
 
   <!-- roller_4_6 -->
-  <joint name="roller_4_6_joint" type="continuous">
+  <joint name="roller_4_6_joint" type="fixed">
     <parent link="wheel_4"/>
     <child link="roller_4_6"/>
     <origin xyz="${roller_6_x} ${roller_6_y} 0" rpy="-0.7854 0 -2.7924"/>
@@ -1380,7 +1380,7 @@
   </link>
 
   <!-- roller_4_7 -->
-  <joint name="roller_4_7_joint" type="continuous">
+  <joint name="roller_4_7_joint" type="fixed">
     <parent link="wheel_4"/>
     <child link="roller_4_7"/>
     <origin xyz="${roller_7_x} ${roller_7_y} 0" rpy="-0.7854 0 -2.0943"/>
@@ -1415,7 +1415,7 @@
   </link>
 
   <!-- roller_4_8 -->
-  <joint name="roller_4_8_joint" type="continuous">
+  <joint name="roller_4_8_joint" type="fixed">
     <parent link="wheel_4"/>
     <child link="roller_4_8"/>
     <origin xyz="${roller_8_x} ${roller_8_y} 0" rpy="-0.7854 0 -1.3962"/>
@@ -1450,7 +1450,7 @@
   </link>
 
   <!-- roller_4_9 -->
-  <joint name="roller_4_9_joint" type="continuous">
+  <joint name="roller_4_9_joint" type="fixed">
     <parent link="wheel_4"/>
     <child link="roller_4_9"/>
     <origin xyz="${roller_9_x} ${roller_9_y} 0" rpy="-0.7854 0 -0.6981"/>
