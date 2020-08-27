@@ -25,15 +25,11 @@ The zm_robot 3d model xaro file into Rviz.
 $ roslaunch zm_robot_description zm_robot_demo.launch
 ```
 
-![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_rviz.png)
-
 The zm_robot 3d model xaro file into Gazebo.
 
 ``` bash
 $ roslaunch zm_robot_gazebo zm_robot_world.launch
 ```
-
-![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_gazebo.png)
 
 The zm_robot four Mecanum wheel controllers.
 
