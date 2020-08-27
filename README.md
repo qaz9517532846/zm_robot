@@ -34,8 +34,24 @@ $ roslaunch zm_robot_gazebo zm_robot_world.launch
 ```
 ![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_gazebo_update.png)
 
-The zm_robot four Mecanum wheel controllers.
+This is a zm_robot control using a keyboard.
+
+``` bash
+$ cd <catkin_workspace>/src/zm_robot/zm_robot_teleop_key/scripts
+```
+
+``` bash
+$ chmod +x zm_robot_teleope_key.py
+```
+
+``` bash
+$ rosrun zm_robot_teleop_key zm_robot_teleope_key.py
+```
+
+The zm_robot wheel controllers in rviz and gazebo.
 
 ``` bash
 $ roslaunch zm_robot_control zm_robot_control_rviz.launch
 ```
+
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_controller_rviz.png)
