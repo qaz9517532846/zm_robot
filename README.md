@@ -3,7 +3,7 @@ The zm_robot is a AGV using four Mecanum wheel.
 
 Software: Robot Operating System.
 
-Version: melodic.
+Version: kinetic and melodic.
 
 Your PC need to install ros package.
 
