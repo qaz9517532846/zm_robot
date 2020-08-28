@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <ros/ros.h>
 #include <std_msgs/Float64.h>
+#include <sensor_msgs/JointState.h>
 #include <iostream>
 
 // These need to be pulled out to parameters...
@@ -25,12 +26,27 @@ namespace gazebo
     public: void Load(physics::ModelPtr _parent, sdf::ElementPtr /*_sdf*/)
     {
       // Store the pointer to the model
-      this->model = _parent;
-
       wheel_1_value = 0;
       wheel_2_value = 0;
       wheel_3_value = 0;
       wheel_4_value = 0;
+
+      joint_1_position = 0;
+      joint_2_position = 0;
+      joint_3_position = 0;
+      joint_4_position = 0;
+
+      wheel_1_num = 0;
+      wheel_2_num = 0;
+      wheel_3_num = 0;
+      wheel_4_num = 0;
+ 
+      this->model = _parent;
+      this->joint[0] = this->model->GetJoints()[0];
+      this->joint[1] = this->model->GetJoints()[1];
+      this->joint[2] = this->model->GetJoints()[2];
+      this->joint[3] = this->model->GetJoints()[3];
+      
 
       mRosnode.reset(new ros::NodeHandle(""));
 
@@ -39,6 +55,18 @@ namespace gazebo
       mbl_sub = mRosnode->subscribe("/wheel1_velocity", 1000, &Mecanum::wheel1, this);
       mbr_sub = mRosnode->subscribe("/wheel4_velocity", 1000, &Mecanum::wheel4, this);
 
+      joint_pub = mRosnode->advertise<sensor_msgs::JointState>("joint_states", 1000);
+
+      joint_states_.name.push_back("wheel_joint1");
+      joint_states_.name.push_back("wheel_joint2");
+      joint_states_.name.push_back("wheel_joint3");
+      joint_states_.name.push_back("wheel_joint4");
+      joint_states_.position.resize(4, 0.0);
+      joint_states_.velocity.resize(4, 0.0);
+      joint_states_.effort.resize(4, 0.0);
+
+      current_time = ros::Time::now();
+      last_time = ros::Time::now();
 
       // Listen to the update event. This event is broadcast every
       // simulation iteration.
@@ -48,6 +76,23 @@ namespace gazebo
 
       public: void UpdateChild(const common::UpdateInfo & /*_info*/)
       {
+        current_time = ros::Time::now(); 
+        double dt = (current_time - last_time).toSec();
+
+        joint_1_position = joint_1_position + wheel_1_value * dt ;
+        joint_2_position = joint_2_position + wheel_2_value * dt ;
+        joint_3_position = joint_3_position + wheel_3_value * dt ;
+        joint_4_position = joint_4_position + wheel_4_value * dt ;
+
+        joint_states_.position[0] = joint_1_position;
+        joint_states_.position[1] = joint_2_position;
+        joint_states_.position[2] = joint_3_position;
+        joint_states_.position[3] = joint_4_position;
+        joint_states_.velocity[0] = wheel_1_value;
+        joint_states_.velocity[1] = wheel_2_value;
+        joint_states_.velocity[2] = wheel_3_value;
+        joint_states_.velocity[3] = wheel_2_value;
+
         float r = WHEEL_RAD;
         float L = TRACK; // left -> right
         float W = WHEELBASE; // front -> back
@@ -70,44 +115,69 @@ namespace gazebo
 
         this->model->SetLinearVel(ignition::math::Vector3d(x_a, y_a, 0));
         this->model->SetAngularVel(ignition::math::Vector3d(0, 0, rot));
-
+        
+        joint_states_.header.stamp = current_time;
+        last_time = current_time;
+        joint_pub.publish(joint_states_);
         }
 
         public: void wheel1(const std_msgs::Float64::ConstPtr& msg)
         {
           wheel_1_value = msg->data;
+          this->model->GetJointController()->SetVelocityTarget(this->joint[0]->GetScopedName(), wheel_1_value);
         }
         public: void wheel2(const std_msgs::Float64::ConstPtr& msg)
         {
           wheel_2_value = msg->data;
+          this->model->GetJointController()->SetVelocityTarget(this->joint[1]->GetScopedName(), wheel_2_value);
         }
         public: void wheel3(const std_msgs::Float64::ConstPtr& msg)
         {
           wheel_3_value = msg->data;
+          this->model->GetJointController()->SetVelocityTarget(this->joint[2]->GetScopedName(), wheel_3_value);
         }
         public: void wheel4(const std_msgs::Float64::ConstPtr& msg)
         {
           wheel_4_value = msg->data;
+          this->model->GetJointController()->SetVelocityTarget(this->joint[3]->GetScopedName(), wheel_4_value);
         }
 
       private:
         // Pointer to the model
         physics::ModelPtr model;
+        physics::JointPtr joint[4];
 
         // Pointer to the update event connection
         event::ConnectionPtr updateConnection;
 
         boost::shared_ptr<ros::NodeHandle> mRosnode;
 
-        float wheel_1_value;
-        float wheel_2_value;
-        float wheel_3_value;
-        float wheel_4_value;
+        double wheel_1_value;
+        double wheel_2_value;
+        double wheel_3_value;
+        double wheel_4_value;
 
         ros::Subscriber mfl_sub;
         ros::Subscriber mfr_sub;
         ros::Subscriber mbl_sub;
         ros::Subscriber mbr_sub;
+
+        ros::Publisher joint_pub;
+
+        sensor_msgs::JointState joint_states_;
+
+        double joint_1_position;
+        double joint_2_position;
+        double joint_3_position;
+        double joint_4_position;
+
+        double wheel_1_num;
+        double wheel_2_num;
+        double wheel_3_num;
+        double wheel_4_num;
+
+        ros::Time current_time;
+        ros::Time last_time;
       };
 
       // Register this plugin with the simulator
