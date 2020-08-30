@@ -42,12 +42,7 @@ namespace gazebo
       wheel_4_num = 0;
  
       this->model = _parent;
-      this->joint[0] = this->model->GetJoints()[0];
-      this->joint[1] = this->model->GetJoints()[1];
-      this->joint[2] = this->model->GetJoints()[2];
-      this->joint[3] = this->model->GetJoints()[3];
       
-
       mRosnode.reset(new ros::NodeHandle(""));
 
       mfl_sub = mRosnode->subscribe("/wheel2_velocity", 1000, &Mecanum::wheel2, this);
@@ -115,6 +110,10 @@ namespace gazebo
 
         this->model->SetLinearVel(ignition::math::Vector3d(x_a, y_a, 0));
         this->model->SetAngularVel(ignition::math::Vector3d(0, 0, rot));
+        this->model->GetJoint("wheel_joint1")->SetVelocity(0, wheel_1_value);
+        this->model->GetJoint("wheel_joint2")->SetVelocity(0, wheel_2_value);
+        this->model->GetJoint("wheel_joint3")->SetVelocity(0, wheel_3_value);
+        this->model->GetJoint("wheel_joint4")->SetVelocity(0, wheel_4_value);
         
         joint_states_.header.stamp = current_time;
         last_time = current_time;
@@ -124,28 +123,23 @@ namespace gazebo
         public: void wheel1(const std_msgs::Float64::ConstPtr& msg)
         {
           wheel_1_value = msg->data;
-          this->model->GetJointController()->SetVelocityTarget(this->joint[0]->GetScopedName(), wheel_1_value);
         }
         public: void wheel2(const std_msgs::Float64::ConstPtr& msg)
         {
           wheel_2_value = msg->data;
-          this->model->GetJointController()->SetVelocityTarget(this->joint[1]->GetScopedName(), wheel_2_value);
         }
         public: void wheel3(const std_msgs::Float64::ConstPtr& msg)
         {
           wheel_3_value = msg->data;
-          this->model->GetJointController()->SetVelocityTarget(this->joint[2]->GetScopedName(), wheel_3_value);
         }
         public: void wheel4(const std_msgs::Float64::ConstPtr& msg)
         {
           wheel_4_value = msg->data;
-          this->model->GetJointController()->SetVelocityTarget(this->joint[3]->GetScopedName(), wheel_4_value);
         }
 
       private:
         // Pointer to the model
         physics::ModelPtr model;
-        physics::JointPtr joint[4];
 
         // Pointer to the update event connection
         event::ConnectionPtr updateConnection;
