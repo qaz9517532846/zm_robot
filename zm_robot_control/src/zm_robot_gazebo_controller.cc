@@ -13,6 +13,7 @@
 #include <std_msgs/Float64.h>
 #include <sensor_msgs/JointState.h>
 #include <iostream>
+#include <zm_robot_control/agv_position.h>
 
 // These need to be pulled out to parameters...
 const float WHEEL_RAD = 0.065; // meters
@@ -51,6 +52,8 @@ namespace gazebo
       mbr_sub = mRosnode->subscribe("/wheel4_velocity", 1000, &Mecanum::wheel4, this);
 
       joint_pub = mRosnode->advertise<sensor_msgs::JointState>("joint_states", 1000);
+
+      pose_pub = mRosnode->advertise<zm_robot_control::agv_position>("zm_robot_position", 1000);
 
       joint_states_.name.push_back("wheel_joint1");
       joint_states_.name.push_back("wheel_joint2");
@@ -114,10 +117,15 @@ namespace gazebo
         this->model->GetJoint("wheel_joint2")->SetVelocity(0, wheel_2_value);
         this->model->GetJoint("wheel_joint3")->SetVelocity(0, wheel_3_value);
         this->model->GetJoint("wheel_joint4")->SetVelocity(0, wheel_4_value);
+
+        zm_robot_pos.position_x  = pose.Pos().X();
+        zm_robot_pos.position_y  = pose.Pos().Y();
+        zm_robot_pos.position_th = pose.Rot().Yaw();
         
         joint_states_.header.stamp = current_time;
         last_time = current_time;
         joint_pub.publish(joint_states_);
+        pose_pub.publish(zm_robot_pos);
         }
 
         public: void wheel1(const std_msgs::Float64::ConstPtr& msg)
@@ -158,7 +166,11 @@ namespace gazebo
 
         ros::Publisher joint_pub;
 
+        ros::Publisher pose_pub;
+
         sensor_msgs::JointState joint_states_;
+
+        zm_robot_control::agv_position zm_robot_pos;
 
         double joint_1_position;
         double joint_2_position;

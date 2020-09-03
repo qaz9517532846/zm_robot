@@ -12,6 +12,11 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 
+add_message_files(
+  FILES
+  agv_position.msg
+)
+
 generate_messages(DEPENDENCIES std_msgs)
 
 include_directories(

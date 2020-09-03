@@ -4,11 +4,23 @@
 #include <tf/transform_broadcaster.h>
 #include <std_msgs/Float64.h>
 #include <string>
+#include <zm_robot_control/agv_position.h>
+
+float robot_x = 0;
+float robot_y = 0;
+float robot_th = 0;
 
 float wheel_1_value = 0;
 float wheel_2_value = 0;
 float wheel_3_value = 0;
 float wheel_4_value = 0;
+
+void zm_robot_position(const zm_robot_control::agv_position::ConstPtr& msg)
+{
+    robot_x = msg->position_x;
+    robot_y = msg->position_y;
+    robot_th = msg->position_th;
+}
 
 void wheel1(const std_msgs::Float64::ConstPtr& msg)
 {
@@ -36,9 +48,6 @@ int main(int argc, char** argv) {
     ros::NodeHandle n;
     tf::TransformBroadcaster odom_broadcaster;
   
-    float x = 0;
-    float y = 0;
-    float th = 0;
     float vx = 0;
     float vy = 0;
     float vth = 0;
@@ -49,6 +58,8 @@ int main(int argc, char** argv) {
     ros::Subscriber wheel2_encoder = n.subscribe("/wheel2_velocity", 1000, &wheel2);
     ros::Subscriber wheel3_encoder = n.subscribe("/wheel3_velocity", 1000, &wheel3);
     ros::Subscriber wheel4_encoder = n.subscribe("/wheel4_velocity", 1000, &wheel4);
+
+    ros::Subscriber zm_robot_pos = n.subscribe("/zm_robot_position", 1000, &zm_robot_position);
 
     ros::Time current_time, last_time;
     current_time = ros::Time::now();
@@ -61,22 +72,18 @@ int main(int argc, char** argv) {
        current_time = ros::Time::now(); 
        double dt = (current_time - last_time).toSec();
 
-       vx = 0.065 * (wheel_1_value + wheel_2_value + wheel_3_value + wheel_4_value) / 4 * cos(th) * dt - 0.065 * (wheel_1_value - wheel_2_value + wheel_3_value - wheel_4_value) / 4 * sin(th) * dt;
-       vy = 0.065 * (wheel_1_value - wheel_2_value + wheel_3_value - wheel_4_value) / 4 * cos(th) * dt + 0.065 * (wheel_1_value + wheel_2_value + wheel_3_value + wheel_4_value) / 4 * sin(th) * dt;
+       vx = 0.065 * (wheel_1_value + wheel_2_value + wheel_3_value + wheel_4_value) / 4 * cos(robot_th) * dt - 0.065 * (wheel_1_value - wheel_2_value + wheel_3_value - wheel_4_value) / 4 * sin(robot_th) * dt;
+       vy = 0.065 * (wheel_1_value - wheel_2_value + wheel_3_value - wheel_4_value) / 4 * cos(robot_th) * dt + 0.065 * (wheel_1_value + wheel_2_value + wheel_3_value + wheel_4_value) / 4 * sin(robot_th) * dt;
        vth = 0.065 * (-wheel_1_value - wheel_2_value + wheel_3_value + wheel_4_value) / 0.55 / 4 * dt;
 
-       x = x + vx;
-       y = y + vy;
-       th = th + vth;
-
        geometry_msgs::TransformStamped odom_trans;
-       geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(th);
+       geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(robot_th);
 		
        odom_trans.header.stamp = current_time;
        odom_trans.header.frame_id = "odom";
        odom_trans.child_frame_id = "base_footprint";
-       odom_trans.transform.translation.x = x;
-       odom_trans.transform.translation.y = y;
+       odom_trans.transform.translation.x = robot_x;
+       odom_trans.transform.translation.y = robot_y;
        odom_trans.transform.translation.z = 0.0;
        odom_trans.transform.rotation = odom_quat;
 		
@@ -90,8 +97,8 @@ int main(int argc, char** argv) {
 		
        //set the position
        // Position
-       odom.pose.pose.position.x = x;
-       odom.pose.pose.position.y = y;
+       odom.pose.pose.position.x = robot_x;
+       odom.pose.pose.position.y = robot_y;
        odom.pose.pose.position.z = 0.0;
        // Orientation
        odom.pose.pose.orientation = odom_quat;
@@ -109,8 +116,8 @@ int main(int argc, char** argv) {
        
        //publish the message
        odom_pub.publish(odom);
-       last_time = current_time;
        loop_rate.sleep();
+       last_time = current_time;
        ros::spinOnce();
     }
     return 0;
