@@ -1,0 +1,16 @@
+<launch>
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+     <param name="publish_frequency" type="double" value="50.0" />
+  </node>
+
+  <!-- caculate zm_robot wheel vel in Rviz   -->
+  <node name="zm_robot_wheel_vel" pkg="zm_robot_control" type="zm_robot_controller_wheel_vel"/>
+
+  <!-- Show zm_robot odom in Rviz   -->
+  <node name="zm_robot_odom" pkg="zm_robot_pid_control" type="zm_robot_pid_odom"/>
+
+  <!-- Show in Rviz   -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find zm_robot_description)/config/zm_robot.rviz"/>
+
+</launch>
