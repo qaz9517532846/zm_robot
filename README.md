@@ -86,8 +86,6 @@ $ roslaunch zm_robot_control zm_robot_control_rviz.launch
 
 zm_robot using PID controller.
 
-------
-
 ``` bash
 $ roslaunch zm_robot_gazebo zm_robot_pid.launch
 ```
@@ -95,6 +93,7 @@ $ roslaunch zm_robot_gazebo zm_robot_pid.launch
 ``` bash
 $ roslaunch zm_robot_pid_control zm_robot_pid_rviz.launch
 ```
+------
 
 Reference:
 
