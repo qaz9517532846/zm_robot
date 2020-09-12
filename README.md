@@ -100,3 +100,5 @@ Reference:
 [1]. turtlebot3_teleop, https://github.com/ROBOTIS-GIT/turtlebot3/tree/master/turtlebot3_teleop
 
 [2]. mecanum_sim, https://github.com/joelillo/mecanum_sim
+
+[3]. Control plugin. http://gazebosim.org/tutorials?cat=guided_i&tut=guided_i5
