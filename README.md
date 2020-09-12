@@ -101,4 +101,4 @@ Reference:
 
 [2]. mecanum_sim, https://github.com/joelillo/mecanum_sim
 
-[3]. Control plugin. http://gazebosim.org/tutorials?cat=guided_i&tut=guided_i5
+[3]. Gazebo tutorial - Control plugin. http://gazebosim.org/tutorials?cat=guided_i&tut=guided_i5
