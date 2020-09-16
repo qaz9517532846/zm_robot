@@ -1483,4 +1483,103 @@
 	  izz="0.000013891"/>
     </inertial>
   </link>
+
+  <!-- sick LiDAR 0 -->
+  <joint name="sick_lidar0_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="sick_lidar0"/>
+    <origin xyz="0.33 0.175 0.195722" rpy="0 0 0.7854"/>
+  </joint>
+
+  <link name="sick_lidar0">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<mesh filename="package://zm_robot_description/meshes/sick_s30b.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<mesh filename="package://zm_robot_description/meshes/sick_s30b.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="green"/>
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.2"/>
+      <inertia
+	  ixx="0.0001" ixy="0.0" ixz="0.0"
+	  iyy="0.0001" iyz="0.0"
+	  izz="0.0001"/>
+    </inertial>
+  </link>
+
+  <!-- sick LiDAR 1 -->
+  <joint name="sick_lidar1_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="sick_lidar1"/>
+    <origin xyz="-0.33 -0.175 0.195722" rpy="0 0 -2.35619"/>
+  </joint>
+
+  <link name="sick_lidar1">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<mesh filename="package://zm_robot_description/meshes/sick_s30b.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<mesh filename="package://zm_robot_description/meshes/sick_s30b.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="green"/>
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.2"/>
+      <inertia
+	  ixx="0.0001" ixy="0.0" ixz="0.0"
+	  iyy="0.0001" iyz="0.0"
+	  izz="0.0001"/>
+    </inertial>
+  </link>
+
+  <!-- kinect V2 -->
+  <joint name="kinect_v2_joint " type="fixed">
+    <parent link="base_link"/>
+    <child link="kinect_v2"/>
+    <origin xyz="0.297 -0.05 0.122015" rpy="-1.5708 0 -1.5708"/>
+  </joint>
+
+  <link name="kinect_v2">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<mesh filename="package://zm_robot_description/meshes/kinect_v2.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<mesh filename="package://zm_robot_description/meshes/kinect_v2.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.5"/>
+      <inertia
+	  ixx="0.00005" ixy="0.0" ixz="0.0"
+	  iyy="0.00005" iyz="0.0"
+	  izz="0.00005"/>
+    </inertial>
+  </link>
 </robot>

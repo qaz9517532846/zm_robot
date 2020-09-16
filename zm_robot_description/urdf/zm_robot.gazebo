@@ -290,4 +290,25 @@
     <mu2>0.2</mu2>
     <material>Gazebo/Black</material>
   </gazebo>
+
+  <!-- sick LiDAR 0 -->
+  <gazebo reference="sick_lidar0">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <!-- sick LiDAR 1 -->
+  <gazebo reference="sick_lidar1">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <!-- Kinect V2 -->
+  <gazebo reference="kinect_v2">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
 </robot>
