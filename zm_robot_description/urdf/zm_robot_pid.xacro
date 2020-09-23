@@ -1554,7 +1554,7 @@
   <joint name="kinect_v2_joint " type="fixed">
     <parent link="base_link"/>
     <child link="kinect_v2"/>
-    <origin xyz="0.297 -0.05 0.122015" rpy="-1.5708 0 -1.5708"/>
+    <origin xyz="0.297 -0.05 0.122015" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
 
@@ -1572,6 +1572,40 @@
 	<mesh filename="package://zm_robot_description/meshes/kinect_v2.stl" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="black"/>
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.5"/>
+      <inertia
+	  ixx="0.00005" ixy="0.0" ixz="0.0"
+	  iyy="0.00005" iyz="0.0"
+	  izz="0.00005"/>
+    </inertial>
+  </link>
+
+  <!-- IMU -->
+  <joint name="IMU_joint " type="fixed">
+    <parent link="base_link"/>
+    <child link="IMU_sensor"/>
+    <origin xyz="0 0 0.08" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="IMU_sensor">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<mesh filename="package://zm_robot_description/meshes/IMU_sensor.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<mesh filename="package://zm_robot_description/meshes/IMU_sensor.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="red"/>
     </visual>
 
     <inertial>
