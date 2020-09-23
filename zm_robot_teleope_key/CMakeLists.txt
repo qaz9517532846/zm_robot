@@ -32,3 +32,8 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
+
+catkin_install_python(PROGRAMS
+  scripts/zm_robot_teleope_key.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
