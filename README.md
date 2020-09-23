@@ -102,3 +102,5 @@ Reference:
 [2]. mecanum_sim, https://github.com/joelillo/mecanum_sim
 
 [3]. Gazebo tutorial - Control plugin. http://gazebosim.org/tutorials?cat=guided_i&tut=guided_i5
+
+[4]. warehouse_simulation_toolkit. https://github.com/wh200720041/warehouse_simulation_toolkit
