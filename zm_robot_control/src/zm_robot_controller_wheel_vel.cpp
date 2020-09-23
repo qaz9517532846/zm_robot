@@ -37,10 +37,10 @@ int main(int argc, char** argv)
        std_msgs::Float64 wheel_3_control;
        std_msgs::Float64 wheel_4_control;
 
-       wheel_1_control.data = (linear_x + linear_y - 2.2 * angular_z) / 0.065;
-       wheel_2_control.data = (linear_x - linear_y - 2.2 * angular_z) / 0.065;
-       wheel_3_control.data = (linear_x + linear_y + 2.2 * angular_z) / 0.065;
-       wheel_4_control.data = (linear_x - linear_y + 2.2 * angular_z) / 0.065;
+       wheel_1_control.data = (linear_x + linear_y - 0.55 * angular_z) / 0.065;
+       wheel_2_control.data = (linear_x - linear_y - 0.55 * angular_z) / 0.065;
+       wheel_3_control.data = (linear_x + linear_y + 0.55 * angular_z) / 0.065;
+       wheel_4_control.data = (linear_x - linear_y + 0.55 * angular_z) / 0.065;
 
        //publish the message
        wheel1_command.publish(wheel_1_control);

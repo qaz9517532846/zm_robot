@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+<!-- warehouse simulation environment -->
+  <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find zm_robot_warehouse)/models"/>
+  <env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find zm_robot_warehouse)/models"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find warehouse_simulation)/worlds/warehouse.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="gui" value="true"/> 
+  </include>
+
+</launch>
