@@ -1,6 +1,6 @@
 <launch>
   <node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
-    <param name="destination_frame" value="base_link"/>
+    <param name="destination_frame" value="sick_lidar0"/>
     <param name="cloud_destination_topic" value="/zm_robot_clound"/>
     <param name="scan_destination_topic" value="/zm_robot_scan"/>
     <param name="laserscan_topics" value ="/sick_s30b/laser/scan0 /sick_s30b/laser/scan1" /> <!-- LIST OF THE LASER SCAN TOPICS TO SUBSCRIBE -->
