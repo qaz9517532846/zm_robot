@@ -239,7 +239,7 @@ illustration:
 | sick_s30b/laser/scan0              | sick laser1 Laserscan.                                            |
 | sick_s30b/laser/scan1              | sick laser2 Laserscan.                                            |
 | kinect_v2/color/image_raw          | Kinect V2 RGB image.                                              |
-| /kinect_v2/depth/image_raw         | Kinect V2 Depth image.                                            |
+| kinect_v2/depth/image_raw          | Kinect V2 Depth image.                                            |
 | zm_robot_imu                       | zm_robot IMU sensor.                                              ||
 
 ------
