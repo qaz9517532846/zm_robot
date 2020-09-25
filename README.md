@@ -56,7 +56,6 @@ $ sudo apt-get install -y ros-kinetic-openslam-gmapping ros-kinetic-navigation
 ``` bash
 $ sudo apt-get install -y ros-kinetic-amcl ros-kinetic-move-base
 ```
-------
 
 ------
 
