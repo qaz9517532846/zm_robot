@@ -78,9 +78,9 @@ $ cd ..
 $ catkin_make
 ```
 
-# Step3. Open zm_robot package.
-
 ------
+
+# Step3. Open zm_robot package.
 
 The zm_robot 3d model xaro file into Rviz.
 
