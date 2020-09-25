@@ -20,7 +20,6 @@ $ sudo apt-get install -y libgazebo9-dev
 ``` bash
 $ sudo apt-get install -y gazebo9
 ```
-------
 
 Install ros navigation package.
 
@@ -55,6 +54,26 @@ $ sudo apt-get install -y ros-kinetic-openslam-gmapping ros-kinetic-navigation
 
 ``` bash
 $ sudo apt-get install -y ros-kinetic-amcl ros-kinetic-move-base
+```
+
+------
+
+Install ira_laser_tools package.
+
+``` bash
+$ cd <catkin_workspace>/src
+```
+
+``` bash
+$ git clone https://github.com/iralabdisco/ira_laser_tools.git
+```
+
+``` bash
+$ cd ..
+```
+
+``` bash
+$ catkin_make
 ```
 
 ------
