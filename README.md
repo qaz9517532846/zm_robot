@@ -88,7 +88,7 @@ The zm_robot 3d model xaro file into Rviz.
 $ roslaunch zm_robot_description zm_robot_demo.launch
 ```
 
-![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_rviz_update.png)
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_rviz.png)
 
 ------
 
@@ -97,7 +97,7 @@ The zm_robot 3d model xaro file into Gazebo.
 ``` bash
 $ roslaunch zm_robot_gazebo zm_robot_world.launch
 ```
-![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_gazebo_update.png)
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_gazebo.png)
 
 ------
 
@@ -123,7 +123,7 @@ The zm_robot wheel controllers in rviz and gazebo.
 $ roslaunch zm_robot_control zm_robot_control_rviz.launch
 ```
 
-![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_controller_rviz.png)
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_control.png)
 
 ------
 
