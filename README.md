@@ -94,7 +94,7 @@ $ roslaunch zm_robot_description zm_robot_demo.launch
 
 ------
 
-The zm_robot 3d model xaro file into Gazebo.
+# The zm_robot 3d model xaro file into Gazebo.
 
 ``` bash
 $ roslaunch zm_robot_gazebo zm_robot_world.launch
@@ -103,7 +103,17 @@ $ roslaunch zm_robot_gazebo zm_robot_world.launch
 
 ------
 
-This is a zm_robot control using a keyboard.
+# The zm_robot wheel controllers in rviz and gazebo.
+
+``` bash
+$ roslaunch zm_robot_control zm_robot_control_rviz.launch
+```
+
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_control.png)
+
+------
+
+# This is a zm_robot control using a keyboard.
 
 ``` bash
 $ cd <catkin_workspace>/src/zm_robot/zm_robot_teleop_key/scripts
@@ -119,17 +129,7 @@ $ rosrun zm_robot_teleop_key zm_robot_teleope_key.py
 
 ------
 
-The zm_robot wheel controllers in rviz and gazebo.
-
-``` bash
-$ roslaunch zm_robot_control zm_robot_control_rviz.launch
-```
-
-![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_control.png)
-
-------
-
-The zm_robot using PID controller.
+# The zm_robot using PID controller.
 
 ``` bash
 $ roslaunch zm_robot_gazebo zm_robot_pid.launch
@@ -143,7 +143,7 @@ $ roslaunch zm_robot_pid_control zm_robot_pid_rviz.launch
 
 ------
 
-zm_robot warehouse environment under Gazebo.
+# The zm_robot warehouse environment under Gazebo.
 
 ``` bash
 $ roslaunch zm_robot_gazebo zm_robot_warehouse.launch
