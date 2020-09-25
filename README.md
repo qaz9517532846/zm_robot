@@ -252,6 +252,8 @@ illustration:
 
 [3]. Gazebo tutorial - Control plugin. http://gazebosim.org/tutorials?cat=guided_i&tut=guided_i5
 
-[4]. warehouse_simulation_toolkit. https://github.com/wh200720041/warehouse_simulation_toolkit
+[4]. Gazebo tutorial - Sensor plugin. http://gazebosim.org/tutorials?tut=ros_gzplugins&cat=connect_ros
 
-[5]. ira_laser_tools. http://wiki.ros.org/ira_laser_tools
+[5]. warehouse_simulation_toolkit. https://github.com/wh200720041/warehouse_simulation_toolkit
+
+[6]. ira_laser_tools. http://wiki.ros.org/ira_laser_tools
