@@ -136,6 +136,9 @@ $ roslaunch zm_robot_gazebo zm_robot_pid.launch
 ``` bash
 $ roslaunch zm_robot_pid_control zm_robot_pid_rviz.launch
 ```
+
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_pid_control.png)
+
 ------
 
 Reference:
