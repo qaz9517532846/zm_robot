@@ -5,6 +5,8 @@ Software: Robot Operating System.
 
 Version: kinetic and melodic.
 
+# Step1. Install package.
+
 Your PC need to install ros package.
 
 if your pc used melodic version.
