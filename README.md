@@ -22,6 +22,17 @@ $ sudo apt-get install -y gazebo9
 ```
 ------
 
+Install ros navigation package.
+
+``` bash
+$ sudo apt-get install -y ros-melodic-openslam-gmapping ros-melodic-navigation
+```
+------
+
+``` bash
+$ sudo apt-get install -y ros-melodic-amcl ros-melodic-move-base
+```
+------
 
 if your pc used kinetic version.
 
@@ -36,6 +47,18 @@ $ sudo apt-get install -y libgazebo7-dev
 ``` bash
 $ sudo apt-get install -y gazebo7
 ```
+
+Install ros navigation package.
+
+``` bash
+$ sudo apt-get install -y ros-kinetic-openslam-gmapping ros-kinetic-navigation
+```
+------
+
+``` bash
+$ sudo apt-get install -y ros-kinetic-amcl ros-kinetic-move-base
+```
+------
 
 ------
 
