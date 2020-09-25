@@ -222,6 +222,25 @@ illustration:
 
 ------
 
+# zm_robot topic
+
+| Topic                              | Description                                                       |
+| ---                                | ---                                                               | 
+| cmd_vel                            | zm_robot input to move velocity.                                  |
+| wheel1_velocity                    | zm_robot mecanum whee1 1 input velocity.                          |
+| wheel2_velocity                    | zm_robot mecanum whee1 2 input velocity.                          |
+| wheel3_velocity                    | zm_robot mecanum whee1 3 input velocity.                          |
+| wheel4_velocity                    | zm_robot mecanum whee1 4 input velocity.                          |
+| wheel1_output_vel                  | zm_robot mecanum whee1 1 output velocity using PID controller.    |
+| wheel2_output_vel                  | zm_robot mecanum whee1 2 output velocity using PID controller.    |
+| wheel3_output_vel                  | zm_robot mecanum whee1 3 output velocity using PID controller.    |
+| wheel4_output_vel                  | zm_robot mecanum whee1 4 output velocity using PID controller.    |
+| zm_robot_position                  | zm_robot position in Gazebo.                                      |
+| sick_s30b/laser/scan0              | sick laser1 Laserscan.                                            |
+| sick_s30b/laser/scan1              | sick laser2 Laserscan.                                            |
+| kinect_v2/color/image_raw          | Kinect V2 RGB image.                                              |
+| /kinect_v2/depth/image_raw         | Kinect V2 Depth image.                                            |
+| zm_robot_imu                       | zm_robot IMU sensor.                                              ||
 
 ------
 
