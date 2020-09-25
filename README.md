@@ -213,6 +213,13 @@ int main(int argc, char** argv)
 }
 ```
 
+illustration:
+
+| Function                           | Description                                                |
+| ---                                | ---                                                        | 
+| my_zm_robot.move_map(x, y, theta)  | zm_robot can move to designated location relative to map.  |
+| my_zm_robot.move_base(x, y, theta) | zm_robot can move to designated location relative to base. ||
+
 ------
 
 # Reference:
