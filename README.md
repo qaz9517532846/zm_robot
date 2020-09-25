@@ -1,6 +1,8 @@
 # zm_robot (updating)
 The zm_robot is a AGV using four Mecanum wheel.
 
+Sensor: sick s30B x 2, RGB-D camera and IMU sensor.
+
 Software: Robot Operating System.
 
 Version: kinetic and melodic.
