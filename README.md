@@ -60,7 +60,7 @@ $ sudo apt-get install -y ros-kinetic-amcl ros-kinetic-move-base
 
 ------
 
-#Step2. Install ira_laser_tools package.
+# Step2. Install ira_laser_tools package.
 
 ``` bash
 $ cd <catkin_workspace>/src
@@ -78,7 +78,7 @@ $ cd ..
 $ catkin_make
 ```
 
-#Step3. Open zm_robot package.
+# Step3. Open zm_robot package.
 
 ------
 
