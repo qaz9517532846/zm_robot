@@ -151,7 +151,71 @@ $ roslaunch zm_robot_gazebo zm_robot_warehouse.launch
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_in_warehouse.png)
 
-Reference:
+------
+
+# The zm_robot create a map at warehouse.
+
+``` bash
+$ roslaunch zm_robot_navigation zm_robot_gmapping.launch
+```
+
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_gmapping.png)
+
+------
+
+# The zm_robot can do navigation and aviod obstacles at warehouse.
+
+``` bash
+$ roslaunch zm_robot_navigation zm_robot_navigation.launch
+```
+
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_navigation.png)
+
+------
+
+# The zm_robot can do navigation and aviod obstacles at warehouse using programing.
+
+``` bash
+$ roslaunch zm_robot_navigation zm_robot_navigation.launch
+```
+
+``` bash
+$ rosrun zm_robot_programing zm_robot_move
+```
+
+The zm_robot_move.cpp example.
+
+``` bash
+#include <zm_robot_programing/zm_robot_move_function.h>
+
+void spinThread(){
+  ros::spin();
+}
+
+int main(int argc, char** argv) 
+{
+  ros::init(argc, argv, "zm_robot_move"); 
+  ros::NodeHandle n;
+
+  boost::thread spin_thread = boost::thread(boost::bind(&spinThread));
+
+  zm_robot my_zm_robot;
+
+  ////// zm_robot programing control start //////
+
+  my_zm_robot.move_map(1.0, 3.0, 1.5708);
+  
+  my_zm_robot.move_base(1.0, 3.0, 1.5708);
+
+  ////// END //////
+
+  return 0;
+}
+```
+
+------
+
+# Reference:
 
 [1]. turtlebot3_teleop, https://github.com/ROBOTIS-GIT/turtlebot3/tree/master/turtlebot3_teleop
 
