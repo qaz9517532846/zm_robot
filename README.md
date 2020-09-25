@@ -143,6 +143,14 @@ $ roslaunch zm_robot_pid_control zm_robot_pid_rviz.launch
 
 ------
 
+zm_robot warehouse environment under Gazebo.
+
+``` bash
+$ roslaunch zm_robot_gazebo zm_robot_warehouse.launch
+```
+
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_in_warehouse.png)
+
 Reference:
 
 [1]. turtlebot3_teleop, https://github.com/ROBOTIS-GIT/turtlebot3/tree/master/turtlebot3_teleop
