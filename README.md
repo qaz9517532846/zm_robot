@@ -27,7 +27,6 @@ Install ros navigation package.
 ``` bash
 $ sudo apt-get install -y ros-melodic-openslam-gmapping ros-melodic-navigation
 ```
-------
 
 ``` bash
 $ sudo apt-get install -y ros-melodic-amcl ros-melodic-move-base
@@ -53,7 +52,6 @@ Install ros navigation package.
 ``` bash
 $ sudo apt-get install -y ros-kinetic-openslam-gmapping ros-kinetic-navigation
 ```
-------
 
 ``` bash
 $ sudo apt-get install -y ros-kinetic-amcl ros-kinetic-move-base
