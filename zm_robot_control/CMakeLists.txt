@@ -31,6 +31,7 @@ link_directories(
 )
 
 list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
+add_compile_options(-std=c++11)
 
 add_executable(zm_robot_controller_odom src/zm_robot_controller_odom.cpp)
 target_link_libraries(zm_robot_controller_odom ${catkin_LIBRARIES})
