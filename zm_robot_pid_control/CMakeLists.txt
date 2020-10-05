@@ -34,6 +34,8 @@ link_directories(
   ${GAZEBO_LIBRARY_DIRS}
 )
 
+add_compile_options(-std=c++11)
+
 add_executable(zm_robot_pid_odom src/zm_robot_pid_odom.cpp)
 target_link_libraries(zm_robot_pid_odom ${catkin_LIBRARIES})
 add_dependencies(zm_robot_pid_odom zm_robot_pid_control_generate_messages_cpp)
