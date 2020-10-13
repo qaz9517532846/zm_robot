@@ -13,7 +13,7 @@
 #include <std_msgs/Float64.h>
 #include <sensor_msgs/JointState.h>
 #include <iostream>
-#include <zm_robot_pid_control/agv_pid_position.h>
+#include <geometry_msgs/Pose2D.h>
 
 
 namespace gazebo
@@ -75,7 +75,7 @@ namespace gazebo
 
       sensor_msgs::JointState joint_states_;
 
-      zm_robot_pid_control::agv_pid_position zm_robot_pos;
+      geometry_msgs::Pose2D zm_robot_pos;
 
       double joint_1_position;
       double joint_2_position;

@@ -13,7 +13,7 @@
 #include <std_msgs/Float64.h>
 #include <sensor_msgs/JointState.h>
 #include <iostream>
-#include <zm_robot_control/agv_position.h>
+#include <geometry_msgs/Pose2D.h>
 
 // These need to be pulled out to parameters...
 const float WHEEL_RAD = 0.065; // meters
@@ -53,7 +53,7 @@ namespace gazebo
 
       joint_pub = mRosnode->advertise<sensor_msgs::JointState>("joint_states", 1000);
 
-      pose_pub = mRosnode->advertise<zm_robot_control::agv_position>("zm_robot_position", 1000);
+      pose_pub = mRosnode->advertise<geometry_msgs::Pose2D>("zm_robot_position", 1000);
 
       joint_states_.name.push_back("wheel_joint1");
       joint_states_.name.push_back("wheel_joint2");
@@ -118,9 +118,9 @@ namespace gazebo
         this->model->GetJoint("wheel_joint3")->SetVelocity(0, wheel_3_value);
         this->model->GetJoint("wheel_joint4")->SetVelocity(0, wheel_4_value);
 
-        zm_robot_pos.position_x  = pose.Pos().X();
-        zm_robot_pos.position_y  = pose.Pos().Y();
-        zm_robot_pos.position_th = pose.Rot().Yaw();
+        zm_robot_pos.x  = pose.Pos().X();
+        zm_robot_pos.y  = pose.Pos().Y();
+        zm_robot_pos.theta = pose.Rot().Yaw();
         
         joint_states_.header.stamp = current_time;
         last_time = current_time;
@@ -170,7 +170,7 @@ namespace gazebo
 
         sensor_msgs::JointState joint_states_;
 
-        zm_robot_control::agv_position zm_robot_pos;
+        geometry_msgs::Pose2D zm_robot_pos;
 
         double joint_1_position;
         double joint_2_position;

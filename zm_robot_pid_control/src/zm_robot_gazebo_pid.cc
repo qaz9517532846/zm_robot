@@ -38,7 +38,7 @@ void Mecanum::Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf)
 
     joint_pub = mRosnode->advertise<sensor_msgs::JointState>("joint_states", 1000);
 
-    pose_pub = mRosnode->advertise<zm_robot_pid_control::agv_pid_position>("zm_robot_position", 1000);
+    pose_pub = mRosnode->advertise<geometry_msgs::Pose2D>("zm_robot_position", 1000);
 
     joint_states_.name.push_back("wheel_joint1");
     joint_states_.name.push_back("wheel_joint2");
@@ -129,9 +129,9 @@ void Mecanum::UpdateChild(const common::UpdateInfo & /*_info*/)
     this->model->SetLinearVel(ignition::math::Vector3d(x_a, y_a, 0));
     this->model->SetAngularVel(ignition::math::Vector3d(0, 0, rot));
 
-    zm_robot_pos.position_x  = pose.Pos().X();
-    zm_robot_pos.position_y  = pose.Pos().Y();
-    zm_robot_pos.position_th = pose.Rot().Yaw();
+    zm_robot_pos.x  = pose.Pos().X();
+    zm_robot_pos.y  = pose.Pos().Y();
+    zm_robot_pos.theta = pose.Rot().Yaw();
 
     wheel_1_output.data = wheel1_output;
     wheel_2_output.data = wheel2_output;

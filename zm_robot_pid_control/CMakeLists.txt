@@ -13,11 +13,6 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
 )
 
-add_message_files(
-  FILES
-  agv_pid_position.msg
-)
-
 generate_messages(
    DEPENDENCIES
    std_msgs
@@ -33,8 +28,6 @@ link_directories(
   ${catkin_LIBRARY_DIRS}
   ${GAZEBO_LIBRARY_DIRS}
 )
-
-add_compile_options(-std=c++11)
 
 add_executable(zm_robot_pid_odom src/zm_robot_pid_odom.cpp)
 target_link_libraries(zm_robot_pid_odom ${catkin_LIBRARIES})

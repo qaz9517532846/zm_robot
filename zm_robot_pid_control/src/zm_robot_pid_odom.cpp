@@ -4,7 +4,7 @@
 #include <tf/transform_broadcaster.h>
 #include <std_msgs/Float64.h>
 #include <string>
-#include <zm_robot_pid_control/agv_pid_position.h>
+#include <geometry_msgs/Pose2D.h>
 
 float robot_x = 0;
 float robot_y = 0;
@@ -15,11 +15,11 @@ float wheel_2_value = 0;
 float wheel_3_value = 0;
 float wheel_4_value = 0;
 
-void zm_robot_position(const zm_robot_pid_control::agv_pid_position::ConstPtr& msg)
+void zm_robot_position(const geometry_msgs::Pose2D::ConstPtr& msg)
 {
-    robot_x = msg->position_x;
-    robot_y = msg->position_y;
-    robot_th = msg->position_th;
+    robot_x = msg->x;
+    robot_y = msg->y;
+    robot_th = msg->theta;
 }
 
 void wheel1(const std_msgs::Float64::ConstPtr& msg)
