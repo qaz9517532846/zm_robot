@@ -14,7 +14,7 @@
 #include <sensor_msgs/JointState.h>
 #include <iostream>
 #include <geometry_msgs/Pose2D.h>
-
+#include <zm_robot_pid_control/zm_pid_param.h>
 
 namespace gazebo
 {
@@ -27,6 +27,12 @@ namespace gazebo
       void wheel2(const std_msgs::Float64::ConstPtr& msg);
       void wheel3(const std_msgs::Float64::ConstPtr& msg);
       void wheel4(const std_msgs::Float64::ConstPtr& msg);
+
+      void wheel1_pid_param(const zm_robot_pid_control::zm_pid_param::ConstPtr& msg);
+      void wheel2_pid_param(const zm_robot_pid_control::zm_pid_param::ConstPtr& msg);
+      void wheel3_pid_param(const zm_robot_pid_control::zm_pid_param::ConstPtr& msg);
+      void wheel4_pid_param(const zm_robot_pid_control::zm_pid_param::ConstPtr& msg);
+
   private:
       // Pointer to the model
       physics::ModelPtr model;
@@ -83,6 +89,11 @@ namespace gazebo
       double joint_4_position;
 
       // 4 wheel pid controller parameter.
+      ros::Subscriber wheel1_PID_param;
+      ros::Subscriber wheel2_PID_param;
+      ros::Subscriber wheel3_PID_param;
+      ros::Subscriber wheel4_PID_param;
+
       double wheel1_p;
       double wheel1_i;
       double wheel1_d;

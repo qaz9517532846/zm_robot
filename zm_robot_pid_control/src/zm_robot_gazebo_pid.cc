@@ -53,24 +53,24 @@ void Mecanum::Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf)
     wheel3_vel = mRosnode->advertise<std_msgs::Float64>("wheel3_output_vel", 1000);
     wheel4_vel = mRosnode->advertise<std_msgs::Float64>("wheel4_output_vel", 1000);
 
+    wheel1_PID_param = mRosnode->subscribe("wheel1_PID", 50, &Mecanum::wheel1_pid_param, this);
+    wheel2_PID_param = mRosnode->subscribe("wheel2_PID", 50, &Mecanum::wheel2_pid_param, this);
+    wheel3_PID_param = mRosnode->subscribe("wheel3_PID", 50, &Mecanum::wheel3_pid_param, this);
+    wheel4_PID_param = mRosnode->subscribe("wheel4_PID", 50, &Mecanum::wheel4_pid_param, this);
+
     current_time = ros::Time::now();
     last_time = ros::Time::now();
 
     // Listen to the update event. This event is broadcast every
     // simulation iteration.
     this->updateConnection = event::Events::ConnectWorldUpdateBegin(
-      boost::bind(&Mecanum::UpdateChild, this, _1));
-    }
+                                 boost::bind(&Mecanum::UpdateChild, this, _1));
+}
 
 void Mecanum::UpdateChild(const common::UpdateInfo & /*_info*/)
 {
     current_time = ros::Time::now(); 
     double dt = (current_time - last_time).toSec();
-
-    wheel1_p = 10.0; wheel1_i = 0.0; wheel1_d = 0.0;
-    wheel2_p = 10.0; wheel2_i = 0.0; wheel2_d = 0.0;
-    wheel3_p = 10.0; wheel3_i = 0.0; wheel3_d = 0.0;
-    wheel4_p = 10.0; wheel4_i = 0.0; wheel4_d = 0.0;
 
     this->wheel1_pid = common::PID(wheel1_p, wheel1_i, wheel1_d);
     this->wheel2_pid = common::PID(wheel2_p, wheel2_i, wheel2_d);
@@ -168,6 +168,33 @@ void Mecanum::wheel4(const std_msgs::Float64::ConstPtr& msg)
     wheel_4_value = msg->data;
 }
 
+void Mecanum::wheel1_pid_param(const zm_robot_pid_control::zm_pid_param::ConstPtr& msg)
+{
+    wheel1_p = msg->Controller_P;
+    wheel1_i = msg->Controller_I;
+    wheel1_d = msg->Controller_D;
+}
+
+void Mecanum::wheel2_pid_param(const zm_robot_pid_control::zm_pid_param::ConstPtr& msg)
+{
+    wheel2_p = msg->Controller_P;
+    wheel2_i = msg->Controller_I;
+    wheel2_d = msg->Controller_D;
+}
+
+void Mecanum::wheel3_pid_param(const zm_robot_pid_control::zm_pid_param::ConstPtr& msg)
+{
+    wheel3_p = msg->Controller_P;
+    wheel3_i = msg->Controller_I;
+    wheel3_d = msg->Controller_D;
+}
+
+void Mecanum::wheel4_pid_param(const zm_robot_pid_control::zm_pid_param::ConstPtr& msg)
+{
+    wheel4_p = msg->Controller_P;
+    wheel4_i = msg->Controller_I;
+    wheel4_d = msg->Controller_D;
+}
     // Register this plugin with the simulator
     GZ_REGISTER_MODEL_PLUGIN(Mecanum)
 }

@@ -4,6 +4,9 @@
      <param name="publish_frequency" type="double" value="50.0" />
   </node>
 
+  <!-- zm_robot PID param   -->
+  <node name="zm_robot_pid" pkg="zm_robot_pid_control" type="zm_robot_pid"/>
+
   <!-- caculate zm_robot wheel vel in Rviz   -->
   <node name="zm_robot_wheel_vel" pkg="zm_robot_control" type="zm_robot_controller_wheel_vel"/>
 
