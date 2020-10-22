@@ -149,6 +149,8 @@ $ rosrun rqt_gui rqt_gui
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_pid_control.png)
 
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/PID.png)
+
 ------
 
 # The zm_robot warehouse environment under Gazebo.
