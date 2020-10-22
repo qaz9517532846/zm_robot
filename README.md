@@ -271,3 +271,5 @@ illustration:
 [5]. warehouse_simulation_toolkit. https://github.com/wh200720041/warehouse_simulation_toolkit
 
 [6]. ira_laser_tools. http://wiki.ros.org/ira_laser_tools
+
+[7]. dynamic_reconfigure. http://wiki.ros.org/dynamic_reconfigure/Tutorials
