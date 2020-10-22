@@ -139,6 +139,14 @@ $ roslaunch zm_robot_gazebo zm_robot_pid.launch
 $ roslaunch zm_robot_pid_control zm_robot_pid_rviz.launch
 ```
 
+``` bash
+$ rosrun rqt_reconfigure rqt_reconfigure
+```
+
+``` bash
+$ rosrun rqt_gui rqt_gui
+```
+
 ![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_pid_control.png)
 
 ------
@@ -231,6 +239,10 @@ illustration:
 | wheel2_velocity                    | zm_robot mecanum whee1 2 input velocity.                          |
 | wheel3_velocity                    | zm_robot mecanum whee1 3 input velocity.                          |
 | wheel4_velocity                    | zm_robot mecanum whee1 4 input velocity.                          |
+| wheel1_PID                         | zm_robot mecanum whee1 1 PID parameter.                           |
+| wheel2_PID                         | zm_robot mecanum whee1 2 PID parameter.                           |
+| wheel3_PID                         | zm_robot mecanum whee1 3 PID parameter.                           |
+| wheel4_PID                         | zm_robot mecanum whee1 4 PID parameter.                           |
 | wheel1_output_vel                  | zm_robot mecanum whee1 1 output velocity using PID controller.    |
 | wheel2_output_vel                  | zm_robot mecanum whee1 2 output velocity using PID controller.    |
 | wheel3_output_vel                  | zm_robot mecanum whee1 3 output velocity using PID controller.    |
