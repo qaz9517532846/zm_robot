@@ -273,3 +273,7 @@ illustration:
 [6]. ira_laser_tools. http://wiki.ros.org/ira_laser_tools
 
 [7]. dynamic_reconfigure. http://wiki.ros.org/dynamic_reconfigure/Tutorials
+
+------
+
+Copyright © 2020 ZM Robotics Software Laboratory.
