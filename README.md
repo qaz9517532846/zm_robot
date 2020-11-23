@@ -279,5 +279,3 @@ illustration:
 This repository is for your reference only. copying, patent application, academic journals are strictly prohibited.
 
 Copyright © 2020 ZM Robotics Software Laboratory.
-
-Copyright © 2020 ZM Robotics Software Laboratory.
