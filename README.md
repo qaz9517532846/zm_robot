@@ -41,9 +41,7 @@
     
     ``` $ sudo apt-get install -y ros-kinetic-amcl ros-kinetic-move-base ```
 
-------
-
-# Step2. Install ira_laser_tools package.
+- Step2. Install ira_laser_tools package.
 
 ``` bash
 $ cd <catkin_workspace>/src
@@ -61,9 +59,7 @@ $ cd ..
 $ catkin_make
 ```
 
-------
-
-# Step3. Open zm_robot package.
+- Step3. Open zm_robot package.
 
 The zm_robot 3d model xaro file into Rviz.
 
@@ -73,18 +69,14 @@ $ roslaunch zm_robot_description zm_robot_demo.launch
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_rviz.png)
 
-------
-
-# The zm_robot 3d model xaro file into Gazebo.
+- The zm_robot 3d model xaro file into Gazebo.
 
 ``` bash
 $ roslaunch zm_robot_gazebo zm_robot_world.launch
 ```
 ![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_gazebo.png)
 
-------
-
-# The zm_robot wheel controllers in rviz and gazebo.
+- The zm_robot wheel controllers in rviz and gazebo.
 
 ``` bash
 $ roslaunch zm_robot_control zm_robot_control_rviz.launch
@@ -92,9 +84,7 @@ $ roslaunch zm_robot_control zm_robot_control_rviz.launch
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_control.png)
 
-------
-
-# This is a zm_robot control using a keyboard.
+- This is a zm_robot control using a keyboard.
 
 ``` bash
 $ cd <catkin_workspace>/src/zm_robot/zm_robot_teleop_key/scripts
@@ -108,9 +98,7 @@ $ chmod +x zm_robot_teleope_key.py
 $ rosrun zm_robot_teleop_key zm_robot_teleope_key.py
 ```
 
-------
-
-# The zm_robot using PID controller.
+- The zm_robot using PID controller.
 
 ``` bash
 $ roslaunch zm_robot_gazebo zm_robot_pid.launch
@@ -132,9 +120,7 @@ $ rosrun rqt_gui rqt_gui
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/PID.png)
 
-------
-
-# The zm_robot warehouse environment under Gazebo.
+- The zm_robot warehouse environment under Gazebo.
 
 ``` bash
 $ roslaunch zm_robot_gazebo zm_robot_warehouse.launch
@@ -142,9 +128,7 @@ $ roslaunch zm_robot_gazebo zm_robot_warehouse.launch
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_in_warehouse.png)
 
-------
-
-# The zm_robot create a map at warehouse.
+- The zm_robot create a map at warehouse.
 
 ``` bash
 $ roslaunch zm_robot_navigation zm_robot_gmapping.launch
@@ -152,9 +136,7 @@ $ roslaunch zm_robot_navigation zm_robot_gmapping.launch
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_gmapping.png)
 
-------
-
-# The zm_robot can do navigation and aviod obstacles at warehouse.
+- The zm_robot can do navigation and aviod obstacles at warehouse.
 
 ``` bash
 $ roslaunch zm_robot_navigation zm_robot_navigation.launch
@@ -162,9 +144,7 @@ $ roslaunch zm_robot_navigation zm_robot_navigation.launch
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_navigation.png)
 
-------
-
-# The zm_robot can do navigation and aviod obstacles at warehouse using programing.
+- The zm_robot can do navigation and aviod obstacles at warehouse using programing.
 
 ``` bash
 $ roslaunch zm_robot_navigation zm_robot_navigation.launch
@@ -204,7 +184,7 @@ int main(int argc, char** argv)
 }
 ```
 
-illustration:
+## illustration:
 
 | Function                           | Description                                                |
 | ---                                | ---                                                        | 
@@ -213,7 +193,7 @@ illustration:
 
 ------
 
-# zm_robot topic
+## zm_robot topic
 
 | Topic                              | Description                                                       |
 | ---                                | ---                                                               | 
@@ -239,7 +219,7 @@ illustration:
 
 ------
 
-# Reference:
+## Reference:
 
 [1]. turtlebot3_teleop, https://github.com/ROBOTIS-GIT/turtlebot3/tree/master/turtlebot3_teleop
 
