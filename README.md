@@ -1,64 +1,45 @@
 # zm_robot
-The zm_robot is a AGV using four Mecanum wheel.
+- The zm_robot is a AGV using four Mecanum wheel.
 
-Sensor: sick s30B x 2, RGB-D camera and IMU sensor.
+- Sensor: sick s30B x 2, RGB-D camera and IMU sensor.
 
-Software: Robot Operating System.
+- Software: Robot Operating System.
 
-Version: kinetic and melodic.
+- Version: kinetic and melodic.
 
-# Step1. Install package.
-
-Your PC need to install ros package.
-
-if your pc used melodic version.
-
-``` bash
-$ sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control ros-melodic-ros-controllers
-```
-
-``` bash
-$ sudo apt-get install -y libgazebo9-dev
-```
-
-``` bash
-$ sudo apt-get install -y gazebo9
-```
-
-Install ros navigation package.
-
-``` bash
-$ sudo apt-get install -y ros-melodic-openslam-gmapping ros-melodic-navigation
-```
-
-``` bash
-$ sudo apt-get install -y ros-melodic-amcl ros-melodic-move-base
-```
 ------
 
-if your pc used kinetic version.
+-  Step1. Install package.
 
-``` bash
-$ sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control ros-kinetic-ros-controllers
-```
+- Your PC need to install ros package.
 
-``` bash
-$ sudo apt-get install -y libgazebo7-dev
-```
+  - if your pc used melodic version.
 
-``` bash
-$ sudo apt-get install -y gazebo7
-```
+    ``` $ sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control ros-melodic-ros-controllers ```
 
-Install ros navigation package.
+    ``` $ sudo apt-get install -y libgazebo9-dev ```
+    
+    ``` $ sudo apt-get install -y gazebo9 ```
 
-``` bash
-$ sudo apt-get install -y ros-kinetic-openslam-gmapping ros-kinetic-navigation
-```
+  - Install ros navigation package.
 
-``` bash
-$ sudo apt-get install -y ros-kinetic-amcl ros-kinetic-move-base
-```
+    ``` $ sudo apt-get install -y ros-melodic-openslam-gmapping ros-melodic-navigation ```
+  
+    ``` $ sudo apt-get install -y ros-melodic-amcl ros-melodic-move-base ```
+
+  - if your pc used kinetic version.
+
+    ``` $ sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control ros-kinetic-ros-controllers ```
+   
+    ``` $ sudo apt-get install -y libgazebo7-dev ```
+   
+    ``` $ sudo apt-get install -y gazebo7 ```
+
+  - Install ros navigation package.
+  
+    ``` $ sudo apt-get install -y ros-kinetic-openslam-gmapping ros-kinetic-navigation ```
+    
+    ``` $ sudo apt-get install -y ros-kinetic-amcl ros-kinetic-move-base ```
 
 ------
 
