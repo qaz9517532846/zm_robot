@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.0.2)
 project(zm_robot_control)
 
 find_package(catkin REQUIRED COMPONENTS
-  gazebo
   geometry_msgs
   joint_state_controller
   nav_msgs
@@ -11,6 +10,8 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   std_msgs
 )
+
+find_package(gazebo)
 
 generate_messages(DEPENDENCIES std_msgs)
 
