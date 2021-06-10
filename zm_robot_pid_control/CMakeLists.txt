@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.0.2)
 project(zm_robot_pid_control)
 
 find_package(catkin REQUIRED COMPONENTS
-  gazebo
   geometry_msgs
   joint_state_controller
   nav_msgs
@@ -13,6 +12,8 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   dynamic_reconfigure
 )
+
+find_package(gazebo)
 
 add_message_files(
   FILES
