@@ -4,17 +4,6 @@
   <arg name="open_rviz" default="true"/>
   <arg name="move_forward_only" default="false"/>
 
-  <!-- convert joint states to TF transforms for rviz, etc -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-     <param name="publish_frequency" type="double" value="50.0" />
-  </node>
-
-  <!-- caculate zm_robot wheel vel in Rviz   -->
-  <node name="zm_robot_wheel_vel" pkg="zm_robot_control" type="zm_robot_controller_wheel_vel"/>
-
-  <!-- Show zm_robot odom in Rviz   -->
-  <node name="zm_robot_odom" pkg="zm_robot_control" type="zm_robot_controller_odom"/>
-
   <node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
     <param name="destination_frame" value="sick_lidar0"/>
     <param name="cloud_destination_topic" value="/zm_robot_clound"/>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find zm_robot_description)/urdf/zm_robot_wheel.gazebo"/>
+  
+  <xacro:macro name="zm_wheel_v1" params="prefix parent origin_x origin_y rotation_x">
+	<joint name="wheel_joint_${prefix}" type="continuous">
+	  <parent link="${parent}"/>
+	  <child link="wheel_${prefix}"/>
+	  <origin xyz="${origin_x} ${origin_y} 0" rpy="${rotation_x} 0 0"/>
+      <axis xyz="0 0 1"/>
+	  <dynamics damping="3.0" friction="5.0"/>
+	</joint>
+
+	<link name="wheel_${prefix}">
+	  <visual>
+		<geometry>
+		  <mesh filename="package://zm_robot_description/meshes/mecanum_left_after.stl" scale="0.01 0.01 0.01"/>
+		</geometry>
+		<material name="white"/>
+	  </visual>
+	  <collision>
+		<geometry>
+		  <mesh filename="package://zm_robot_description/meshes/mecanum_left_after.stl" scale="0.01 0.01 0.01"/>
+		</geometry>
+	  </collision>
+	  <inertial>
+          <origin xyz="0.001 0 0" rpy="0 0 0"/>
+          <mass value="1.7"/>
+          <inertia ixx="0.004248052" ixy="0.0" ixz="0.0"
+	               iyy="0.004248045" iyz="0.0" izz="0.004879970"/>
+      </inertial>
+	</link>
+  </xacro:macro>
+</robot>
