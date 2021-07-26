@@ -73,7 +73,26 @@ $ cd ..
 $ catkin_make
 ```
 
-- Step3. Open zm_robot package.
+
+- Step3. Install ira_laser_tools package.
+
+``` bash
+$ cd <catkin_workspace>/src
+```
+
+``` bash
+$ git clone https://github.com/iralabdisco/ira_laser_tools.git
+```
+
+``` bash
+$ cd ..
+```
+
+``` bash
+$ catkin_make
+```
+
+- Step4. Open zm_robot package.
 
 The zm_robot 3d model xaro file into Rviz.
 
