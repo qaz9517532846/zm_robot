@@ -107,24 +107,6 @@ $ chmod +x zm_robot_teleope_key.py
 $ rosrun zm_robot_teleop_key zm_robot_teleope_key.py
 ```
 
-- The zm_robot using PID controller.
-
-``` bash
-$ roslaunch zm_robot_gazebo zm_robot_pid.launch
-```
-
-``` bash
-$ roslaunch zm_robot_pid_control zm_robot_pid_rviz.launch
-```
-
-``` bash
-$ rosrun rqt_reconfigure rqt_reconfigure
-```
-
-``` bash
-$ rosrun rqt_gui rqt_gui
-```
-
 - The zm_robot warehouse environment under Gazebo.
 
 ``` bash
@@ -142,8 +124,6 @@ $ roslaunch zm_robot_navigation zm_robot_gmapping.launch
 ``` bash
 $ roslaunch zm_robot_navigation zm_robot_navigation.launch
 ```
-
-![image](https://github.com/qaz9517532846/zm_robot/blob/v1.0_original/image/zm_robot_navigation.png)
 
 - The zm_robot can do navigation and aviod obstacles at warehouse using programing.
 
