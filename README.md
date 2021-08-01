@@ -117,6 +117,17 @@ $ rosrun zm_robot_teleop_key zm_robot_teleope_key.py
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_control.png)
 
+- The zm_robot PID controller using gazebo_mecanum_plugins package.
+
+``` bash
+$ roslaunch gazebo_mecanum_plugins gazebo_mecanum_pid.py
+```
+
+- The zm_robot PID controller can ajust PID parameter.
+
+``` bash
+$ rosrun rqt_gui rqt_gui
+```
 
 - The zm_robot warehouse environment under Gazebo.
 
