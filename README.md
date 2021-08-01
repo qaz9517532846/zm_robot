@@ -226,8 +226,7 @@ int main(int argc, char** argv)
 
 ------
 
-## History
-
+## History:
 
 | Version        | Description                                                                 | File Creation |
 | ---            | ---                                                                         | ---           |
