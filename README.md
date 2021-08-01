@@ -135,13 +135,14 @@ $ rosrun rqt_gui rqt_gui
 $ roslaunch zm_robot_gazebo zm_robot_warehouse.launch
 ```
 
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_warehouse.png)
+
+
 - The zm_robot create a map at warehouse.
 
 ``` bash
 $ roslaunch zm_robot_navigation zm_robot_gmapping.launch
 ```
-
-![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_warehouse.png)
 
 - The zm_robot can do navigation and aviod obstacles at warehouse.
 
