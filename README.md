@@ -106,25 +106,17 @@ $ roslaunch zm_robot_description zm_robot_demo.launch
 $ roslaunch zm_robot_gazebo zm_robot_world.launch
 ```
 
-- The zm_robot wheel controllers in rviz and gazebo.
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot.png)
 
-``` bash
-$ roslaunch zm_robot_control zm_robot_control_rviz.launch
-```
 
 - This is a zm_robot control using a keyboard.
 
 ``` bash
-$ cd <catkin_workspace>/src/zm_robot/zm_robot_teleop_key/scripts
-```
-
-``` bash
-$ chmod +x zm_robot_teleope_key.py
-```
-
-``` bash
 $ rosrun zm_robot_teleop_key zm_robot_teleope_key.py
 ```
+
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_control.png)
+
 
 - The zm_robot warehouse environment under Gazebo.
 
@@ -138,11 +130,16 @@ $ roslaunch zm_robot_gazebo zm_robot_warehouse.launch
 $ roslaunch zm_robot_navigation zm_robot_gmapping.launch
 ```
 
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_warehouse.png)
+
 - The zm_robot can do navigation and aviod obstacles at warehouse.
 
 ``` bash
 $ roslaunch zm_robot_navigation zm_robot_navigation.launch
 ```
+
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_navigation.png)
+
 
 - The zm_robot can do navigation and aviod obstacles at warehouse using programing.
 
@@ -198,6 +195,8 @@ int main(int argc, char** argv)
 | Topic                              | Description                                                       |
 | ---                                | ---                                                               | 
 | cmd_vel                            | zm_robot input to move velocity.                                  |
+| joint_states                       | zm_robot joint status topic.                                      |
+| odom                               | zm_robot odomentry topic.                                         |
 | sick_s30b/laser/scan0              | sick laser1 Laserscan.                                            |
 | sick_s30b/laser/scan1              | sick laser2 Laserscan.                                            |
 | kinect_v2/color/image_raw          | Kinect V2 RGB image.                                              |
@@ -221,6 +220,8 @@ int main(int argc, char** argv)
 [6]. ira_laser_tools. http://wiki.ros.org/ira_laser_tools
 
 [7]. dynamic_reconfigure. http://wiki.ros.org/dynamic_reconfigure/Tutorials
+
+[8]. gazebo_mecanum_plugins. https://github.com/qaz9517532846/gazebo_mecanum_plugins
 
 ------
 
