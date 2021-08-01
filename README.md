@@ -73,7 +73,6 @@ $ cd ..
 $ catkin_make
 ```
 
-
 - Step3. Install ira_laser_tools package.
 
 ``` bash
@@ -124,13 +123,13 @@ $ rosrun zm_robot_teleop_key zm_robot_teleope_key.py
 $ roslaunch zm_robot_gazebo zm_robot_warehouse.launch
 ```
 
+![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_warehouse.png)
+
 - The zm_robot create a map at warehouse.
 
 ``` bash
 $ roslaunch zm_robot_navigation zm_robot_gmapping.launch
 ```
-
-![image](https://github.com/qaz9517532846/zm_robot/blob/master/image/zm_robot_warehouse.png)
 
 - The zm_robot can do navigation and aviod obstacles at warehouse.
 
