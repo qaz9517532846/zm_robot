@@ -226,6 +226,16 @@ int main(int argc, char** argv)
 
 ------
 
+## History
+
+v1.0_original - zm_robot original version, file creation July, 2020.
+
+v2.0 - zm_robot v2.0 version, file creation July, 2021.
+
+v3.0 - zm_robot v3.0 version using PID controller , file creation July, 2021.
+
+------
+
 This repository is for your reference only. copying, patent application, academic journals are strictly prohibited.
 
 Copyright © 2021 ZM Robotics Software Laboratory.
