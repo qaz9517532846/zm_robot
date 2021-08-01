@@ -219,6 +219,8 @@ int main(int argc, char** argv)
 
 [7]. dynamic_reconfigure. http://wiki.ros.org/dynamic_reconfigure/Tutorials
 
+[8]. gazebo_mecanum_plugins. https://github.com/qaz9517532846/gazebo_mecanum_plugins
+
 ------
 
 This repository is for your reference only. copying, patent application, academic journals are strictly prohibited.
