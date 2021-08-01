@@ -195,6 +195,8 @@ int main(int argc, char** argv)
 | Topic                              | Description                                                       |
 | ---                                | ---                                                               | 
 | cmd_vel                            | zm_robot input to move velocity.                                  |
+| joint_states                       | zm_robot joint status topic.                                      |
+| odom                               | zm_robot odomentry topic.                                         |
 | sick_s30b/laser/scan0              | sick laser1 Laserscan.                                            |
 | sick_s30b/laser/scan1              | sick laser2 Laserscan.                                            |
 | kinect_v2/color/image_raw          | Kinect V2 RGB image.                                              |
