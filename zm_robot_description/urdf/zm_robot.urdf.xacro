@@ -42,7 +42,6 @@
 
   <!-- Import Plugin -->
   <xacro:include filename="$(find zm_robot_description)/urdf/zm_robot_plugin.gazebo"/>
-  <!--xacro:include filename="$(find zm_robot_description)/urdf/zm_robot_plugin.gazebo"/-->
   
   <!-- Used for fixing robot to Gazebo 'base_link' -->
   <link name="base_footprint"/>
