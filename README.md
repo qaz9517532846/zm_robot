@@ -232,6 +232,7 @@ int main(int argc, char** argv)
 | ---            | ---                                                                         | ---           |
 | v1.0_original  | zm_robot original version.                                                  | July, 2020.   |
 | v2.0           | zm_robot v2.0 version for zm_robot programing simply.                       | July, 2021.   |
+| v2.1           | zm_robot v2.1 version add safety function           .                       | August, 2021. |
 | v3.0           | zm_robot v3.0 version using PID controller for zm_robot programing simply.  | July, 2021.   ||
 
 ------
