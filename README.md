@@ -17,9 +17,9 @@
 
     ``` $ sudo apt-get install ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control ros-noetic-ros-controllers ```
 
-    ``` $ sudo apt-get install -y libgazebo9-dev ```
+    ``` $ sudo apt-get install -y libgazebo11-dev ```
     
-    ``` $ sudo apt-get install -y gazebo9 ```
+    ``` $ sudo apt-get install -y gazebo11 ```
 
   - Install ros navigation package.
 
