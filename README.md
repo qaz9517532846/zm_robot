@@ -43,6 +43,24 @@ $ cd ..
 $ colcon build
 ```
 
+- Step3. Install AWS RoboMaker Small Warehouse World
+
+``` bash
+$ cd <catkin_workspace>/src
+```
+
+``` bash
+$ git clone -b ros2 https://github.com/aws-robotics/aws-robomaker-small-warehouse-world
+```
+
+``` bash
+$ cd ..
+```
+
+``` bash
+$ colcon build
+```
+
 - Step4. Open zm_robot package.
 
 The zm_robot 3d model xaro file into Rviz.
