@@ -42,7 +42,6 @@
 
   <!-- Import Plugin -->
   <xacro:include filename="$(find zm_robot_description)/urdf/zm_robot_plugin.gazebo"/>
-  <!--xacro:include filename="$(find zm_robot_description)/urdf/zm_robot_plugin.gazebo"/-->
   
   <!-- Used for fixing robot to Gazebo 'base_link' -->
   <link name="base_footprint"/>
@@ -58,14 +57,14 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://zm_robot_description/meshes/agv_base.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="file://$(find zm_robot_description)/meshes/agv_base.stl" scale="0.01 0.01 0.01"/>
       </geometry>
     </collision>
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://zm_robot_description/meshes/agv_base.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="file://$(find zm_robot_description)/meshes/agv_base.stl" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="orange"/>
     </visual>
@@ -90,14 +89,14 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://zm_robot_description/meshes/sick_s30b.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="file://$(find zm_robot_description)/meshes/sick_s30b.stl" scale="0.01 0.01 0.01"/>
       </geometry>
     </collision>
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://zm_robot_description/meshes/sick_s30b.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="file://$(find zm_robot_description)/meshes/sick_s30b.stl" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="green"/>
     </visual>
@@ -122,14 +121,14 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://zm_robot_description/meshes/sick_s30b.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="file://$(find zm_robot_description)/meshes/sick_s30b.stl" scale="0.01 0.01 0.01"/>
       </geometry>
     </collision>
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://zm_robot_description/meshes/sick_s30b.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="file://$(find zm_robot_description)/meshes/sick_s30b.stl" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="green"/>
     </visual>
@@ -155,14 +154,14 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-	      <mesh filename="package://zm_robot_description/meshes/kinect_v2.stl" scale="0.01 0.01 0.01"/>
+	      <mesh filename="file://$(find zm_robot_description)/meshes/kinect_v2.stl" scale="0.01 0.01 0.01"/>
       </geometry>
     </collision>
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-	      <mesh filename="package://zm_robot_description/meshes/kinect_v2.stl" scale="0.01 0.01 0.01"/>
+	      <mesh filename="file://$(find zm_robot_description)/meshes/kinect_v2.stl" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="black"/>
     </visual>
@@ -188,14 +187,14 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-	      <mesh filename="package://zm_robot_description/meshes/IMU_sensor.stl" scale="0.01 0.01 0.01"/>
+	      <mesh filename="file://$(find zm_robot_description)/meshes/IMU_sensor.stl" scale="0.01 0.01 0.01"/>
       </geometry>
     </collision>
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-	      <mesh filename="package://zm_robot_description/meshes/IMU_sensor.stl" scale="0.01 0.01 0.01"/>
+	      <mesh filename="file://$(find zm_robot_description)/meshes/IMU_sensor.stl" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="red"/>
     </visual>

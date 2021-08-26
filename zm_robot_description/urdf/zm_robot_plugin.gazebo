@@ -1,30 +1,80 @@
 <?xml version="1.0"?>
 <robot>
 
-  <!-- ros_control plugin -->
-    <gazebo>
-      <plugin name="zm_robot_diff_drive" filename="libgazebo_ros_mecanum_diff_drive.so">
-        <commandTopic>cmd_vel</commandTopic>
-        <odometryTopic>odom</odometryTopic>
-        <odometryFrame>odom</odometryFrame>
-        <robotBaseFrame>base_footprint</robotBaseFrame>
-        <LeftRear>wheel_joint_1</LeftRear>
-        <LeftFront>wheel_joint_2</LeftFront>
-        <RightFront>wheel_joint_3</RightFront>
-        <RightRear>wheel_joint_4</RightRear>
-        <odometryRate>20</odometryRate>      
-        <publishWheelTF>true</publishWheelTF>
-        <publishWheelJointState>true</publishWheelJointState>
-        <WheelTorque>1</WheelTorque>
-        <WheelSeparationW>0.5</WheelSeparationW>
-        <WheelSeparationL>0.6</WheelSeparationL>
-        <wheelAccel>5</wheelAccel>
-        <wheelDiameter>0.13</wheelDiameter>
-        <publishOdom>true</publishOdom>
-        <isRollerModel>true</isRollerModel>
-      </plugin>
+  <!-- gazebo_mecanum plugin -->
+  <gazebo>
+    <plugin name="zm_robot_diff_drive" filename="libgazebo_mecanum_diff_drive.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <LeftRear>wheel_joint_1</LeftRear>
+      <LeftFront>wheel_joint_2</LeftFront>
+      <RightFront>wheel_joint_3</RightFront>
+      <RightRear>wheel_joint_4</RightRear>
+      <odometryRate>20</odometryRate>      
+      <publishWheelTF>false</publishWheelTF>
+      <publishOdomTF>true</publishOdomTF>
+      <WheelTorque>30</WheelTorque>
+      <WheelSeparationW>0.5</WheelSeparationW>
+      <WheelSeparationL>0.6</WheelSeparationL>
+      <wheelAccel>10</wheelAccel>
+      <wheelDiameter>0.13</wheelDiameter>
+      <publishOdom>true</publishOdom>
+      <isRollerModel>true</isRollerModel>
+    </plugin>
   </gazebo>
-  
+
+  <!-- gazebo joint_state_publisher -->
+  <gazebo>
+    <plugin name="zm_robot_joint_state" filename="libgazebo_ros_joint_state_publisher.so">
+      <ros>
+        <remapping>joint_states:=joint_states</remapping>
+      </ros>
+      <update_rate>30</update_rate>
+      <joint_name>wheel_joint_1</joint_name>
+      <joint_name>wheel_joint_2</joint_name>
+      <joint_name>wheel_joint_3</joint_name>
+      <joint_name>wheel_joint_4</joint_name>
+      <joint_name>roller_1_1_joint</joint_name>
+      <joint_name>roller_1_2_joint</joint_name>
+      <joint_name>roller_1_3_joint</joint_name>
+      <joint_name>roller_1_4_joint</joint_name>
+      <joint_name>roller_1_5_joint</joint_name>
+      <joint_name>roller_1_6_joint</joint_name>
+      <joint_name>roller_1_7_joint</joint_name>
+      <joint_name>roller_1_8_joint</joint_name>
+      <joint_name>roller_1_9_joint</joint_name>
+      <joint_name>roller_2_1_joint</joint_name>
+      <joint_name>roller_2_2_joint</joint_name>
+      <joint_name>roller_2_3_joint</joint_name>
+      <joint_name>roller_2_4_joint</joint_name>
+      <joint_name>roller_2_5_joint</joint_name>
+      <joint_name>roller_2_6_joint</joint_name>
+      <joint_name>roller_2_7_joint</joint_name>
+      <joint_name>roller_2_8_joint</joint_name>
+      <joint_name>roller_2_9_joint</joint_name>
+      <joint_name>roller_3_1_joint</joint_name>
+      <joint_name>roller_3_2_joint</joint_name>
+      <joint_name>roller_3_3_joint</joint_name>
+      <joint_name>roller_3_4_joint</joint_name>
+      <joint_name>roller_3_5_joint</joint_name>
+      <joint_name>roller_3_6_joint</joint_name>
+      <joint_name>roller_3_7_joint</joint_name>
+      <joint_name>roller_3_8_joint</joint_name>
+      <joint_name>roller_3_9_joint</joint_name>
+      <joint_name>roller_4_1_joint</joint_name>
+      <joint_name>roller_4_2_joint</joint_name>
+      <joint_name>roller_4_3_joint</joint_name>
+      <joint_name>roller_4_4_joint</joint_name>
+      <joint_name>roller_4_5_joint</joint_name>
+      <joint_name>roller_4_6_joint</joint_name>
+      <joint_name>roller_4_7_joint</joint_name>
+      <joint_name>roller_4_8_joint</joint_name>
+      <joint_name>roller_4_9_joint</joint_name>
+    </plugin>
+  </gazebo> 
+
   <!-- base_link -->
   <gazebo reference="base_link">
     <selfCollide>false</selfCollide>
@@ -72,8 +122,9 @@
 
   <!-- sick LiDAR 0 controller -->
   <gazebo reference="sick_lidar0">
-    <sensor type="gpu_ray" name="sick_LiDAR0_sensor">
+    <sensor type="ray" name="sick_LiDAR0_sensor">
       <pose>0 0 0 0 0 0</pose>
+      <always_on>false</always_on>
       <visualize>false</visualize>
       <update_rate>40</update_rate>
       <ray>
@@ -92,25 +143,26 @@
         </range>
         <noise>
           <type>gaussian</type>
-          <!-- Noise parameters based on published spec for Hokuyo laser
-               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
-               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
-               reading. -->
           <mean>0.0</mean>
           <stddev>0.01</stddev>
         </noise>
       </ray>
-      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
-        <topicName>/sick_s30b/laser/scan0</topicName>
-        <frameName>sick_lidar0</frameName>
+      <plugin name="gazebo_ros_sick_front_controller" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+            <!-- <namespace>/tb3</namespace> -->
+            <remapping>~/out:=/sick_s30b/laser/scan0</remapping>
+          </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <frame_name>sick_lidar0</frame_name>
       </plugin>
     </sensor>
   </gazebo>
 
   <!-- sick LiDAR 1 controller -->
   <gazebo reference="sick_lidar1">
-    <sensor type="gpu_ray" name="sick_LiDAR1_sensor">
+    <sensor type="ray" name="sick_LiDAR1_sensor">
       <pose>0 0 0 0 0 0</pose>
+      <always_on>false</always_on>
       <visualize>false</visualize>
       <update_rate>40</update_rate>
       <ray>
@@ -137,9 +189,13 @@
           <stddev>0.01</stddev>
         </noise>
       </ray>
-      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
-        <topicName>/sick_s30b/laser/scan1</topicName>
-        <frameName>sick_lidar1</frameName>
+      <plugin name="gazebo_ros_sick_rear_controller" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+            <!-- <namespace>/tb3</namespace> -->
+            <remapping>~/out:=/sick_s30b/laser/scan1</remapping>
+          </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <frame_name>sick_lidar1</frame_name>
       </plugin>
     </sensor>
   </gazebo>
@@ -147,8 +203,10 @@
   <!-- kinect v2 controller -->
   <gazebo reference="kinect_v2">
     <sensor name="kinect_v2_camera" type="depth">
+      <always_on>true</always_on>
+      <visualize>true</visualize>
       <update_rate>30</update_rate>
-      <camera>
+      <camera name="kinect_v2_camera">
         <horizontal_fov>1.047198</horizontal_fov>
         <image>
           <width>960</width>
@@ -160,52 +218,67 @@
           <far>3</far>
         </clip>
       </camera>
-      <plugin name="kinect_v2_controller" filename="libgazebo_ros_openni_kinect.so">
-        <baseline>0.2</baseline>
-        <alwaysOn>true</alwaysOn>
-        <updateRate>1.0</updateRate>
-        <cameraName>kinect_v2_ir</cameraName>
-        <imageTopicName>/kinect_v2/color/image_raw</imageTopicName>
-        <cameraInfoTopicName>/kinect_v2/color/camera_info</cameraInfoTopicName>
-        <depthImageTopicName>/kinect_v2/depth/image_raw</depthImageTopicName>
-        <depthImageInfoTopicName>/kinect_v2/depth/camera_info</depthImageInfoTopicName>
-        <pointCloudTopicName>/kinect_v2/depth/points</pointCloudTopicName>
-        <frameName>kinect_v2</frameName>
-        <pointCloudCutoff>0.5</pointCloudCutoff>
-        <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
-        <distortionK1>0.00000001</distortionK1>
-        <distortionK2>0.00000001</distortionK2>
-        <distortionK3>0.00000001</distortionK3>
-        <distortionT1>0.00000001</distortionT1>
-        <distortionT2>0.00000001</distortionT2>
-        <CxPrime>0</CxPrime>
-        <Cx>0</Cx>
-        <Cy>0</Cy>
-        <focalLength>0</focalLength>
-        <hackBaseline>0</hackBaseline>
+      <plugin name="kinect_v2_driver" filename="libgazebo_ros_camera.so">
+         <camera_name>kinect_v2</camera_name>
+         <frame_name>kinect_v2</frame_name>
+         <triggered>false</triggered>
+         <hack_baseline>0.07</hack_baseline>
       </plugin>
     </sensor>
   </gazebo>
 
   <!-- IMU sensor controller -->
   <gazebo reference="IMU_sensor">
-    <gravity>true</gravity>
     <sensor name="imu_sensor" type="imu">
       <always_on>true</always_on>
-      <update_rate>100</update_rate>
-      <visualize>true</visualize>
-      <topic>__default_topic__</topic>
+      <update_rate>30</update_rate>
+      <imu>
+          <angular_velocity>
+          <x>
+              <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+            </noise>
+          </z>
+        </angular_velocity>
+        <linear_acceleration>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+            </noise>
+          </y>
+            <z>
+              <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+            </noise>
+          </z>
+        </linear_acceleration>
+      </imu>
       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-        <topicName>zm_robot_imu</topicName>
-        <bodyName>IMU_sensor</bodyName>
-        <updateRateHZ>10.0</updateRateHZ>
-        <gaussianNoise>0.0</gaussianNoise>
-        <xyzOffset>0 0 0</xyzOffset>
-        <rpyOffset>0 0 0</rpyOffset>
-        <frameName>IMU_sensor</frameName>
-        <initialOrientationAsReference>false</initialOrientationAsReference>
+        <ros>
+          <remapping>~/out:=zm_robot_imu</remapping>
+        </ros>
       </plugin>
-      <pose>0 0 0 0 0 0</pose>
     </sensor>
   </gazebo>
 </robot>

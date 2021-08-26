@@ -15,13 +15,13 @@
 	<link name="wheel_${prefix}">
 	  <visual>
 		<geometry>
-		  <mesh filename="package://zm_robot_description/meshes/mecanum_left_after.stl" scale="0.01 0.01 0.01"/>
+		  <mesh filename="file://$(find zm_robot_description)/meshes/mecanum_left_after.stl" scale="0.01 0.01 0.01"/>
 		</geometry>
 		<material name="white"/>
 	  </visual>
 	  <collision>
 		<geometry>
-		  <mesh filename="package://zm_robot_description/meshes/mecanum_left_after.stl" scale="0.01 0.01 0.01"/>
+		  <mesh filename="file://$(find zm_robot_description)/meshes/mecanum_left_after.stl" scale="0.01 0.01 0.01"/>
 		</geometry>
 	  </collision>
 	  <inertial>

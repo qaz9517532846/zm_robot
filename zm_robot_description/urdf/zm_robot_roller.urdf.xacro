@@ -16,13 +16,13 @@
 	<link name="${prefix}">
 	  <visual>
 		<geometry>
-		  <mesh filename="package://zm_robot_description/meshes/mecanum_roller.stl" scale="0.01 0.01 0.01"/>
+		  <mesh filename="file://$(find zm_robot_description)/meshes/mecanum_roller.stl" scale="0.01 0.01 0.01"/>
 		</geometry>
 		<material name="black"/>
 	  </visual>
 	  <collision>
 		<geometry>
-		  <mesh filename="package://zm_robot_description/meshes/mecanum_roller.stl" scale="0.01 0.01 0.01"/>
+		  <mesh filename="file://$(find zm_robot_description)/meshes/mecanum_roller.stl" scale="0.01 0.01 0.01"/>
 		</geometry>
 	  </collision>
 	  <inertial>
