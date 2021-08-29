@@ -24,6 +24,7 @@
     ``` $ sudo apt-get install -y ros-foxy-cartographer-ros ```
   
     ``` $ sudo apt-get install -y ros-foxy-navigation2 ```
+    
     ``` $ sudo apt-get install -y ros-foxy-nav2-bringup ```
 
 - Step2. Install gazebo_mecanum_plugins package.
