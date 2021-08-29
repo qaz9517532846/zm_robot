@@ -24,6 +24,7 @@
     ``` $ sudo apt-get install -y ros-foxy-cartographer-ros ```
   
     ``` $ sudo apt-get install -y ros-foxy-navigation2 ```
+    ``` $ sudo apt-get install -y ros-foxy-nav2-bringup ```
 
 - Step2. Install gazebo_mecanum_plugins package.
 
@@ -63,7 +64,7 @@ $ colcon build
 
 - Step4. Open zm_robot package.
 
-The zm_robot 3d model xaro file into Rviz.
+- The zm_robot 3d model xaro file into Rviz.
 
 ``` bash
 $ ros2 launch zm_robot_description zm_robot_demo.launch.py
