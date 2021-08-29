@@ -139,7 +139,7 @@ $ ros2 launch zm_robot_navigation zm_robot_navigation2.launch.py
 
 [4]. Gazebo tutorial - Sensor plugin. http://gazebosim.org/tutorials?tut=ros_gzplugins&cat=connect_ros
 
-[5]. warehouse_simulation_toolkit. https://github.com/wh200720041/warehouse_simulation_toolkit
+[5]. aws-robomaker-small-warehouse-world. https://github.com/aws-robotics/aws-robomaker-small-warehouse-world
 
 [6]. gazebo_mecanum_plugins. https://github.com/qaz9517532846/gazebo_mecanum_plugins
 
