@@ -38,17 +38,10 @@ def load_yaml(package_name, file_path):
 def generate_launch_description():
     # moveit_cpp.yaml is passed by filename for now since it's node specific
 
-    zm_robot_gazebo = os.path.join(
-        get_package_share_directory('zm_robot_gazebo'),
-        'world',
-        'empty.world')
-
-    print(zm_robot_gazebo)
-
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory('gazebo_ros'), 'launch'), '/gazebo.launch.py']),
-                launch_arguments={'world': zm_robot_gazebo}.items(),
+                    get_package_share_directory('zm_robot_gazebo'), 'launch'), 
+                    '/empty_world.launch.py'])
              )
 
     zm_robot_description_path = os.path.join(
