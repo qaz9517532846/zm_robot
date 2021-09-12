@@ -23,6 +23,14 @@
   <!-- AMCL -->
   <include file="$(find zm_robot_navigation)/launch/zm_robot_amcl.launch"/>
 
+  <!-- zm_robot safety -->
+  <node pkg="zm_robot_safety" type="zm_safety_node" name="zm_safety_node" output="screen">
+    <param name="slow_range_l" value="2.00"/>
+    <param name="slow_range_w" value="1.60"/>
+    <param name="stop_range_l" value="1.20"/>
+    <param name="stop_range_w" value="0.80"/>
+  </node>
+
   <!-- move_base -->
   <include file="$(find zm_robot_navigation)/launch/zm_robot_move_base.launch">
     <arg name="move_forward_only" value="$(arg move_forward_only)"/>

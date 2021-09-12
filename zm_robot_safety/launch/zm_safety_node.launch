@@ -1,0 +1,8 @@
+<launch>
+  <node pkg="zm_robot_safety" type="zm_safety_node" name="zm_safety_node" output="screen">
+    <param name="slow_range_l" value="2.0"/>
+    <param name="slow_range_w" value="1.6"/>
+    <param name="stop_range_l" value="1.0"/>
+    <param name="stop_range_w" value="0.8"/>
+  </node>
+</launch>
