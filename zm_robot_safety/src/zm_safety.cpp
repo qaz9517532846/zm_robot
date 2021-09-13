@@ -2,7 +2,6 @@
 
 #define PI 3.141592653
 
-
 ZMSafety::ZMSafety() : nh_("~"), 
                        stop_bumper_(false), 
 					   slow_laser_(false),
@@ -27,7 +26,7 @@ ZMSafety::ZMSafety() : nh_("~"),
 	bumper_sub_ = nh_.subscribe("/bumper", 1, &ZMSafety::bumperCallback, this);
 	scan_sub_ = nh_.subscribe("/zm_robot_scan", 1, &ZMSafety::scanCallback, this);
 
-	buildEllipseVizMsgs();
+	buildRectangleVizMsgs();
 }
 
 ZMSafety::~ZMSafety()
@@ -48,7 +47,7 @@ void ZMSafety::spin()
 	}
 }
 
-void ZMSafety::buildEllipseVizMsgs()
+void ZMSafety::buildRectangleVizMsgs()
 {
 	stop_viz_msg_.header.frame_id = slow_viz_msg_.header.frame_id = "base_link";
 	stop_viz_msg_.header.stamp = slow_viz_msg_.header.stamp = ros::Time::now();
@@ -157,7 +156,7 @@ void ZMSafety::scanCallback(const sensor_msgs::LaserScanConstPtr& msg)
 		return;
 	}
 	check(cloud);
-	visualizeEllipses();
+	visualizeRectangles();
 }
 
 void ZMSafety::check(sensor_msgs::PointCloud cloud)
@@ -205,7 +204,7 @@ double ZMSafety::solveE1(geometry_msgs::Point32 point)
 	return dis_vel;
 }
 
-void ZMSafety::visualizeEllipses(bool show)
+void ZMSafety::visualizeRectangles(bool show)
 {
 	stop_viz_msg_.header.stamp = slow_viz_msg_.header.stamp = ros::Time::now();
 

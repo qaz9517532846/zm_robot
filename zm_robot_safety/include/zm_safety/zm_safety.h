@@ -48,7 +48,7 @@ private:
 	double stop_range_l, stop_range_w;
 	int node_loop_rate_;
 
-	void buildEllipseVizMsgs();
+	void buildRectangleVizMsgs();
 
 	void CmdVelCallback(const geometry_msgs::TwistConstPtr& msg);
 	void bumperCallback(const std_msgs::BoolConstPtr& msg);
@@ -59,7 +59,7 @@ private:
 	void inE2(geometry_msgs::Point32 point);
 	double solveE1(geometry_msgs::Point32 point);
 
-	void visualizeEllipses(bool show = true);
+	void visualizeRectangles(bool show = true);
 	std::vector<geometry_msgs::Point> draw_range(double rang_w, double rang_l);
 };
 
