@@ -17,7 +17,7 @@ ZMSafety::ZMSafety() : nh_("~"),
 	nh_.param("slow_range_w", slow_range_w, 0.30);
 	nh_.param("stop_range_l", stop_range_l, 0.40);
 	nh_.param("stop_range_w", stop_range_w, 0.25);
-	nh_.param("node_loop_rate", node_loop_rate_, 50);
+	nh_.param("node_loop_rate", node_loop_rate_, 20);
 
     cmd_vel_pub_ = nh_.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
 	slow_viz_pub_ = nh_.advertise<visualization_msgs::Marker>("slow_range_marker", 10);
@@ -109,9 +109,13 @@ std::vector<geometry_msgs::Point> ZMSafety::draw_range(double rang_w, double ran
 
 void ZMSafety::CmdVelCallback(const geometry_msgs::TwistConstPtr& msg)
 {
-	cmd_vel_msg_.linear.x = dist_* msg->linear.x;
-	cmd_vel_msg_.linear.y = dist_ * msg->linear.y;
-	cmd_vel_msg_.angular.z = dist_ * msg->angular.z;
+	init_vel_x = msg->linear.x;
+	init_vel_y = msg->linear.y;
+	init_vel_th = msg->angular.z;
+
+	cmd_vel_msg_.linear.x = dist_* init_vel_x;
+	cmd_vel_msg_.linear.y = dist_ * init_vel_y;
+	cmd_vel_msg_.angular.z = dist_ * init_vel_th;
 
 	cmd_vel_pub_.publish(cmd_vel_msg_);
 }
@@ -160,6 +164,8 @@ void ZMSafety::check(sensor_msgs::PointCloud cloud)
 {
 	stop_laser_ = false;
 	slow_laser_ = false;
+	dist_ = 1.0;
+
 	for(unsigned int i=0; i < cloud.points.size(); ++i)
 	{
 		inE2(cloud.points[i]);
@@ -179,14 +185,8 @@ void ZMSafety::inE2(geometry_msgs::Point32 point)
 		{
 			dist_ = 0.0;
 			stop_laser_ = true;
-			ROS_INFO("dis velicity = 0");
-			ROS_INFO("Stop.");
+			return ;
 		}
-		return;
-	}
-	else
-	{
-		dist_ = 1.0;
 	}
 }
 
@@ -195,13 +195,11 @@ double ZMSafety::solveE1(geometry_msgs::Point32 point)
 	double dis_vel;
 	if((2 * abs(point.x) / slow_range_l) >= (2 * abs(point.y) / slow_range_w))
 	{
-		dis_vel = (abs(point.y) / slow_range_w);
-		ROS_INFO("dis velicity = %f", dis_vel);
+		dis_vel = 2 * abs(point.y) / slow_range_w;
 	}
 	else
 	{
-		dis_vel = (abs(point.x) / slow_range_l);
-		ROS_INFO("dis velicity = %f", dis_vel);
+		dis_vel = 2 * abs(point.x) / slow_range_l;
 	}
 
 	return dis_vel;

@@ -38,6 +38,9 @@ private:
 
 	bool stop_bumper_, stop_laser_, slow_laser_;
 
+	double init_vel_x;
+	double init_vel_y;
+	double init_vel_th;
 	double dist_;
 
 	// params
