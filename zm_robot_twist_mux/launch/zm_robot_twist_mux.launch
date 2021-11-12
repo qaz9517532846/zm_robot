@@ -1,0 +1,15 @@
+<launch>
+  <arg name="joy_vel_in"  default="input_joy/cmd_vel"/>
+  <arg name="joy_vel_out" default="joy_vel"/>
+
+  <arg name="cmd_vel_out" default="cmd_vel"/>
+
+  <arg name="config_locks"  default="$(find zm_robot_twist_mux)/config/twist_mux_locks.yaml"/>
+  <arg name="config_topics" default="$(find zm_robot_twist_mux)/config/twist_mux_topics.yaml"/>
+
+  <node pkg="twist_mux" type="twist_mux" name="twist_mux" output="screen">
+    <remap from="cmd_vel_out" to="$(arg cmd_vel_out)"/>
+    <rosparam file="$(arg config_locks)"  command="load"/>
+    <rosparam file="$(arg config_topics)" command="load"/>
+  </node>
+</launch>

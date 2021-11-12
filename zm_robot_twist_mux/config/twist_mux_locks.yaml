@@ -1,0 +1,22 @@
+
+# Locks to stop the twist inputs.
+# For each lock:
+# - topic   : input topic that provides the lock; it must be of type std_msgs::Bool?!!! 
+# - timeout : == 0.0 -> not used
+#              > 0.0 -> the lock is supposed to published at a certain frequency in order
+#                       to detect that the publisher is alive; the timeout in seconds allows
+#                       to detect that, and if the publisher dies we will enable the lock
+# - priority: priority in the range [0, 255], so all the topics with priority lower than it
+#             will be stopped/disabled
+
+locks:
+-
+  name    : joystick 
+  topic   : joy_priority
+  timeout : 0.0
+  priority: 100
+-
+  name    : estop_stick
+  topic   : estop_priority
+  timeout : 0.0
+  priority: 200

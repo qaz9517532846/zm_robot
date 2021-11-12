@@ -4,6 +4,10 @@
   <arg name="open_rviz" default="true"/>
   <arg name="move_forward_only" default="false"/>
 
+  <arg name="cmd_vel_out" default="cmd_vel"/>
+  <arg name="config_locks"  default="$(find zm_robot_twist_mux)/config/twist_mux_locks.yaml"/>
+  <arg name="config_topics" default="$(find zm_robot_twist_mux)/config/twist_mux_topics.yaml"/>
+
   <node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
     <param name="destination_frame" value="sick_lidar0"/>
     <param name="cloud_destination_topic" value="/zm_robot_clound"/>
@@ -34,6 +38,13 @@
   <!-- move_base -->
   <include file="$(find zm_robot_navigation)/launch/zm_robot_move_base.launch">
     <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+  </include>
+
+  <!-- zm_robot_twist_mux -->
+  <include file="$(find zm_robot_twist_mux)/launch/zm_robot_twist_mux.launch">
+    <remap from="cmd_vel_out" to="$(arg cmd_vel_out)"/>
+    <rosparam file="$(arg config_locks)"  command="load"/>
+    <rosparam file="$(arg config_topics)" command="load"/>
   </include>
 
   <!-- rviz -->
