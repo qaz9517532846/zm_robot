@@ -15,7 +15,7 @@
 - 
   - if your pc used noetic version.
 
-    ``` $ sudo apt-get install ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control ros-noetic-ros-controllers ```
+    ``` $ sudo apt-get install ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control ros-noetic-ros-controllers ros-noetic-twist-mux```
 
     ``` $ sudo apt-get install -y libgazebo11-dev ```
     
@@ -29,7 +29,7 @@
 
   - if your pc used melodic version.
 
-    ``` $ sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control ros-melodic-ros-controllers ```
+    ``` $ sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control ros-melodic-ros-controllers ros-melodic-twist-mux```
 
     ``` $ sudo apt-get install -y libgazebo9-dev ```
     
@@ -43,7 +43,7 @@
 
   - if your pc used kinetic version.
 
-    ``` $ sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control ros-kinetic-ros-controllers ```
+    ``` $ sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control ros-kinetic-ros-controllers ros-kinetic-twist-mux```
    
     ``` $ sudo apt-get install -y libgazebo7-dev ```
    
