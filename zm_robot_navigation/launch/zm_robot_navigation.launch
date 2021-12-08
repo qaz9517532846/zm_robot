@@ -4,7 +4,7 @@
   <arg name="open_rviz" default="true"/>
   <arg name="move_forward_only" default="false"/>
 
-  <arg name="cmd_vel_out" default="cmd_vel"/>
+  <arg name="cmd_vel_out" default="/zm_cmd_vel"/>
   <arg name="config_locks"  default="$(find zm_robot_twist_mux)/config/twist_mux_locks.yaml"/>
   <arg name="config_topics" default="$(find zm_robot_twist_mux)/config/twist_mux_topics.yaml"/>
 
@@ -41,11 +41,11 @@
   </include>
 
   <!-- zm_robot_twist_mux -->
-  <include file="$(find zm_robot_twist_mux)/launch/zm_robot_twist_mux.launch">
+  <node pkg="twist_mux" type="twist_mux" name="twist_mux" output="screen">
     <remap from="cmd_vel_out" to="$(arg cmd_vel_out)"/>
     <rosparam file="$(arg config_locks)"  command="load"/>
     <rosparam file="$(arg config_topics)" command="load"/>
-  </include>
+  </node>
 
   <!-- rviz -->
   <group if="$(arg open_rviz)"> 
