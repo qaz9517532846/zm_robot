@@ -157,16 +157,10 @@ The zm_robot_move.cpp example.
 ``` bash
 #include <zm_robot_programing/zm_robot_move_function.h>
 
-void spinThread(){
-  ros::spin();
-}
-
 int main(int argc, char** argv) 
 {
   ros::init(argc, argv, "zm_robot_move"); 
   ros::NodeHandle n;
-
-  boost::thread spin_thread = boost::thread(boost::bind(&spinThread));
 
   zm_robot my_zm_robot;
 
