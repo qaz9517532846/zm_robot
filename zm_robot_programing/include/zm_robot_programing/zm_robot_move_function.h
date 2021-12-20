@@ -6,10 +6,13 @@
 
 class zm_robot {
   public:
+    zm_robot(std::string name);
+    ~zm_robot();
     void move_map(double x, double y, double theta);
     void move_base(double x, double y, double theta);
 
   private:
+    void spinThread();
     typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
     move_base_msgs::MoveBaseGoal goal;
 };
