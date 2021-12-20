@@ -1,5 +1,20 @@
 #include <zm_robot_programing/zm_robot_move_function.h>
 
+zm_robot::zm_robot(std::string name)
+{
+  boost::thread spin_thread = boost::thread(boost::bind(&zm_robot::spinThread, this));
+}
+
+zm_robot::~zm_robot()
+{
+  
+}
+
+void zm_robot::spinThread()
+{
+  ros::spin();
+}
+
 void zm_robot::move_map(double x, double y, double theta)
 {
   MoveBaseClient ac("move_base");
