@@ -10,6 +10,9 @@ ZMSafety::ZMSafety() : nh_("~"),
                        slow_range_w(0.30),
 					   stop_range_l(0.40),
                        stop_range_w(0.25),
+					   init_vel_x(0),
+					   init_vel_y(0),
+					   init_vel_th(0),
                        node_loop_rate_ (20)
 {
     nh_.param("slow_range_l", slow_range_l, 0.70);
@@ -43,6 +46,10 @@ void ZMSafety::spin()
 	while(nh_.ok())
 	{
 		ros::spinOnce();
+		cmd_vel_msg_.linear.x = dist_* init_vel_x;
+		cmd_vel_msg_.linear.y = dist_ * init_vel_y;
+		cmd_vel_msg_.angular.z = dist_ * init_vel_th;
+		cmd_vel_pub_.publish(cmd_vel_msg_);
 		lr.sleep();
 	}
 }
@@ -111,12 +118,6 @@ void ZMSafety::CmdVelCallback(const geometry_msgs::TwistConstPtr& msg)
 	init_vel_x = msg->linear.x;
 	init_vel_y = msg->linear.y;
 	init_vel_th = msg->angular.z;
-
-	cmd_vel_msg_.linear.x = dist_* init_vel_x;
-	cmd_vel_msg_.linear.y = dist_ * init_vel_y;
-	cmd_vel_msg_.angular.z = dist_ * init_vel_th;
-
-	cmd_vel_pub_.publish(cmd_vel_msg_);
 }
 
 void ZMSafety::bumperCallback(const std_msgs::BoolConstPtr& msg)
@@ -174,31 +175,37 @@ void ZMSafety::check(sensor_msgs::PointCloud cloud)
 void ZMSafety::inE2(geometry_msgs::Point32 point)
 {
 	bool check_slow = (2 * abs(point.x) < slow_range_l) && (2 * abs(point.y) < slow_range_w);
+	bool check_stop = (2 * abs(point.x) < stop_range_l) && (2 * abs(point.y) < stop_range_w);
 
-	if(check_slow) // Check if the point is in Ellipse 2
+	if(check_slow && !check_stop)
 	{
 		slow_laser_ = true;
-		dist_ = solveE1(point);
-		bool check_stop = (2 * abs(point.x) < stop_range_l) && (2 * abs(point.y) < stop_range_w);
-		if(check_stop)
-		{
-			dist_ = 0.0;
-			stop_laser_ = true;
-			return ;
-		}
+	}
+	else if(check_slow && check_stop)
+	{
+		stop_laser_ = true;
+	}
+
+	if(slow_laser_ && !stop_laser_)
+	{
+		dist_ = solveE1(point) * 0.1;
+	}
+	else if(slow_laser_ && stop_laser_)
+	{
+		dist_ = 0.0;
 	}
 }
 
 double ZMSafety::solveE1(geometry_msgs::Point32 point)
 {
 	double dis_vel;
-	if((2 * abs(point.x) / slow_range_l) >= (2 * abs(point.y) / slow_range_w))
+	if((abs(point.x) / slow_range_l) >= (abs(point.y) / slow_range_w))
 	{
-		dis_vel = 2 * abs(point.y) / slow_range_w;
+		dis_vel = abs(point.y) / slow_range_w;
 	}
 	else
 	{
-		dis_vel = 2 * abs(point.x) / slow_range_l;
+		dis_vel = abs(point.x) / slow_range_l;
 	}
 
 	return dis_vel;
