@@ -219,6 +219,18 @@ int main(int argc, char** argv)
 
 ------
 
+## History:
+
+| Branch         | Description                                                                     | File Creation |
+| ---            | ---                                                                             | ---           |
+| ros1-original  | zm_robot original version.                                                      | July, 2020.   |
+| ros1           | zm_robot ros1 version for zm_robot programing simply.                           | July, 2021.   |
+| ros1-main      | zm_robot ros1-main version add safety function           .                      | August, 2021. |
+| ros1-pid       | zm_robot ros1-pid version using PID controller for zm_robot programing simply.  | July, 2021.   |
+| ros2           | zm_robot ros2 versoin under ROS 2 Foxy environment.                             | August, 2021. ||
+
+------
+
 ## Reference:
 
 [1]. turtlebot3_teleop, https://github.com/ROBOTIS-GIT/turtlebot3/tree/master/turtlebot3_teleop
