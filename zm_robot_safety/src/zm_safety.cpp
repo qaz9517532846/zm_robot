@@ -15,12 +15,6 @@ ZMSafety::ZMSafety() : nh_("~"),
 					   init_vel_th(0),
                        node_loop_rate_ (20)
 {
-    nh_.param("slow_range_l", slow_range_l, 0.70);
-	nh_.param("slow_range_w", slow_range_w, 0.30);
-	nh_.param("stop_range_l", stop_range_l, 0.40);
-	nh_.param("stop_range_w", stop_range_w, 0.25);
-	nh_.param("node_loop_rate", node_loop_rate_, 20);
-
     cmd_vel_pub_ = nh_.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
 	slow_viz_pub_ = nh_.advertise<visualization_msgs::Marker>("slow_range_marker", 10);
 	stop_viz_pub_ = nh_.advertise<visualization_msgs::Marker>("stop_range_marker", 10);
@@ -28,6 +22,10 @@ ZMSafety::ZMSafety() : nh_("~"),
 	cmd_vel_sub_ = nh_.subscribe("/zm_cmd_vel", 1, &ZMSafety::CmdVelCallback, this);
 	bumper_sub_ = nh_.subscribe("/bumper", 1, &ZMSafety::bumperCallback, this);
 	scan_sub_ = nh_.subscribe("/zm_robot_scan", 1, &ZMSafety::scanCallback, this);
+
+	dynamic_reconfigure::Server<zm_robot_safety::zm_RobotSafetyConfig>::CallbackType f;
+    f = boost::bind(&ZMSafety::reconfig_callback, this, _1, _2);
+    reconfigure_server_.setCallback(f);
 
 	buildRectangleVizMsgs();
 }
@@ -46,12 +44,22 @@ void ZMSafety::spin()
 	while(nh_.ok())
 	{
 		ros::spinOnce();
-		cmd_vel_msg_.linear.x = dist_* init_vel_x;
-		cmd_vel_msg_.linear.y = dist_ * init_vel_y;
-		cmd_vel_msg_.angular.z = dist_ * init_vel_th;
+		cmd_vel_msg_.linear.x = unlock_safe_ == true ? init_vel_x : dist_* init_vel_x;
+		cmd_vel_msg_.linear.y = unlock_safe_ == true ? init_vel_y : dist_ * init_vel_y;
+		cmd_vel_msg_.angular.z = unlock_safe_ == true ? init_vel_th : dist_ * init_vel_th;
 		cmd_vel_pub_.publish(cmd_vel_msg_);
 		lr.sleep();
 	}
+}
+
+void ZMSafety::reconfig_callback(zm_robot_safety::zm_RobotSafetyConfig &config, uint32_t level)
+{
+	unlock_safe_ = config.unlock_safe;
+	slow_range_l = config.slow_range_l;
+	slow_range_w = config.slow_range_w;
+	stop_range_l = config.stop_range_l;
+	stop_range_w = config.stop_range_w;
+	node_loop_rate_ = config.node_loop_rate;
 }
 
 void ZMSafety::buildRectangleVizMsgs()

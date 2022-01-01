@@ -9,6 +9,8 @@
 #include <tf/transform_listener.h>
 #include <laser_geometry/laser_geometry.h>
 #include <visualization_msgs/Marker.h>
+#include <dynamic_reconfigure/server.h>
+#include <zm_robot_safety/zm_RobotSafetyConfig.h>
 
 class ZMSafety
 {
@@ -48,6 +50,8 @@ private:
 	double stop_range_l, stop_range_w;
 	int node_loop_rate_;
 
+	bool unlock_safe_;
+
 	void buildRectangleVizMsgs();
 
 	void CmdVelCallback(const geometry_msgs::TwistConstPtr& msg);
@@ -61,6 +65,8 @@ private:
 
 	void visualizeRectangles(bool show = true);
 	std::vector<geometry_msgs::Point> draw_range(double rang_w, double rang_l);
+	void reconfig_callback(zm_robot_safety::zm_RobotSafetyConfig &config, uint32_t level);
+	dynamic_reconfigure::Server<zm_robot_safety::zm_RobotSafetyConfig> reconfigure_server_;
 };
 
 #endif 
