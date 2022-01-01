@@ -200,16 +200,15 @@ int main(int argc, char** argv)
 
 ------
 
-
 ## History:
 
-| Version        | Description                                                                 | File Creation |
-| ---            | ---                                                                         | ---           |
-| v1.0           | zm_robot original version.                                                  | July, 2020.   |
-| v2.0           | zm_robot v2.0 version for zm_robot programing simply.                       | July, 2021.   |
-| v2.1           | zm_robot v2.1 version add safety function and twist mux.                    | Nov, 2021. |
-| v3.0           | zm_robot v3.0 version using PID controller for zm_robot programing simply.  | July, 2021.   |
-| v4.0           | zm_robot v4.0 under ROS 2 Foxy                      .                       | August, 2021. ||
+| Branch         | Description                                                                     | File Creation |
+| ---            | ---                                                                             | ---           |
+| ros1-original  | zm_robot original version.                                                      | July, 2020.   |
+| ros1           | zm_robot ros1 version for zm_robot programing simply.                           | July, 2021.   |
+| ros1-main      | zm_robot ros1-main version add safety function           .                      | August, 2021. |
+| ros1-pid       | zm_robot ros1-pid version using PID controller for zm_robot programing simply.  | July, 2021.   |
+| ros2           | zm_robot ros2 versoin under ROS 2 Foxy environment.                             | August, 2021. ||
 
 ------
 
