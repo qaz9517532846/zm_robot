@@ -129,16 +129,15 @@ $ ros2 launch zm_robot_navigation zm_robot_navigation2.launch.py
 
 ------
 
-
 ## History:
 
-| Version        | Description                                                                 | File Creation |
-| ---            | ---                                                                         | ---           |
-| ros1-original  | zm_robot original version.                                                  | July, 2020.   |
-| ros1           | zm_robot v2.0 version for zm_robot programing simply.                       | July, 2021.   |
-| ros1-main      | zm_robot v2.1 version add safety function           .                       | August, 2021. |
-| ros1-pid       | zm_robot v3.0 version using PID controller for zm_robot programing simply.  | July, 2021.   |
-| ros2           | zm_robot v4.0 under ROS 2 Foxy                      .                       | August, 2021. ||
+| Branch         | Description                                                                     | File Creation |
+| ---            | ---                                                                             | ---           |
+| ros1-original  | zm_robot original version.                                                      | July, 2020.   |
+| ros1           | zm_robot ros1 version for zm_robot programing simply.                           | July, 2021.   |
+| ros1-main      | zm_robot ros1-main version add safety function           .                      | August, 2021. |
+| ros1-pid       | zm_robot ros1-pid version using PID controller for zm_robot programing simply.  | July, 2021.   |
+| ros2           | zm_robot ros2 versoin under ROS 2 Foxy environment.                             | August, 2021. ||
 
 ------
 
