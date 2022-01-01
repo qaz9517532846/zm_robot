@@ -28,6 +28,7 @@
     ``` $ sudo apt-get install -y ros-foxy-nav2-bringup ```
     
   - You may need to source Gazebo's setup file if you're having difficulty finding plugins and other resources. 
+  
     ``` $ source /usr/share/gazebo/setup.sh ```
 
 - Step2. Install gazebo_mecanum_plugins package.
