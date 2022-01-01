@@ -26,6 +26,9 @@
     ``` $ sudo apt-get install -y ros-foxy-navigation2 ```
     
     ``` $ sudo apt-get install -y ros-foxy-nav2-bringup ```
+    
+  - You may need to source Gazebo's setup file if you're having difficulty finding plugins and other resources. 
+    ``` $ source /usr/share/gazebo/setup.sh ```
 
 - Step2. Install gazebo_mecanum_plugins package.
 
@@ -131,11 +134,11 @@ $ ros2 launch zm_robot_navigation zm_robot_navigation2.launch.py
 
 | Version        | Description                                                                 | File Creation |
 | ---            | ---                                                                         | ---           |
-| v1.0           | zm_robot original version.                                                  | July, 2020.   |
-| v2.0           | zm_robot v2.0 version for zm_robot programing simply.                       | July, 2021.   |
-| v2.1           | zm_robot v2.1 version add safety function           .                       | August, 2021. |
-| v3.0           | zm_robot v3.0 version using PID controller for zm_robot programing simply.  | July, 2021.   |
-| v4.0           | zm_robot v4.0 under ROS 2 Foxy                      .                       | August, 2021. ||
+| ros1-original  | zm_robot original version.                                                  | July, 2020.   |
+| ros1           | zm_robot v2.0 version for zm_robot programing simply.                       | July, 2021.   |
+| ros1-main      | zm_robot v2.1 version add safety function           .                       | August, 2021. |
+| ros1-pid       | zm_robot v3.0 version using PID controller for zm_robot programing simply.  | July, 2021.   |
+| ros2           | zm_robot v4.0 under ROS 2 Foxy                      .                       | August, 2021. ||
 
 ------
 
