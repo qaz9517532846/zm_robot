@@ -26,10 +26,6 @@
     ``` $ sudo apt-get install -y ros-foxy-navigation2 ```
     
     ``` $ sudo apt-get install -y ros-foxy-nav2-bringup ```
-    
-  - You may need to source Gazebo's setup file if you're having difficulty finding plugins and other resources. 
-  
-    ``` $ source /usr/share/gazebo/setup.sh ```
 
 - Step2. Install gazebo_mecanum_plugins package.
 
@@ -81,12 +77,12 @@ $ ros2 launch zm_robot_description zm_robot_demo.launch.py
 $ ros2 launch zm_robot_gazebo zm_robot_empty_world.launch.py
 ```
 
-![image](https://github.com/qaz9517532846/zm_robot/blob/ros2/image/zm_robot_empty_world.png)
+![image](https://github.com/qaz9517532846/zm_robot/blob/v4.0/image/zm_robot_empty_world.png)
 
 - This is a zm_robot control using a keyboard.
 
 ``` bash
-$ ros2 run zm_robot_teleop zm_robot_teleope_key.py
+$ ros2 run zm_robot_teleop_key zm_robot_teleope_key.py
 ```
 
 - The zm_robot warehouse environment under Gazebo.
@@ -95,7 +91,7 @@ $ ros2 run zm_robot_teleop zm_robot_teleope_key.py
 $ ros2 launch zm_robot_gazebo zm_robot_aws_warehouse.launch.py
 ```
 
-![image](https://github.com/qaz9517532846/zm_robot/blob/ros2/image/zm_robot_aws_warehouse.png)
+![image](https://github.com/qaz9517532846/zm_robot/blob/v4.0/image/zm_robot_aws_warehouse.png)
 
 - The zm_robot create a map at warehouse.
 
@@ -103,7 +99,7 @@ $ ros2 launch zm_robot_gazebo zm_robot_aws_warehouse.launch.py
 $ ros2 launch zm_robot_navigation zm_robot_cartographer.launch.py
 ```
 
-![image](https://github.com/qaz9517532846/zm_robot/blob/ros2/image/zm_robot_cartographer.png)
+![image](https://github.com/qaz9517532846/zm_robot/blob/v4.0/image/zm_robot_cartographer.png)
 
 - The zm_robot can do navigation and aviod obstacles at warehouse.
 
@@ -111,7 +107,7 @@ $ ros2 launch zm_robot_navigation zm_robot_cartographer.launch.py
 $ ros2 launch zm_robot_navigation zm_robot_navigation2.launch.py
 ```
 
-![image](https://github.com/qaz9517532846/zm_robot/blob/ros2/image/zm_robot_navigation2.png)
+![image](https://github.com/qaz9517532846/zm_robot/blob/v4.0/image/zm_robot_navigation2.png)
 
 ------
 
@@ -130,15 +126,16 @@ $ ros2 launch zm_robot_navigation zm_robot_navigation2.launch.py
 
 ------
 
+
 ## History:
 
-| Branch         | Description                                                                     | File Creation |
-| ---            | ---                                                                             | ---           |
-| ros1-original  | zm_robot original version.                                                      | July, 2020.   |
-| ros1           | zm_robot ros1 version for zm_robot programing simply.                           | July, 2021.   |
-| ros1-main      | zm_robot ros1-main version add safety function           .                      | August, 2021. |
-| ros1-pid       | zm_robot ros1-pid version using PID controller for zm_robot programing simply.  | July, 2021.   |
-| ros2           | zm_robot ros2 versoin under ROS 2 Foxy environment.                             | August, 2021. ||
+| Version        | Description                                                                 | File Creation |
+| ---            | ---                                                                         | ---           |
+| v1.0           | zm_robot original version.                                                  | July, 2020.   |
+| v2.0           | zm_robot v2.0 version for zm_robot programing simply.                       | July, 2021.   |
+| v2.1           | zm_robot v2.1 version add safety function           .                       | August, 2021. |
+| v3.0           | zm_robot v3.0 version using PID controller for zm_robot programing simply.  | July, 2021.   |
+| v4.0           | zm_robot v4.0 under ROS 2 Foxy                      .                       | August, 2021. ||
 
 ------
 
