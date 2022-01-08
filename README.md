@@ -34,7 +34,7 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazeb
 $ git clone https://github.com/qaz9517532846/gazebo_mecanum_plugins.git
 ```
 
-- clone Install ira_laser_tools package.
+- clone ira_laser_tools package.
 
 ``` bash
 $ git clone https://github.com/iralabdisco/ira_laser_tools.git
