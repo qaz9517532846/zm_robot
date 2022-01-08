@@ -2,10 +2,6 @@
 
 The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazebo simulation. It has two 2D-Didar, RGB-D camera and Imu sensor. The purpose of this project is to make it easy for people to understand the control method of Omnidirectional Wheel and the establishment of mobile robots in the environment of ROS and Gazebo.
 
-- Software: Robot Operating System.
-
-- Version: kinetic, melodic, noetic.
-
 ------
 
 ## Built with
