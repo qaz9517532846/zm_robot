@@ -10,14 +10,13 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazeb
 
 ## Built with
 
-------
-
 - ROS Melodic Morenia under Ubuntu 18.04 LTS
 
 - ROS Noetic Ninjemys under Ubuntu 20.04 LTS
 
-## Getting Started
 ------
+
+## Getting Started
 
 ### Installation
 
@@ -192,6 +191,8 @@ int main(int argc, char** argv)
 [10]. twist_mux. http://wiki.ros.org/twist_mux
 
 ------
+
+## License:
 
 This repository is for your reference only. copying, patent application, academic journals are strictly prohibited.
 
