@@ -1,99 +1,43 @@
 # zm_robot
-- The zm_robot is a AGV using four Mecanum wheel.
+------
 
-- Sensor: sick s30B x 2, RGB-D camera and IMU sensor.
+## Built with
 
-- Software: Robot Operating System.
+- ROS Melodic Morenia under Ubuntu 18.04 LTS
 
-- Version: kinetic, melodic, noetic.
+- ROS Noetic Ninjemys under Ubuntu 20.04 LTS
 
 ------
 
--  Step1. Install package.
+## Getting Started
 
-- Your PC need to install ros package.
-- 
-  - if your pc used noetic version.
+### Installation
 
-    ``` $ sudo apt-get install ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control ros-noetic-ros-controllers ```
+- Installation ros package.
+
+    ``` $ sudo apt-get install ros-<distro>-gazebo-ros-pkgs ros-<distro>-gazebo-ros-control ros-<distro>-ros-controllers ros-<distro>-twist-mux```
 
     ``` $ sudo apt-get install -y libgazebo11-dev ```
     
     ``` $ sudo apt-get install -y gazebo11 ```
 
-  - Install ros navigation package.
-
-    ``` $ sudo apt-get install -y ros-noetic-openslam-gmapping ros-noetic-navigation ```
+    ``` $ sudo apt-get install -y ros-<distro>-openslam-gmapping ros-<distro>-navigation ```
   
-    ``` $ sudo apt-get install -y ros-noetic-amcl ros-noetic-move-base ```
+    ``` $ sudo apt-get install -y ros-<distro>-amcl ros-<distro>-move-base ```
 
-  - if your pc used melodic version.
-
-    ``` $ sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control ros-melodic-ros-controllers ```
-
-    ``` $ sudo apt-get install -y libgazebo9-dev ```
-    
-    ``` $ sudo apt-get install -y gazebo9 ```
-
-  - Install ros navigation package.
-
-    ``` $ sudo apt-get install -y ros-melodic-openslam-gmapping ros-melodic-navigation ```
-  
-    ``` $ sudo apt-get install -y ros-melodic-amcl ros-melodic-move-base ```
-
-  - if your pc used kinetic version.
-
-    ``` $ sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control ros-kinetic-ros-controllers ```
-   
-    ``` $ sudo apt-get install -y libgazebo7-dev ```
-   
-    ``` $ sudo apt-get install -y gazebo7 ```
-
-  - Install ros navigation package.
-  
-    ``` $ sudo apt-get install -y ros-kinetic-openslam-gmapping ros-kinetic-navigation ```
-    
-    ``` $ sudo apt-get install -y ros-kinetic-amcl ros-kinetic-move-base ```
-
-- Step2. Install gazebo_mecanum_plugins package.
-
-``` bash
-$ cd <catkin_workspace>/src
-```
+- clone gazebo_mecanum_plugins package.
 
 ``` bash
 $ git clone https://github.com/qaz9517532846/gazebo_mecanum_plugins.git
 ```
 
-``` bash
-$ cd ..
-```
-
-``` bash
-$ catkin_make
-```
-
-
-- Step3. Install ira_laser_tools package.
-
-``` bash
-$ cd <catkin_workspace>/src
-```
+- clone Install ira_laser_tools package.
 
 ``` bash
 $ git clone https://github.com/iralabdisco/ira_laser_tools.git
 ```
 
-``` bash
-$ cd ..
-```
-
-``` bash
-$ catkin_make
-```
-
-- Step4. Open zm_robot package.
-
+### Run
 The zm_robot 3d model xaro file into Rviz.
 
 ``` bash
