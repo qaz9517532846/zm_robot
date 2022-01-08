@@ -44,8 +44,6 @@ $ git clone https://github.com/iralabdisco/ira_laser_tools.git
 
 ------
 
-- Step4. Open zm_robot package.
-
 The zm_robot 3d model xaro file into Rviz.
 
 ``` bash
