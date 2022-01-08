@@ -1,25 +1,26 @@
 # zm_robot
-- The zm_robot is a AGV using four Mecanum wheel.
 
-- Sensor: sick s30B x 2, RGB-D camera and IMU sensor.
-
-- Software: Robot Operating System 2.
-
-- Version: foxy.
+The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazebo simulation. It has two 2D-Didar, RGB-D camera and Imu sensor. The purpose of this project is to make it easy for people to understand the control method of Omnidirectional Wheel and the establishment of mobile robots in the environment of ROS and Gazebo.
 
 ------
 
--  Step1. Install package.
+## Built with
 
-- Your PC need to install ros package.
+- ROS Foxy under Ubuntu 20.04 LTS
+
+------
+
+## Getting Started
+
+### Installation
+
+- Installation ros package.
 
     ``` $ sudo apt-get install ros-foxy-gazebo-ros-pkgs ros-foxy-gazebo-ros-control ros-foxy-ros-controllers ```
 
     ``` $ sudo apt-get install -y libgazebo11-dev ```
     
     ``` $ sudo apt-get install -y gazebo11 ```
-
-  - Install ros navigation package.
 
     ``` $ sudo apt-get install -y ros-foxy-cartographer-ros ```
   
@@ -31,43 +32,19 @@
   
     ``` $ source /usr/share/gazebo/setup.sh ```
 
-- Step2. Install gazebo_mecanum_plugins package.
+- clone gazebo_mecanum_plugins package.
 
 ``` bash
-$ cd <catkin_workspace>/src
+$ git clone https://github.com/qaz9517532846/gazebo_mecanum_plugins.git
 ```
 
-``` bash
-$ git clone -b ros2-foxy https://github.com/qaz9517532846/gazebo_mecanum_plugins.git
-```
-
-``` bash
-$ cd ..
-```
-
-``` bash
-$ colcon build
-```
-
-- Step3. Install AWS RoboMaker Small Warehouse World
-
-``` bash
-$ cd <catkin_workspace>/src
-```
+- clone AWS RoboMaker Small Warehouse World package.
 
 ``` bash
 $ git clone -b ros2 https://github.com/aws-robotics/aws-robomaker-small-warehouse-world
 ```
 
-``` bash
-$ cd ..
-```
-
-``` bash
-$ colcon build
-```
-
-- Step4. Open zm_robot package.
+### Run
 
 - The zm_robot 3d model xaro file into Rviz.
 
