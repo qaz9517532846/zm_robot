@@ -15,7 +15,7 @@
         <odometryRate>20</odometryRate>      
         <publishWheelTF>true</publishWheelTF>
         <publishWheelJointState>true</publishWheelJointState>
-        <WheelTorque>10</WheelTorque>
+        <WheelTorque>30</WheelTorque>
         <WheelSeparationW>0.5</WheelSeparationW>
         <WheelSeparationL>0.6</WheelSeparationL>
         <wheelAccel>5</wheelAccel>
