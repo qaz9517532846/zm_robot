@@ -63,7 +63,7 @@ $ ros2 launch zm_robot_gazebo zm_robot_empty_world.launch.py
 - This is a zm_robot control using a keyboard.
 
 ``` bash
-$ ros2 run zm_robot_teleop zm_robot_teleope_key.py
+$ ros2 run zm_robot_teleop zm_robot_teleope_key
 ```
 
 - The zm_robot warehouse environment under Gazebo.
