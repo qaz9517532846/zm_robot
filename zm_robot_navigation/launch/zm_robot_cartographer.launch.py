@@ -10,7 +10,7 @@ from launch.substitutions import ThisLaunchFileDir
 
 
 def generate_launch_description():
-    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     zm_robot_cartographer_prefix = get_package_share_directory('zm_robot_navigation')
     cartographer_config_dir = LaunchConfiguration('cartographer_config_dir', default=os.path.join(
                                                   zm_robot_cartographer_prefix, 'config'))
@@ -34,7 +34,7 @@ def generate_launch_description():
             description='Name of lua file for cartographer'),
         DeclareLaunchArgument(
             'use_sim_time',
-            default_value='false',
+            default_value='true',
             description='Use simulation (Gazebo) clock if true'),
 
         Node(
