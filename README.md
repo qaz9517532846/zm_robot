@@ -87,6 +87,7 @@ $ ros2 launch zm_robot_navigation zm_robot_cartographer.launch.py
 ``` bash
 $ ros2 service call /finish_trajectory cartographer_ros_msgs/srv/FinishTrajectory "{trajectory_id : 0}"
 $ ros2 service call /write_state cartographer_ros_msgs/srv/WriteState "{filename : '${HOME}/zm_robot_cartographer_map.pbstream'}"
+$ ros2 run nav2_map_server map_saver_cli -f ~/map
 ```
 
 - The zm_robot can do navigation and aviod obstacles at warehouse.
