@@ -35,7 +35,7 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazeb
 - clone gazebo_mecanum_plugins package.
 
 ``` bash
-$ git clone https://github.com/qaz9517532846/gazebo_mecanum_plugins.git
+$ git clone -b ros2-foxy https://github.com/qaz9517532846/gazebo_mecanum_plugins.git
 ```
 
 - clone AWS RoboMaker Small Warehouse World package.
