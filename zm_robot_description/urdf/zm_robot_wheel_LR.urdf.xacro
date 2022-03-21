@@ -27,8 +27,8 @@
 	  <inertial>
           <origin xyz="0.001 0 0" rpy="0 0 0"/>
           <mass value="1.7"/>
-          <inertia ixx="0.004248052" ixy="0.0" ixz="0.0"
-	               iyy="0.004248045" iyz="0.0" izz="0.004879970"/>
+          <inertia ixx="0.04248052" ixy="0.0" ixz="0.0"
+	               iyy="0.04248045" iyz="0.0" izz="0.04879970"/>
       </inertial>
 	</link>
   </xacro:macro>
