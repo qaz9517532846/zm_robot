@@ -34,4 +34,4 @@ endif()
 
 ament_package()
 
-install(DIRECTORY launch config map DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY launch config map rviz DESTINATION share/${PROJECT_NAME})
