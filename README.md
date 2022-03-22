@@ -100,6 +100,7 @@ $ ros2 launch zm_robot_navigation zm_robot_navigation2.launch.py
 
 ``` bash
 $ ros2 launch zm_robot_navigation zm_robot_cartographer_navigation2.launch.py
+```
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/ros2/image/zm_robot_navigation2.png)
 
