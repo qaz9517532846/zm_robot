@@ -90,10 +90,16 @@ $ ros2 service call /write_state cartographer_ros_msgs/srv/WriteState "{filename
 $ ros2 run nav2_map_server map_saver_cli -f ~/map
 ```
 
-- The zm_robot can do navigation and aviod obstacles at warehouse.
+- The zm_robot can do navigation and aviod obstacles at warehouse using amcl.
 
 ``` bash
 $ ros2 launch zm_robot_navigation zm_robot_navigation2.launch.py
+```
+
+- The zm_robot navigation using cartographer localization.
+
+``` bash
+$ ros2 launch zm_robot_navigation zm_robot_cartographer_navigation2.launch.py
 ```
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/ros2/image/zm_robot_navigation2.png)
