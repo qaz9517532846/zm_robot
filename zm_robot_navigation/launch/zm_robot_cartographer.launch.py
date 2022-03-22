@@ -20,8 +20,8 @@ def generate_launch_description():
     resolution = LaunchConfiguration('resolution', default='0.05')
     publish_period_sec = LaunchConfiguration('publish_period_sec', default='1.0')
 
-    rviz_config_dir = os.path.join(get_package_share_directory('zm_robot_description'),
-                                   'config', 'zm_robot_demo.rviz')
+    rviz_config_dir = os.path.join(get_package_share_directory('zm_robot_navigation'),
+                                   'rviz', 'zm_robot_cartographer.rviz')
 
     return LaunchDescription([
         DeclareLaunchArgument(
