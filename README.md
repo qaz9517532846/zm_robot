@@ -85,7 +85,6 @@ $ ros2 launch zm_robot_navigation zm_robot_cartographer.launch.py
 - Cartographer save map command.
 
 ``` bash
-$ ros2 service call /finish_trajectory cartographer_ros_msgs/srv/FinishTrajectory "{trajectory_id : 0}"
 $ ros2 service call /write_state cartographer_ros_msgs/srv/WriteState "{filename : '${HOME}/zm_robot_cartographer_map.pbstream'}"
 $ ros2 run nav2_map_server map_saver_cli -f ~/map
 ```
@@ -103,6 +102,34 @@ $ ros2 launch zm_robot_navigation zm_robot_cartographer_navigation2.launch.py
 ```
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/ros2/image/zm_robot_navigation2.png)
+
+------
+
+The zm_robot_move.cpp example.
+
+``` bash
+import rclpy
+from zm_robot_programing.zm_robot_action import zm_robot_cmd
+
+def main(args=None):
+    rclpy.init(args=args)
+    zm_robot = zm_robot_cmd()
+    zm_robot.move_map(1.0, 1.0, 0.0)
+    zm_robot.move_map(1.0, 0.0, 0.0)
+    zm_robot.move_base(-1.0, 0.0, 0.0)
+    exit(0)
+
+
+if __name__ == '__main__':
+    main()
+```
+
+## illustration:
+
+| Function                           | Description                                                |
+| ---                                | ---                                                        | 
+| my_zm_robot.move_map(x, y, theta)  | zm_robot can move to designated location relative to map.  |
+| my_zm_robot.move_base(x, y, theta) | zm_robot can move to designated location relative to base. ||
 
 ------
 
