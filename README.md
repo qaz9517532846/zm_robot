@@ -105,6 +105,12 @@ $ ros2 launch zm_robot_navigation zm_robot_cartographer_navigation2.launch.py
 
 ------
 
+- The zm_robot can do navigation and aviod obstacles at warehouse using programing.
+
+``` bash
+$ ros2 run zm_robot_programing zm_robot_move
+```
+
 The zm_robot_move.cpp example.
 
 ``` bash
