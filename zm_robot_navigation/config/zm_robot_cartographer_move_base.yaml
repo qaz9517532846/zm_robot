@@ -44,20 +44,20 @@ controller_server:
     FollowPath:
       plugin: "dwb_core::DWBLocalPlanner"
       debug_trajectory_details: True
-      min_vel_x: -0.3
-      min_vel_y: -0.3
-      max_vel_x: 0.3
-      max_vel_y: 0.3
-      max_vel_theta: 0.5
-      min_speed_xy: -0.3
-      max_speed_xy: 0.3
-      min_speed_theta: -0.5
-      acc_lim_x: 0.2
-      acc_lim_y: 0.2
-      acc_lim_theta: 0.3
-      decel_lim_x: -0.2
-      decel_lim_y: -0.2
-      decel_lim_theta: -0.3
+      min_vel_x: -0.2
+      min_vel_y: -0.2
+      max_vel_x: 0.2
+      max_vel_y: 0.2
+      max_vel_theta: 0.3
+      min_speed_xy: -0.2
+      max_speed_xy: 0.2
+      min_speed_theta: -0.2
+      acc_lim_x: 0.15
+      acc_lim_y: 0.15
+      acc_lim_theta: 0.15
+      decel_lim_x: -0.15
+      decel_lim_y: -0.15
+      decel_lim_theta: -0.2
       vx_samples: 20
       vy_samples: 20
       vtheta_samples: 20
@@ -66,7 +66,7 @@ controller_server:
       angular_granularity: 0.025
       transform_tolerance: 0.2
       xy_goal_tolerance: 0.1
-      trans_stopped_velocity: 0.25
+      trans_stopped_velocity: 0.5
       short_circuit_trajectory_evaluation: True
       stateful: True
       critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
