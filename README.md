@@ -148,6 +148,8 @@ $ ros2 launch zm_robot_navigation zm_robot_cartographer_navigation2.launch.py
 
 [6]. gazebo_mecanum_plugins. https://github.com/qaz9517532846/gazebo_mecanum_plugins
 
+[7]. navigation2. https://github.com/ros-planning/navigation2
+
 ------
 
 This repository is for your reference only. copying, patent application, academic journals are strictly prohibited.
