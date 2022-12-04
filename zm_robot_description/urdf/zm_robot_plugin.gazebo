@@ -14,7 +14,7 @@
       <RightRear>wheel_joint_4</RightRear>
       <odometryRate>20</odometryRate>      
       <publishWheelTF>false</publishWheelTF>
-      <publishOdomTF>true</publishOdomTF>
+      <publishOdomTF>false</publishOdomTF>
       <WheelTorque>30</WheelTorque>
       <WheelSeparationW>0.5</WheelSeparationW>
       <WheelSeparationL>0.6</WheelSeparationL>
