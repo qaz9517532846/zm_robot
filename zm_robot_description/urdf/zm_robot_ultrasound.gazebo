@@ -9,7 +9,7 @@
       <mu2>30</mu2>
       <kp>1e50</kp>
       <kd>1e50</kd>
-      <material>Gazebo/Blue</material>
+      <material>Gazebo/Yellow</material>
     </gazebo>
   </xacro:macro>
 </robot>
