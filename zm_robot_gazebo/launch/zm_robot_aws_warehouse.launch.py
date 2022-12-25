@@ -79,7 +79,10 @@ def generate_launch_description():
 
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
                         arguments=['-topic', 'robot_description',
-                                   '-entity', 'zm_robot'],
+                                   '-entity', 'zm_robot',
+                                   '-x',      '0.0',
+                                   '-y',      '0.0',
+                                   '-z',      '0.001'],
                         output='screen')
 
     display_rviz = Node(package='rviz2', executable='rviz2',
