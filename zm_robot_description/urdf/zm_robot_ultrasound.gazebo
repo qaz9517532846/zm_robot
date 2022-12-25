@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  <xacro:macro name="ultrasound_gazebo_v0" params="prefix">
+	<gazebo reference="ultrasound_${prefix}">
+	  <selfCollide>false</selfCollide>
+      <gravity>true</gravity>
+      <mu1>30</mu1>
+      <mu2>30</mu2>
+      <kp>1e50</kp>
+      <kd>1e50</kd>
+      <material>Gazebo/Yellow</material>
+    </gazebo>
+  </xacro:macro>
+</robot>
