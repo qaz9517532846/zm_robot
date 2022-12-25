@@ -92,13 +92,17 @@ local_costmap:
       publish_frequency: 10.0
       global_frame: odom
       robot_base_frame: base_link
-      use_sim_time: False
+      use_sim_time: true
       rolling_window: true
       width: 3
       height: 3
       resolution: 0.05
       robot_radius: 0.5
-      plugins: ["obstacle_layer", "voxel_layer", "inflation_layer"]
+      plugins: ["obstacle_layer", "voxel_layer", "inflation_layer", "ultrasound_layer"]
+      ultrasound_layer:
+        plugin: "nav2_costmap_2d::RangeSensorLayer"
+        topics: ["/ultrasound_1", "/ultrasound_2", "/ultrasound_3", "/ultrasound_4"]
+        transform_tolerance: 1.0
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 1.0
@@ -139,10 +143,10 @@ local_costmap:
       always_send_full_costmap: True
   local_costmap_client:
     ros__parameters:
-      use_sim_time: False
+      use_sim_time: True
   local_costmap_rclcpp_node:
     ros__parameters:
-      use_sim_time: False
+      use_sim_time: True
 
 global_costmap:
   global_costmap:
@@ -240,4 +244,4 @@ recoveries_server:
 
 robot_state_publisher:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: True
