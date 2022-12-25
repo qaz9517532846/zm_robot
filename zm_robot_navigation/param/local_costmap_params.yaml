@@ -11,3 +11,9 @@ local_costmap:
   width: 3
   height: 3
   resolution: 0.05
+  plugins:
+    - {name: ultrasound_layer,   type: "range_sensor_layer::RangeSensorLayer"}
+  
+  ultrasound_layer:
+    topics: ["/ultrasound_1", "/ultrasound_2", "/ultrasound_3", "/ultrasound_4"]
+    no_readings_timeout: 1.0

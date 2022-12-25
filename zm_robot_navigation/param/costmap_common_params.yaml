@@ -8,5 +8,6 @@ inflation_radius: 2.0
 cost_scaling_factor: 3.0
 
 map_type: costmap
-observation_sources: scan
-scan: {sensor_frame: sick_lidar0, data_type: LaserScan, topic: zm_robot_scan, marking: true, clearing: true}
+observation_sources: scan1 scan2
+scan1: {sensor_frame: sick_lidar0, data_type: LaserScan, topic: sick_s30b/laser/scan0, marking: true, clearing: true}
+scan2: {sensor_frame: sick_lidar1, data_type: LaserScan, topic: sick_s30b/laser/scan1, marking: true, clearing: true}
