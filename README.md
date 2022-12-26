@@ -1,6 +1,6 @@
 # zm_robot
 
-The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazebo simulation. It has two 2D-Didar, RGB-D camera and Imu sensor. The purpose of this project is to make it easy for people to understand the control method of Omnidirectional Wheel and the establishment of mobile robots in the environment of ROS and Gazebo.
+The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazebo simulation. It has two 2D-Didar, four ultrasound, RGB-D camera and Imu sensor. The purpose of this project is to make it easy for people to understand the control method of Omnidirectional Wheel and the establishment of mobile robots in the environment of ROS and Gazebo.
 
 ------
 
@@ -38,6 +38,12 @@ $ git clone https://github.com/qaz9517532846/gazebo_mecanum_plugins.git
 
 ``` bash
 $ git clone https://github.com/iralabdisco/ira_laser_tools.git
+```
+
+- clone navigation_layers package.
+
+``` bash
+$ git clone https://github.com/DLu/navigation_layers.git
 ```
 
 ### Run
@@ -146,7 +152,11 @@ int main(int argc, char** argv)
 | sick_s30b/laser/scan1              | sick laser2 Laserscan.                                            |
 | kinect_v2/color/image_raw          | Kinect V2 RGB image.                                              |
 | kinect_v2/depth/image_raw          | Kinect V2 Depth image.                                            |
-| zm_robot_imu                       | zm_robot IMU sensor.                                              ||
+| zm_robot_imu                       | zm_robot IMU sensor.                                              |
+| ultrasound_1                       | ultrasound on zm_robot left and front.                            |
+| ultrasound_2                       | ultrasound on zm_robot right and front.                           |
+| ultrasound_3                       | ultrasound on zm_robot left and rear.                             |
+| ultrasound_4                       | ultrasound on zm_robot right and rear.                            ||
 
 ------
 
@@ -184,6 +194,10 @@ int main(int argc, char** argv)
 [9]. rto_core. https://github.com/dietriro/rto_core
 
 [10]. twist_mux. http://wiki.ros.org/twist_mux
+
+[11]. ultrasound gazebo plugin. https://medium.com/teamarimac/integrating-sonar-and-ir-sensor-plugin-to-robot-model-in-gazebo-with-ros-656fd9452607
+
+[12]. navigation_layers. https://github.com/DLu/navigation_layers
 
 ------
 
