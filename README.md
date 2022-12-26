@@ -134,8 +134,8 @@ if __name__ == '__main__':
 
 | Function                           | Description                                                |
 | ---                                | ---                                                        | 
-| my_zm_robot.move_map(x, y, theta)  | zm_robot can move to designated location relative to map.  |
-| my_zm_robot.move_base(x, y, theta) | zm_robot can move to designated location relative to base. ||
+| zm_robot.move_map(x, y, theta)  | zm_robot can move to designated location relative to map.     |
+| zm_robot.move_base(x, y, theta) | zm_robot can move to designated location relative to base.    ||
 
 ------
 
@@ -150,7 +150,11 @@ if __name__ == '__main__':
 | sick_s30b/laser/scan1              | sick laser2 Laserscan.                                            |
 | kinect_v2/color/image_raw          | Kinect V2 RGB image.                                              |
 | kinect_v2/depth/image_raw          | Kinect V2 Depth image.                                            |
-| zm_robot_imu                       | zm_robot IMU sensor.                                              ||
+| zm_robot_imu                       | zm_robot IMU sensor.                                              |
+| ultrasound_1                       | ultrasound on zm_robot left and front.                            |
+| ultrasound_2                       | ultrasound on zm_robot right and front.                           |
+| ultrasound_3                       | ultrasound on zm_robot left and rear.                             |
+| ultrasound_4                       | ultrasound on zm_robot right and rear.                            ||
 
 ------
 
