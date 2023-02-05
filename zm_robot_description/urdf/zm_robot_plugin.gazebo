@@ -13,7 +13,7 @@
         <RightFront>wheel_joint_3</RightFront>
         <RightRear>wheel_joint_4</RightRear>
         <odometryRate>20</odometryRate>      
-        <publishWheelTF>true</publishWheelTF>
+        <publishWheelTF>false</publishWheelTF>
         <publishWheelJointState>true</publishWheelJointState>
         <WheelTorque>30</WheelTorque>
         <WheelSeparationW>0.5</WheelSeparationW>
@@ -72,7 +72,7 @@
 
   <!-- sick LiDAR 0 controller -->
   <gazebo reference="sick_lidar0">
-    <sensor type="gpu_ray" name="sick_LiDAR0_sensor">
+    <sensor type="ray" name="sick_LiDAR0_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
       <update_rate>40</update_rate>
@@ -100,7 +100,7 @@
           <stddev>0.01</stddev>
         </noise>
       </ray>
-      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
         <topicName>/sick_s30b/laser/scan0</topicName>
         <frameName>sick_lidar0</frameName>
       </plugin>
@@ -109,7 +109,7 @@
 
   <!-- sick LiDAR 1 controller -->
   <gazebo reference="sick_lidar1">
-    <sensor type="gpu_ray" name="sick_LiDAR1_sensor">
+    <sensor type="ray" name="sick_LiDAR1_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
       <update_rate>40</update_rate>
@@ -137,7 +137,7 @@
           <stddev>0.01</stddev>
         </noise>
       </ray>
-      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
         <topicName>/sick_s30b/laser/scan1</topicName>
         <frameName>sick_lidar1</frameName>
       </plugin>
