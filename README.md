@@ -24,7 +24,7 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazeb
     
     ``` $ sudo apt-get install -y gazebo11 ```
 
-    ``` $ sudo apt-get install -y ros-<distro>-openslam-gmapping ros-<distro>-navigation ```
+    ``` $ sudo apt-get install -y ros-<distro>-gmapping ros-<distro>-openslam-gmapping ros-<distro>-navigation ```
   
     ``` $ sudo apt-get install -y ros-<distro>-amcl ros-<distro>-move-base ```
 
@@ -68,7 +68,7 @@ $ roslaunch zm_robot_gazebo zm_robot_world.launch
 - This is a zm_robot control using a keyboard.
 
 ``` bash
-$ rosrun zm_robot_teleop_key zm_robot_teleope_key.py
+$ rosrun zm_robot_teleope_key zm_robot_teleope_key.py
 ```
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/ros1-main/image/zm_robot_control.png)
