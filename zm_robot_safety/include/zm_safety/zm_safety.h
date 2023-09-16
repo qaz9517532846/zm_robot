@@ -29,7 +29,7 @@ private:
 
 	ros::Subscriber cmd_vel_sub_;
 	ros::Subscriber bumper_sub_;
-	ros::Subscriber scan_sub_;
+	std::vector<ros::Subscriber> scan_sub_;
 
 	geometry_msgs::Twist cmd_vel_msg_;
 
@@ -38,7 +38,10 @@ private:
 	laser_geometry::LaserProjection projector_;
 	tf::TransformListener tfListener_;
 
-	bool stop_bumper_, stop_laser_, slow_laser_;
+	bool stop_bumper_, total_stop, total_slow;
+	std::vector<bool> stop_laser_;
+	std::vector<bool> slow_laser_;
+
 
 	double init_vel_x;
 	double init_vel_y;
@@ -49,6 +52,7 @@ private:
 	double slow_range_l, slow_range_w;
 	double stop_range_l, stop_range_w;
 	int node_loop_rate_;
+	int scan_num_;
 
 	bool unlock_safe_;
 
@@ -56,11 +60,11 @@ private:
 
 	void CmdVelCallback(const geometry_msgs::TwistConstPtr& msg);
 	void bumperCallback(const std_msgs::BoolConstPtr& msg);
-	void scanCallback(const sensor_msgs::LaserScanConstPtr& msg);
+	void scanCallback(const sensor_msgs::LaserScan::ConstPtr &msg, int idx);
 
-	void check(sensor_msgs::PointCloud cloud);
+	void check(sensor_msgs::PointCloud cloud, int idx);
 
-	void inE2(geometry_msgs::Point32 point);
+	void inE2(geometry_msgs::Point32 point, int idx);
 	double solveE1(geometry_msgs::Point32 point);
 
 	void visualizeRectangles(bool show = true);

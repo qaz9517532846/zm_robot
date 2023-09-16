@@ -4,8 +4,8 @@
 
 ZMSafety::ZMSafety() : nh_("~"), 
                        stop_bumper_(false), 
-					   slow_laser_(false),
-                       stop_laser_(false),
+					   total_slow(false),
+                       total_stop(false),
 					   slow_range_l(0.70),
                        slow_range_w(0.30),
 					   stop_range_l(0.40),
@@ -15,13 +15,24 @@ ZMSafety::ZMSafety() : nh_("~"),
 					   init_vel_th(0),
                        node_loop_rate_ (20)
 {
+	nh_.param<int>("scan_num", scan_num_, 2);
+
     cmd_vel_pub_ = nh_.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
 	slow_viz_pub_ = nh_.advertise<visualization_msgs::Marker>("slow_range_marker", 10);
 	stop_viz_pub_ = nh_.advertise<visualization_msgs::Marker>("stop_range_marker", 10);
 
 	cmd_vel_sub_ = nh_.subscribe("/zm_cmd_vel", 1, &ZMSafety::CmdVelCallback, this);
 	bumper_sub_ = nh_.subscribe("/bumper", 1, &ZMSafety::bumperCallback, this);
-	scan_sub_ = nh_.subscribe("/zm_robot_scan", 1, &ZMSafety::scanCallback, this);
+
+	scan_sub_.resize(scan_num_);
+	stop_laser_.resize(scan_num_);
+	slow_laser_.resize(scan_num_);
+	for(int i = 0; i < scan_num_; i++)
+	{
+		std::string ScanTopicName;
+		ScanTopicName = "/scan_" + std::to_string(i);
+		scan_sub_[i] = nh_.subscribe<sensor_msgs::LaserScan>(ScanTopicName.c_str(), 10, boost::bind(&ZMSafety::scanCallback, this, _1, i));
+	}
 
 	dynamic_reconfigure::Server<zm_robot_safety::zm_RobotSafetyConfig>::CallbackType f;
     f = boost::bind(&ZMSafety::reconfig_callback, this, _1, _2);
@@ -35,7 +46,10 @@ ZMSafety::~ZMSafety()
     cmd_vel_pub_.shutdown();
 	cmd_vel_sub_.shutdown();
 	bumper_sub_.shutdown();
-	scan_sub_.shutdown();
+	for(int i = 0; i < scan_num_; i++)
+	{
+		scan_sub_[i].shutdown();
+	}
 }
 
 void ZMSafety::spin()
@@ -138,7 +152,7 @@ void ZMSafety::bumperCallback(const std_msgs::BoolConstPtr& msg)
 	}
 }
 
-void ZMSafety::scanCallback(const sensor_msgs::LaserScanConstPtr& msg)
+void ZMSafety::scanCallback(const sensor_msgs::LaserScan::ConstPtr &msg, int idx)
 {
 	sensor_msgs::PointCloud cloud;
 
@@ -164,41 +178,48 @@ void ZMSafety::scanCallback(const sensor_msgs::LaserScanConstPtr& msg)
 		ROS_WARN("Extrapolation exception: %s\n", ex.what());
 		return;
 	}
-	check(cloud);
+	check(cloud, idx);
 	visualizeRectangles();
 }
 
-void ZMSafety::check(sensor_msgs::PointCloud cloud)
+void ZMSafety::check(sensor_msgs::PointCloud cloud, int idx)
 {
-	stop_laser_ = false;
-	slow_laser_ = false;
+	stop_laser_[idx] = false;
+	slow_laser_[idx] = false;
 	dist_ = 1.0;
 
 	for(unsigned int i=0; i < cloud.points.size(); ++i)
 	{
-		inE2(cloud.points[i]);
+		inE2(cloud.points[i], idx);
 	}
 }
 
-void ZMSafety::inE2(geometry_msgs::Point32 point)
+void ZMSafety::inE2(geometry_msgs::Point32 point, int idx)
 {
 	bool check_slow = (2 * abs(point.x) < slow_range_l) && (2 * abs(point.y) < slow_range_w);
 	bool check_stop = (2 * abs(point.x) < stop_range_l) && (2 * abs(point.y) < stop_range_w);
+	total_slow = total_stop = false;
 
 	if(check_slow && !check_stop)
 	{
-		slow_laser_ = true;
+		slow_laser_[idx] = true;
 	}
 	else if(check_slow && check_stop)
 	{
-		stop_laser_ = true;
+		stop_laser_[idx] = true;
 	}
 
-	if(slow_laser_ && !stop_laser_)
+	for(int i = 0; i < scan_num_; i++)
+	{
+		if(slow_laser_[i]) total_slow = true;
+		if(stop_laser_[i]) total_stop = true;
+	}
+
+	if(total_slow && !total_stop)
 	{
 		dist_ = solveE1(point) * 0.1;
 	}
-	else if(slow_laser_ && stop_laser_)
+	else if(total_slow && total_stop)
 	{
 		dist_ = 0.0;
 	}
@@ -232,14 +253,14 @@ void ZMSafety::visualizeRectangles(bool show)
 	slow_viz_msg_.color.g = 1.0;
 	slow_viz_msg_.color.b = 0.0;
 
-	if(stop_laser_)
+	if(total_stop)
 	{
 		// Color the ellipse e1 red
 		stop_viz_msg_.color.r = 1.0;
 		stop_viz_msg_.color.g = 0.0;
 		stop_viz_msg_.color.b = 0.0;
 	}
-	if (slow_laser_)
+	if (total_slow)
 	{
 		// Color the ellipse e2 red
 		slow_viz_msg_.color.r = 1.0;

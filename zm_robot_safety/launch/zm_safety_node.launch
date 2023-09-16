@@ -1,8 +1,12 @@
 <launch>
   <node pkg="zm_robot_safety" type="zm_safety_node" name="zm_safety_node" output="screen">
+    <param name="scan_num" value="2"/>
     <param name="slow_range_l" value="2.0"/>
     <param name="slow_range_w" value="1.6"/>
     <param name="stop_range_l" value="1.0"/>
     <param name="stop_range_w" value="0.8"/>
+
+    <remap from="scan_0"                    to="/sick_s30b/laser/scan0"/>
+    <remap from="scan_1"                    to="/sick_s30b/laser/scan1"/>
   </node>
 </launch>
