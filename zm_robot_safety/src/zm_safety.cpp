@@ -27,6 +27,7 @@ ZMSafety::ZMSafety() : nh_("~"),
 	scan_sub_.resize(scan_num_);
 	stop_laser_.resize(scan_num_);
 	slow_laser_.resize(scan_num_);
+	slow_dist_.resize(scan_num_);
 	for(int i = 0; i < scan_num_; i++)
 	{
 		std::string ScanTopicName;
@@ -217,7 +218,8 @@ void ZMSafety::inE2(geometry_msgs::Point32 point, int idx)
 
 	if(total_slow && !total_stop)
 	{
-		dist_ = solveE1(point) * 0.1;
+		slow_dist_[idx] = solveE1(point, idx) * 0.1;
+		dist_ = *std::max_element(slow_dist_.begin(), slow_dist_.end());
 	}
 	else if(total_slow && total_stop)
 	{
@@ -225,7 +227,7 @@ void ZMSafety::inE2(geometry_msgs::Point32 point, int idx)
 	}
 }
 
-double ZMSafety::solveE1(geometry_msgs::Point32 point)
+double ZMSafety::solveE1(geometry_msgs::Point32 point, int idx)
 {
 	double dis_vel;
 	if((abs(point.x) / slow_range_l) >= (abs(point.y) / slow_range_w))

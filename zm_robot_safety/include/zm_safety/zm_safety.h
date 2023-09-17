@@ -41,6 +41,7 @@ private:
 	bool stop_bumper_, total_stop, total_slow;
 	std::vector<bool> stop_laser_;
 	std::vector<bool> slow_laser_;
+	std::vector<double> slow_dist_;
 
 
 	double init_vel_x;
@@ -65,7 +66,7 @@ private:
 	void check(sensor_msgs::PointCloud cloud, int idx);
 
 	void inE2(geometry_msgs::Point32 point, int idx);
-	double solveE1(geometry_msgs::Point32 point);
+	double solveE1(geometry_msgs::Point32 point, int idx);
 
 	void visualizeRectangles(bool show = true);
 	std::vector<geometry_msgs::Point> draw_range(double rang_w, double rang_l);
