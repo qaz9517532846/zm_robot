@@ -28,6 +28,8 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazeb
   
     ``` $ sudo apt-get install -y ros-<distro>-amcl ros-<distro>-move-base ```
 
+    ``` $ sudo apt-get install -y ros-<distro>-people-msgs ```
+
 - clone gazebo_mecanum_plugins package.
 
 ``` bash
