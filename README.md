@@ -6,7 +6,7 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazeb
 
 ## Built with
 
-- ROS Foxy under Ubuntu 20.04 LTS
+- ROS Jazzy under Ubuntu 24.04 LTS
 
 ------
 
@@ -14,35 +14,23 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazeb
 
 ### Installation
 
+- Installation Gazebo Harmonic
+
+Gazebo Harmonic Install Tutorial - https://gazebosim.org/docs/harmonic/install_ubuntu/
+
 - Installation ros package.
 
-    ``` $ sudo apt-get install ros-foxy-gazebo-ros-pkgs ros-foxy-gazebo-ros ros-foxy-gazebo-dev ros-foxy-xacro```
+    ``` $ sudo apt-get install ros-jazzy-ros-gz-sim ros-jazzy-xacro```
 
-    ``` $ sudo apt-get install -y libgazebo11-dev ```
-    
-    ``` $ sudo apt-get install -y gazebo11 ```
-
-    ``` $ sudo apt-get install -y ros-foxy-cartographer-ros ```
+    ``` $ sudo apt-get install -y ros-jazzy-cartographer-ros ```
   
-    ``` $ sudo apt-get install -y ros-foxy-navigation2 ```
+    ``` $ sudo apt-get install -y ros-jazzy-navigation2 ```
     
-    ``` $ sudo apt-get install -y ros-foxy-nav2-bringup ```
+    ``` $ sudo apt-get install -y ros-jazzy-nav2-bringup ```
     
   - You may need to source Gazebo's setup file if you're having difficulty finding plugins and other resources. 
   
     ``` $ source /usr/share/gazebo/setup.sh ```
-
-- clone gazebo_mecanum_plugins package.
-
-``` bash
-$ git clone -b ros2-foxy https://github.com/qaz9517532846/gazebo_mecanum_plugins.git
-```
-
-- clone AWS RoboMaker Small Warehouse World package.
-
-``` bash
-$ git clone -b ros2 https://github.com/aws-robotics/aws-robomaker-small-warehouse-world
-```
 
 ### Run
 
@@ -190,4 +178,4 @@ if __name__ == '__main__':
 
 This repository is for your reference only. copying, patent application, academic journals are strictly prohibited.
 
-Copyright © 2021 ZM Robotics Software Laboratory.
+Copyright © 2025 ZM Robotics Software Laboratory.

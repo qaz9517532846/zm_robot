@@ -39,11 +39,17 @@ def generate_launch_description():
     # moveit_cpp.yaml is passed by filename for now since it's node specific
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
 
+    zm_robot_gazebo_path = os.path.join(
+        get_package_share_directory('zm_robot_gazebo'))
+
+    world_file = os.path.join(zm_robot_gazebo_path,
+                              'world',
+                              'warehouse.sdf')
+
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory('aws_robomaker_small_warehouse_world'), 'launch'), 
-                    '/no_roof_small_warehouse.launch.py'])
-             )
+                    get_package_share_directory('aws_robomaker_small_warehouse_world'), 'launch'),  
+                    '/no_roof_small_warehouse.launch.py']))
 
     zm_robot_description_path = os.path.join(
         get_package_share_directory('zm_robot_description'))
@@ -57,6 +63,16 @@ def generate_launch_description():
     xacro_file = os.path.join(zm_robot_description_path,
                               'urdf',
                               'zm_robot.urdf.xacro')
+
+    urdf_file = os.path.join(zm_robot_description_path,
+                              'urdf',
+                              'zm_robot.urdf')
+
+    xacro_to_urdf = ExecuteProcess(
+        cmd=['xacro', xacro_file, '-o', urdf_file],
+        output='screen',
+        name='xacro_to_urdf'
+    )
 
     doc = xacro.parse(open(xacro_file))
     xacro.process_doc(doc)
@@ -77,13 +93,17 @@ def generate_launch_description():
             parameters=[{'use_sim_time': use_sim_time}]
         )
 
-    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
-                        arguments=['-topic', 'robot_description',
-                                   '-entity', 'zm_robot',
-                                   '-x',      '0.0',
-                                   '-y',      '0.0',
-                                   '-z',      '0.001'],
-                        output='screen')
+    spawn_entity = IncludeLaunchDescription(
+                        PythonLaunchDescriptionSource([os.path.join(
+                            get_package_share_directory('ros_gz_sim'), 'launch'),  
+                            '/gz_spawn_model.launch.py']),
+                            launch_arguments={'world': 'default',
+                                              'file': urdf_file,
+                                              'entity_name':'zm_robot',
+                                              'x': '0.0',
+                                              'y': '0.0',
+                                              'z': '0.05'}.items(),
+                    )
 
     display_rviz = Node(package='rviz2', executable='rviz2',
                         name='rviz2',
@@ -91,9 +111,10 @@ def generate_launch_description():
                         output='screen')
 
     return LaunchDescription([
+      xacro_to_urdf,
       gazebo,
       ###node_joint_state_publisher,
-      node_robot_state_publisher,
+      #node_robot_state_publisher,
       spawn_entity,
       ###display_rviz
     ])
