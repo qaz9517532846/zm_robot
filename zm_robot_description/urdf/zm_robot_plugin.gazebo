@@ -1,461 +1,79 @@
 <?xml version="1.0"?>
 <robot>
+  <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+    <render_engine>ogre2</render_engine>
+  </plugin>
 
-  <!-- gazebo_mecanum plugin -->
-  <gazebo>
-    <plugin name="zm_robot_diff_drive" filename="libgazebo_mecanum_drive.so">
-      <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>odom</odometryTopic>
-      <odometryFrame>odom</odometryFrame>
-      <robotBaseFrame>base_footprint</robotBaseFrame>
-      <LeftRear>wheel_joint_1</LeftRear>
-      <LeftFront>wheel_joint_2</LeftFront>
-      <RightFront>wheel_joint_3</RightFront>
-      <RightRear>wheel_joint_4</RightRear>
-      <odometryRate>30</odometryRate>      
-      <publishWheelTF>false</publishWheelTF>
-      <publishOdomTF>false</publishOdomTF>
-      <WheelTorque>30</WheelTorque>
-      <WheelSeparationW>0.5</WheelSeparationW>
-      <WheelSeparationL>0.6</WheelSeparationL>
-      <wheelAccel>10</wheelAccel>
-      <wheelDiameter>0.13</wheelDiameter>
-      <publishOdom>true</publishOdom>
-      <isRollerModel>true</isRollerModel>
-    </plugin>
-  </gazebo>
+  <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
 
-  <!-- gazebo joint_state_publisher -->
-  <gazebo>
-    <plugin name="zm_robot_joint_state" filename="libgazebo_ros_joint_state_publisher.so">
-      <ros>
-        <remapping>joint_states:=joint_states</remapping>
-      </ros>
-      <update_rate>30</update_rate>
-      <joint_name>wheel_joint_1</joint_name>
-      <joint_name>wheel_joint_2</joint_name>
-      <joint_name>wheel_joint_3</joint_name>
-      <joint_name>wheel_joint_4</joint_name>
-      <joint_name>roller_1_1_joint</joint_name>
-      <joint_name>roller_1_2_joint</joint_name>
-      <joint_name>roller_1_3_joint</joint_name>
-      <joint_name>roller_1_4_joint</joint_name>
-      <joint_name>roller_1_5_joint</joint_name>
-      <joint_name>roller_1_6_joint</joint_name>
-      <joint_name>roller_1_7_joint</joint_name>
-      <joint_name>roller_1_8_joint</joint_name>
-      <joint_name>roller_1_9_joint</joint_name>
-      <joint_name>roller_2_1_joint</joint_name>
-      <joint_name>roller_2_2_joint</joint_name>
-      <joint_name>roller_2_3_joint</joint_name>
-      <joint_name>roller_2_4_joint</joint_name>
-      <joint_name>roller_2_5_joint</joint_name>
-      <joint_name>roller_2_6_joint</joint_name>
-      <joint_name>roller_2_7_joint</joint_name>
-      <joint_name>roller_2_8_joint</joint_name>
-      <joint_name>roller_2_9_joint</joint_name>
-      <joint_name>roller_3_1_joint</joint_name>
-      <joint_name>roller_3_2_joint</joint_name>
-      <joint_name>roller_3_3_joint</joint_name>
-      <joint_name>roller_3_4_joint</joint_name>
-      <joint_name>roller_3_5_joint</joint_name>
-      <joint_name>roller_3_6_joint</joint_name>
-      <joint_name>roller_3_7_joint</joint_name>
-      <joint_name>roller_3_8_joint</joint_name>
-      <joint_name>roller_3_9_joint</joint_name>
-      <joint_name>roller_4_1_joint</joint_name>
-      <joint_name>roller_4_2_joint</joint_name>
-      <joint_name>roller_4_3_joint</joint_name>
-      <joint_name>roller_4_4_joint</joint_name>
-      <joint_name>roller_4_5_joint</joint_name>
-      <joint_name>roller_4_6_joint</joint_name>
-      <joint_name>roller_4_7_joint</joint_name>
-      <joint_name>roller_4_8_joint</joint_name>
-      <joint_name>roller_4_9_joint</joint_name>
-    </plugin>
-  </gazebo> 
-
-  <!-- base_link -->
-  <gazebo reference="base_link">
-    <selfCollide>false</selfCollide>
-    <gravity>true</gravity>
-    <mu1>10</mu1>
-    <mu2>10</mu2>
-    <kp>1e30</kp>
-    <kd>1e20</kd>
-    <material>Gazebo/Orange</material>
-  </gazebo>
-
-
-  <!-- sick LiDAR 0 -->
-  <gazebo reference="sick_lidar0">
-    <selfCollide>false</selfCollide>
-    <gravity>true</gravity>
-    <mu1>30</mu1>
-    <mu2>30</mu2>
-    <kp>1e60</kp>
-    <kd>1e50</kd>
-    <material>Gazebo/Yellow</material>
-  </gazebo>
-
-  <!-- sick LiDAR 1 -->
-  <gazebo reference="sick_lidar1">
-    <selfCollide>false</selfCollide> 
-    <gravity>true</gravity>
-    <mu1>30</mu1>
-    <mu2>30</mu2>
-    <kp>1e60</kp>
-    <kd>1e50</kd>
-    <material>Gazebo/Yellow</material>
-  </gazebo>
-
-  <!-- Kinect V2 -->
-  <gazebo reference="kinect_v2">
-    <selfCollide>false</selfCollide>
-    <gravity>true</gravity>
-    <mu1>30</mu1>
-    <mu2>30</mu2>
-    <kp>1e60</kp>
-    <kd>1e50</kd>
-    <material>Gazebo/Black</material>
-  </gazebo>
-
-  <!-- sick LiDAR 0 controller -->
-  <gazebo reference="sick_lidar0">
-    <sensor type="ray" name="sick_LiDAR0_sensor">
-      <pose>0 0 0 0 0 0</pose>
-      <always_on>false</always_on>
-      <visualize>false</visualize>
-      <update_rate>40</update_rate>
-      <ray>
-        <scan>
-          <horizontal>
-            <samples>720</samples>
-            <resolution>1</resolution>
-            <min_angle>-2.35619445</min_angle>
-            <max_angle>2.35619445</max_angle>
-          </horizontal>
-        </scan>
+  <sensor type="lidar" name="lidar1">
+    <pose relative_to='sick_lidar0'>0 0 0 0 0 0</pose>
+    <topic>/sick_lidar1</topic>
+    <lidar>
+      <scan>
+        <horizontal>
+          <samples>1440</samples>
+          <resolution>1</resolution>
+          <min_angle>-2.35619445</min_angle>
+          <max_angle>2.35619445</max_angle>
+        </horizontal>
+      </scan>
         <range>
-          <min>0.10</min>
-          <max>30.0</max>
-          <resolution>0.01</resolution>
+          <min>0.06</min>
+          <max>30</max>
+          <resolution>0.001</resolution>
         </range>
-        <noise>
-          <type>gaussian</type>
-          <mean>0.0</mean>
-          <stddev>0.01</stddev>
-        </noise>
-      </ray>
-      <plugin name="gazebo_ros_sick_front_controller" filename="libgazebo_ros_ray_sensor.so">
-        <ros>
-            <!-- <namespace>/tb3</namespace> -->
-            <remapping>~/out:=/sick_s30b/laser/scan0</remapping>
-          </ros>
-        <output_type>sensor_msgs/LaserScan</output_type>
-        <frame_name>sick_lidar0</frame_name>
-      </plugin>
-    </sensor>
-  </gazebo>
+      </lidar>
+        <update_rate>20</update_rate>
+        <visualize>true</visualize>
+        <always_on>1</always_on>
+  </sensor>
 
-  <!-- sick LiDAR 1 controller -->
-  <gazebo reference="sick_lidar1">
-    <sensor type="ray" name="sick_LiDAR1_sensor">
-      <pose>0 0 0 0 0 0</pose>
-      <always_on>false</always_on>
-      <visualize>false</visualize>
-      <update_rate>40</update_rate>
-      <ray>
-        <scan>
-          <horizontal>
-            <samples>720</samples>
-            <resolution>1</resolution>
-            <min_angle>-2.35619445</min_angle>
-            <max_angle>2.35619445</max_angle>
-          </horizontal>
-        </scan>
+  <sensor type="lidar" name="lidar1">
+    <pose relative_to='sick_lidar1'>0 0 0 0 0 0</pose>
+    <topic>/sick_lidar1</topic>
+    <lidar>
+      <scan>
+        <horizontal>
+          <samples>1440</samples>
+          <resolution>1</resolution>
+          <min_angle>-2.35619445</min_angle>
+          <max_angle>2.35619445</max_angle>
+        </horizontal>
+      </scan>
         <range>
-          <min>0.10</min>
-          <max>30.0</max>
-          <resolution>0.01</resolution>
+          <min>0.06</min>
+          <max>30</max>
+          <resolution>0.001</resolution>
         </range>
-        <noise>
-          <type>gaussian</type>
-          <!-- Noise parameters based on published spec for Hokuyo laser
-               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
-               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
-               reading. -->
-          <mean>0.0</mean>
-          <stddev>0.01</stddev>
-        </noise>
-      </ray>
-      <plugin name="gazebo_ros_sick_rear_controller" filename="libgazebo_ros_ray_sensor.so">
-        <ros>
-            <!-- <namespace>/tb3</namespace> -->
-            <remapping>~/out:=/sick_s30b/laser/scan1</remapping>
-          </ros>
-        <output_type>sensor_msgs/LaserScan</output_type>
-        <frame_name>sick_lidar1</frame_name>
-      </plugin>
-    </sensor>
-  </gazebo>
+      </lidar>
+        <update_rate>20</update_rate>
+        <visualize>true</visualize>
+        <always_on>1</always_on>
+  </sensor>
 
-  <!-- kinect v2 controller -->
-  <gazebo reference="kinect_v2">
-    <sensor name="kinect_v2_camera" type="depth">
-      <always_on>true</always_on>
-      <visualize>true</visualize>
-      <update_rate>30</update_rate>
-      <camera name="kinect_v2_camera">
-        <horizontal_fov>1.047198</horizontal_fov>
-        <image>
-          <width>960</width>
-          <height>540</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.05</near>
-          <far>3</far>
-        </clip>
-      </camera>
-      <plugin name="kinect_v2_driver" filename="libgazebo_ros_camera.so">
-         <camera_name>kinect_v2</camera_name>
-         <frame_name>kinect_v2</frame_name>
-         <triggered>false</triggered>
-         <hack_baseline>0.07</hack_baseline>
-      </plugin>
-    </sensor>
-  </gazebo>
+  <sensor name="rgbd_camera" type="rgbd_camera">
+    <pose relative_to='kinect_v2'>0 0 0 0 0 0</pose>
+    <update_rate>15</update_rate>
+    <topic>rgbd_camera</topic>
+    <camera>
+      <horizontal_fov>2.1</horizontal_fov>
+      <image>
+        <width>1280</width>
+        <height>720</height>
+      </image>
+      <clip>
+        <near>0.05</near>
+        <far>2.0</far>
+      </clip>
+    </camera>
+  </sensor>
 
-  <!-- IMU sensor controller -->
-  <gazebo reference="IMU_sensor">
-    <sensor name="imu_sensor" type="imu">
-      <always_on>true</always_on>
-      <update_rate>30</update_rate>
-      <imu>
-          <angular_velocity>
-          <x>
-              <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>2e-4</stddev>
-            </noise>
-          </x>
-          <y>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>2e-4</stddev>
-            </noise>
-          </y>
-          <z>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>2e-4</stddev>
-            </noise>
-          </z>
-        </angular_velocity>
-        <linear_acceleration>
-          <x>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>1.7e-2</stddev>
-            </noise>
-          </x>
-          <y>
-            <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>1.7e-2</stddev>
-            </noise>
-          </y>
-            <z>
-              <noise type="gaussian">
-              <mean>0.0</mean>
-              <stddev>1.7e-2</stddev>
-            </noise>
-          </z>
-        </linear_acceleration>
-      </imu>
-      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-        <ros>
-          <remapping>~/out:=zm_robot_imu</remapping>
-        </ros>
-      </plugin>
-    </sensor>
-  </gazebo>
-
-  <!-- Ultrasound sensor controller -->
-  <gazebo reference="ultrasound_1">
-    <sensor name="ultrasound_1" type="ray">
-        <always_on>true</always_on>
-        <visualize>false</visualize>
-        <pose>0.0 0 0.0 0 0 0</pose>
-        <update_rate>30</update_rate>
-        <ray>
-            <scan>
-                <horizontal>
-                    <samples>10</samples>
-                    <resolution>1.0</resolution>
-                    <min_angle>-0.14835</min_angle>
-                    <max_angle>0.14835</max_angle>
-                </horizontal>
-                <vertical>
-                    <samples>10</samples>
-                    <resolution>1.0</resolution>
-                    <min_angle>-0.14835</min_angle>
-                    <max_angle>0.14835</max_angle>
-                </vertical>
-            </scan>
-            <range>
-                <min>0.03</min>
-                <max>0.5</max>
-                <resolution>0.01</resolution>
-            </range>
-            <noise>
-                <type>gaussian</type>
-                <mean>0.0</mean>
-                <stddev>0.01</stddev>
-            </noise>
-        </ray>
-        <plugin name="bytes_ultrasound1" filename="libgazebo_ros_ray_sensor.so">
-            <ros>
-                <remapping>~/out:=ultrasound_1</remapping>
-            </ros>
-            <output_type>sensor_msgs/Range</output_type>
-            <radiation_type>ultrasound</radiation_type>
-            <frame_name>ultrasound_1</frame_name>
-            <radiation_type>ultrasound</radiation_type>
-        </plugin>
-    </sensor>
-  </gazebo>
-
-  <gazebo reference="ultrasound_2">
-    <sensor name="ultrasound_2" type="ray">
-        <always_on>true</always_on>
-        <visualize>false</visualize>
-        <pose>0.0 0 0.0 0 0 0</pose>
-        <update_rate>30</update_rate>
-        <ray>
-            <scan>
-                <horizontal>
-                    <samples>10</samples>
-                    <resolution>1.0</resolution>
-                    <min_angle>-0.14835</min_angle>
-                    <max_angle>0.14835</max_angle>
-                </horizontal>
-                <vertical>
-                    <samples>10</samples>
-                    <resolution>1.0</resolution>
-                    <min_angle>-0.14835</min_angle>
-                    <max_angle>0.14835</max_angle>
-                </vertical>
-            </scan>
-            <range>
-                <min>0.03</min>
-                <max>0.5</max>
-                <resolution>0.01</resolution>
-            </range>
-            <noise>
-                <type>gaussian</type>
-                <mean>0.0</mean>
-                <stddev>0.01</stddev>
-            </noise>
-        </ray>
-        <plugin name="bytes_ultrasound2" filename="libgazebo_ros_ray_sensor.so">
-            <ros>
-                <remapping>~/out:=ultrasound_2</remapping>
-            </ros>
-            <output_type>sensor_msgs/Range</output_type>
-            <radiation_type>ultrasound</radiation_type>
-            <frame_name>ultrasound_2</frame_name>
-            <radiation_type>ultrasound</radiation_type>
-        </plugin>
-    </sensor>
-  </gazebo>
-
-  <gazebo reference="ultrasound_3">
-    <sensor name="ultrasound_3" type="ray">
-        <always_on>true</always_on>
-        <visualize>false</visualize>
-        <pose>0.0 0 0.0 0 0 0</pose>
-        <update_rate>30</update_rate>
-        <ray>
-            <scan>
-                <horizontal>
-                    <samples>10</samples>
-                    <resolution>1.0</resolution>
-                    <min_angle>-0.14835</min_angle>
-                    <max_angle>0.14835</max_angle>
-                </horizontal>
-                <vertical>
-                    <samples>10</samples>
-                    <resolution>1.0</resolution>
-                    <min_angle>-0.14835</min_angle>
-                    <max_angle>0.14835</max_angle>
-                </vertical>
-            </scan>
-            <range>
-                <min>0.03</min>
-                <max>0.5</max>
-                <resolution>0.01</resolution>
-            </range>
-            <noise>
-                <type>gaussian</type>
-                <mean>0.0</mean>
-                <stddev>0.01</stddev>
-            </noise>
-        </ray>
-        <plugin name="bytes_ultrasound3" filename="libgazebo_ros_ray_sensor.so">
-            <ros>
-                <remapping>~/out:=ultrasound_3</remapping>
-            </ros>
-            <output_type>sensor_msgs/Range</output_type>
-            <radiation_type>ultrasound</radiation_type>
-            <frame_name>ultrasound_3</frame_name>
-            <radiation_type>ultrasound</radiation_type>
-        </plugin>
-    </sensor>
-  </gazebo>
-
-  <gazebo reference="ultrasound_4">
-    <sensor name="ultrasound_4" type="ray">
-        <always_on>true</always_on>
-        <visualize>false</visualize>
-        <pose>0.0 0 0.0 0 0 0</pose>
-        <update_rate>30</update_rate>
-        <ray>
-            <scan>
-                <horizontal>
-                    <samples>10</samples>
-                    <resolution>1.0</resolution>
-                    <min_angle>-0.14835</min_angle>
-                    <max_angle>0.14835</max_angle>
-                </horizontal>
-                <vertical>
-                    <samples>10</samples>
-                    <resolution>1.0</resolution>
-                    <min_angle>-0.14835</min_angle>
-                    <max_angle>0.14835</max_angle>
-                </vertical>
-            </scan>
-            <range>
-                <min>0.03</min>
-                <max>0.5</max>
-                <resolution>0.01</resolution>
-            </range>
-            <noise>
-                <type>gaussian</type>
-                <mean>0.0</mean>
-                <stddev>0.01</stddev>
-            </noise>
-        </ray>
-        <plugin name="bytes_ultrasound4" filename="libgazebo_ros_ray_sensor.so">
-            <ros>
-                <remapping>~/out:=ultrasound_4</remapping>
-            </ros>
-            <output_type>sensor_msgs/Range</output_type>
-            <radiation_type>ultrasound</radiation_type>
-            <frame_name>ultrasound_4</frame_name>
-            <radiation_type>ultrasound</radiation_type>
-        </plugin>
-    </sensor>
-  </gazebo>
+  <sensor name="imu_sensor" type="imu">
+    <pose relative_to='IMU_sensor'>0 0 0 0 0 0</pose>
+    <always_on>1</always_on>
+    <update_rate>20</update_rate>
+    <visualize>true</visualize>
+    <topic>imu</topic>
+  </sensor>
 </robot>

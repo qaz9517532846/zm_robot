@@ -16,7 +16,7 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazeb
 
 - Installation Gazebo Harmonic
 
-Gazebo Harmonic Install Tutorial - https://gazebosim.org/docs/harmonic/install_ubuntu/
+    - Gazebo Harmonic Install Tutorial - https://gazebosim.org/docs/harmonic/install_ubuntu/
 
 - Installation ros package.
 
@@ -27,10 +27,13 @@ Gazebo Harmonic Install Tutorial - https://gazebosim.org/docs/harmonic/install_u
     ``` $ sudo apt-get install -y ros-jazzy-navigation2 ```
     
     ``` $ sudo apt-get install -y ros-jazzy-nav2-bringup ```
-    
-  - You may need to source Gazebo's setup file if you're having difficulty finding plugins and other resources. 
-  
-    ``` $ source /usr/share/gazebo/setup.sh ```
+
+
+- clone AWS RoboMaker Small Warehouse World package.
+
+``` bash
+$ git clone https://github.com/Juancams/aws-robomaker-small-warehouse-world
+```
 
 ### Run
 
