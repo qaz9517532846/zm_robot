@@ -22,9 +22,9 @@
         <geometry>
           <mesh>
             <uri>model://Base/meshes/agv_base.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
           </mesh>
         </geometry>
-		<meta> <layer> 1 </layer></meta>
       </visual>
       <collision name='base_link_collosion'>
         <laser_retro>0</laser_retro>
@@ -33,10 +33,10 @@
         <geometry>
           <mesh>
             <uri>model://Base/meshes/agv_base.stl</uri>
-            <scale>1 1 1</scale>
+            <scale>0.01 0.01 0.01</scale>
           </mesh>
         </geometry>
-		<surface>
+        <surface>
           <friction>
             <ode>
               <mu>0.4</mu>
