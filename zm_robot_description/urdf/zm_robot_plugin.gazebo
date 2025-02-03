@@ -1,11 +1,5 @@
 <?xml version="1.0"?>
 <robot>
-  <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
-    <render_engine>ogre2</render_engine>
-  </plugin>
-
-  <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
-
   <sensor type="lidar" name="lidar1">
     <pose relative_to='sick_lidar0'>0 0 0 0 0 0</pose>
     <topic>/sick_lidar1</topic>

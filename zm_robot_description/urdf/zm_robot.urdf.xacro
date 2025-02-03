@@ -197,6 +197,10 @@
   </joint>
 
   <link name="IMU_sensor">
+    <sensor name="imu" type="imu">
+      <update_rate>30</update_rate>
+      <visualize>false</visualize>
+    </sensor>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>

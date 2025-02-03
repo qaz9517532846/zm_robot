@@ -34,4 +34,4 @@ endif()
 
 ament_package()
 
-install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY launch models worlds DESTINATION share/${PROJECT_NAME})
