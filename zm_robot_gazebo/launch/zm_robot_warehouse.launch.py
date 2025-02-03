@@ -25,7 +25,6 @@ from launch.actions import SetEnvironmentVariable
 def generate_launch_description():
     # Get the launch directory
     zm_robot_gazebo_dir = get_package_share_directory('zm_robot_gazebo')
-    warehouse_dir = get_package_share_directory('aws_robomaker_small_warehouse_world')
     
     # Launch configuration variables specific to simulation
 
@@ -47,8 +46,6 @@ def generate_launch_description():
         description='Full path to world model file to load')
 
     model_path = os.path.join(zm_robot_gazebo_dir, 'models')
-    warehouse_model_path = os.path.join(warehouse_dir, 'models')
-    combined_model_paths = f"{model_path}:{warehouse_model_path}"
 
     gazebo_server_cmd_line = [
         'gz', 'sim', '-r', '-v4', world]
@@ -63,7 +60,7 @@ def generate_launch_description():
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_simulator_cmd)
     ld.add_action(declare_world_cmd)
-    ld.add_action(SetEnvironmentVariable('GZ_SIM_RESOURCE_PATH', combined_model_paths))
+    ld.add_action(SetEnvironmentVariable('GZ_SIM_RESOURCE_PATH', model_path))
     # Add any conditioned actions
     ld.add_action(gazebo)
 

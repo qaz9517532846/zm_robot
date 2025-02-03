@@ -1,38 +1,45 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
-  <model name='Base'>
+  <model name='zm_robot'>
     <link name='base_link'>
-	  <inertial>
-        <mass>29.964</mass>
-        <pose frame=''>0 0 0 0 0 0</pose>
-        <inertia>
-          <ixx>0.892684320</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>1.966612482</iyy>
-          <iyz>0</iyz>
-          <izz>2.677227828</izz>
-        </inertia>
+      <self_collide>false</self_collide>
+      <pose frame=''>0 0 0.081572 0 0 0</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>29.964</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.892684320</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1.966612482</iyy>
+            <iyz>0</iyz>
+            <izz>2.677227828</izz>
+          </inertia>
       </inertial>
-      <pose frame=''>0 0 0 0 -0 0</pose>
-      <self_collide>0</self_collide>
       <kinematic>0</kinematic>
       <gravity>1</gravity>
       <visual name='base_link_visual'>
         <geometry>
           <mesh>
-            <uri>model://Base/meshes/agv_base.stl</uri>
+            <uri>meshes/Base/agv_base.stl</uri>
             <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>1 0.423 0.0423 1.0</emissive>
+        </material>
       </visual>
       <collision name='base_link_collosion'>
         <laser_retro>0</laser_retro>
         <max_contacts>10</max_contacts>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://Base/meshes/agv_base.stl</uri>
+            <uri>meshes/Base/agv_base.stl</uri>
             <scale>0.01 0.01 0.01</scale>
           </mesh>
         </geometry>
@@ -44,7 +51,7 @@
               <fdir1>0 0 0</fdir1>
               <slip1>0</slip1>
               <slip2>0</slip2>
-            </ode>
+              </ode>
             <torsional>
               <coefficient>1</coefficient>
               <patch_radius>0</patch_radius>
@@ -58,6 +65,77 @@
         </surface>
       </collision>
     </link>
-    <static>true</static>
+    <link name="imu_link">
+      <self_collide>false</self_collide>
+      <pose frame='base_link'>0 0 0.08 0 0 0</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>0.5</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.00005</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00005</iyy>
+            <iyz>0</iyz>
+            <izz>0.00005</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='imu_link_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/Imu/IMU_sensor.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>1 0 0 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='imu_link_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/Imu/IMU_sensor.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+      <sensor name="imu" type="imu">
+        <update_rate>30</update_rate>
+        <visualize>false</visualize>
+      </sensor>
+    </link>
+    <joint name="imu_link_joint" type="fixed">
+      <child>imu_link</child>
+      <parent>base_link</parent>
+    </joint>
   </model>
 </sdf>
