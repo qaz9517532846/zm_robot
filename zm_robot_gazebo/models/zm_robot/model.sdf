@@ -137,5 +137,277 @@
       <child>imu_link</child>
       <parent>base_link</parent>
     </joint>
+    <link name="wheel_1_link">
+      <self_collide>false</self_collide>
+      <pose frame='base_link'>-0.25 0.3 0 -1.5708 0 0</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>1.7</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.04248052</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.04248045</iyy>
+            <iyz>0</iyz>
+            <izz>0.04879970</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='wheel_1_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/WheelRL/mecanum_left_after.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0.2 0.2 0.2 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='wheel_1_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/WheelRL/mecanum_left_after.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="wheel_1_joint" type="continuous">
+      <child>wheel_1_link</child>
+      <parent>base_link</parent>
+    </joint>
+    <link name="wheel_2_link">
+      <self_collide>false</self_collide>
+      <pose frame='base_link'>0.25 0.3 0 -1.5708 0 0</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>1.7</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.04248052</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.04248045</iyy>
+            <iyz>0</iyz>
+            <izz>0.04879970</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='wheel_2_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/WheelFL/mecanum_left_before.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0.2 0.2 0.2 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='wheel_2_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/WheelFL/mecanum_left_before.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="wheel_2_joint" type="continuous">
+      <child>wheel_2_link</child>
+      <parent>base_link</parent>
+    </joint>
+    <link name="wheel_3_link">
+      <self_collide>false</self_collide>
+      <pose frame='base_link'>0.25 -0.3 0 -1.5708 0 0</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>1.7</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.04248052</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.04248045</iyy>
+            <iyz>0</iyz>
+            <izz>0.04879970</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='wheel_3_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/WheelFR/mecanum_right_before.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0.2 0.2 0.2 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='wheel_3_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/WheelFR/mecanum_right_before.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="wheel_3_joint" type="continuous">
+      <child>wheel_3_link</child>
+      <parent>base_link</parent>
+    </joint>
+    <link name="wheel_4_link">
+      <self_collide>false</self_collide>
+      <pose frame='base_link'>-0.25 -0.3 0 -1.5708 0 0</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>1.7</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.04248052</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.04248045</iyy>
+            <iyz>0</iyz>
+            <izz>0.04879970</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='wheel_4_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/WheelRR/mecanum_right_after.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0.2 0.2 0.2 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='wheel_4_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/WheelRR/mecanum_right_after.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="wheel_4_joint" type="continuous">
+      <child>wheel_4_link</child>
+      <parent>base_link</parent>
+    </joint>
   </model>
 </sdf>

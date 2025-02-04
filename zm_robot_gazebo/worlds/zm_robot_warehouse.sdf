@@ -251,7 +251,7 @@
   <include>
       <uri>model://zm_robot</uri>
       <name>zm_robot</name>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 0.03 0 0 0</pose>
     </include>
 
     	
