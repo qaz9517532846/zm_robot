@@ -201,7 +201,7 @@
         </surface>
       </collision>
     </link>
-    <joint name="wheel_1_joint" type="continuous">
+    <joint name="wheel_1_joint" type="revolute">
       <child>wheel_1_link</child>
       <parent>base_link</parent>
     </joint>
@@ -269,7 +269,7 @@
         </surface>
       </collision>
     </link>
-    <joint name="wheel_2_joint" type="continuous">
+    <joint name="wheel_2_joint" type="revolute">
       <child>wheel_2_link</child>
       <parent>base_link</parent>
     </joint>
@@ -337,7 +337,7 @@
         </surface>
       </collision>
     </link>
-    <joint name="wheel_3_joint" type="continuous">
+    <joint name="wheel_3_joint" type="revolute">
       <child>wheel_3_link</child>
       <parent>base_link</parent>
     </joint>
@@ -405,8 +405,182 @@
         </surface>
       </collision>
     </link>
-    <joint name="wheel_4_joint" type="continuous">
+    <joint name="wheel_4_joint" type="revolute">
       <child>wheel_4_link</child>
+      <parent>base_link</parent>
+    </joint>
+    <link name="sick_lidar0">
+      <self_collide>false</self_collide>
+      <pose frame='base_link'>0.33 0.175 0.195722 0 0 0.7854</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>1.2</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0001</iyy>
+            <iyz>0</iyz>
+            <izz>0.0001</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='sick_lidar0_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/Lidar/sick_s30b.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 1 0 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='sick_lidar0_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/Lidar/sick_s30b.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+      <!-- The Ray sensor itself -->
+      <sensor name="scan_back" type="gpu_lidar">
+        <update_rate>5</update_rate>
+          <lidar>
+            <scan>
+              <horizontal>
+                <samples>480</samples>
+                <resolution>1</resolution>
+                <min_angle>-1.47043991089</min_angle>
+                <max_angle>1.47043991089</max_angle>
+              </horizontal>
+            </scan>
+            <range>
+              <min>0.01</min>
+              <max>5.0</max>
+              <resolution>0.01</resolution>
+              </range>
+          </lidar>
+        </sensor>
+    </link>
+    <joint name="sick_lidar0_joint" type="fixed">
+      <child>sick_lidar0</child>
+      <parent>base_link</parent>
+    </joint>
+    <link name="sick_lidar1">
+      <self_collide>false</self_collide>
+      <pose frame='base_link'>-0.33 -0.175 0.195722 0 0 -2.35619</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>1.2</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0001</iyy>
+            <iyz>0</iyz>
+            <izz>0.0001</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='sick_lidar1_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/Lidar/sick_s30b.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 1 0 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='sick_lidar1_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/Lidar/sick_s30b.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+      <!-- The Ray sensor itself -->
+      <sensor name="scan_back" type="gpu_lidar">
+        <update_rate>5</update_rate>
+          <lidar>
+            <scan>
+              <horizontal>
+                <samples>480</samples>
+                <resolution>1</resolution>
+                <min_angle>-1.47043991089</min_angle>
+                <max_angle>1.47043991089</max_angle>
+              </horizontal>
+            </scan>
+            <range>
+              <min>0.01</min>
+              <max>5.0</max>
+              <resolution>0.01</resolution>
+              </range>
+          </lidar>
+        </sensor>
+    </link>
+    <joint name="sick_lidar1_joint" type="fixed">
+      <child>sick_lidar1</child>
       <parent>base_link</parent>
     </joint>
   </model>
