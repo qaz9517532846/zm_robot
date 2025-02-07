@@ -205,6 +205,618 @@
       <child>wheel_1_link</child>
       <parent>base_link</parent>
     </joint>
+    <link name="roller_1_1_link">
+      <self_collide>false</self_collide>
+      <pose frame='wheel_1_link'>0 0.065 0 0.7854 0 1.5708</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>0.124</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.0051893</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0051893</iyy>
+            <iyz>0</iyz>
+            <izz>0.0013891</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='roller_1_1_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='roller_1_1_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="roller_1_1_joint" type="revolute">
+      <child>roller_1_1_link</child>
+      <parent>wheel_1_link</parent>
+    </joint>
+    <link name="roller_1_2_link">
+      <self_collide>false</self_collide>
+      <pose frame='wheel_1_link'>0.041781 0.049792 0 0.7854 0 0.8727</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>0.124</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.0051893</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0051893</iyy>
+            <iyz>0</iyz>
+            <izz>0.0013891</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='roller_1_2__visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='roller_1_2_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="roller_1_2_joint" type="revolute">
+      <child>roller_1_2_link</child>
+      <parent>wheel_1_link</parent>
+    </joint>
+    <link name="roller_1_3_link">
+      <self_collide>false</self_collide>
+      <pose frame='wheel_1_link'>0.064012 0.011287 0 0.7854 0 0.1746</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>0.124</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.0051893</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0051893</iyy>
+            <iyz>0</iyz>
+            <izz>0.0013891</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='roller_1_3_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='roller_1_3_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="roller_1_3_joint" type="revolute">
+      <child>roller_1_3_link</child>
+      <parent>wheel_1_link</parent>
+    </joint>
+    <link name="roller_1_4_link">
+      <self_collide>false</self_collide>
+      <pose frame='wheel_1_link'>0.056291 -0.0325 0 0.7854 0 -0.5235</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>0.124</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.0051893</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0051893</iyy>
+            <iyz>0</iyz>
+            <izz>0.0013891</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='roller_1_4_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='roller_1_4_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="roller_1_4_joint" type="revolute">
+      <child>roller_1_4_link</child>
+      <parent>wheel_1_link</parent>
+    </joint>
+    <link name="roller_1_5_link">
+      <self_collide>false</self_collide>
+      <pose frame='wheel_1_link'>0.022231 -0.06108 0 0.7854 0 -1.2216</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>0.124</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.0051893</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0051893</iyy>
+            <iyz>0</iyz>
+            <izz>0.0013891</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='roller_1_5_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='roller_1_5_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="roller_1_5_joint" type="revolute">
+      <child>roller_1_5_link</child>
+      <parent>wheel_1_link</parent>
+    </joint>
+    <link name="roller_1_6_link">
+      <self_collide>false</self_collide>
+      <pose frame='wheel_1_link'>-0.022231 -0.06108 0 0.7854 0 4.3632</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>0.124</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.0051893</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0051893</iyy>
+            <iyz>0</iyz>
+            <izz>0.0013891</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='roller_1_6_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='roller_1_6_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="roller_1_6_joint" type="revolute">
+      <child>roller_1_6_link</child>
+      <parent>wheel_1_link</parent>
+    </joint>
+    <link name="roller_1_7_link">
+      <self_collide>false</self_collide>
+      <pose frame='wheel_1_link'>-0.056291 -0.0325 0 0.7854 0 3.6651</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>0.124</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.0051893</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0051893</iyy>
+            <iyz>0</iyz>
+            <izz>0.0013891</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='roller_1_7_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='roller_1_7_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="roller_1_7_joint" type="revolute">
+      <child>roller_1_7_link</child>
+      <parent>wheel_1_link</parent>
+    </joint>
+    <link name="roller_1_8_link">
+      <self_collide>false</self_collide>
+      <pose frame='wheel_1_link'>-0.064012 0.011287 0 0.7854 0 2.967</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>0.124</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.0051893</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0051893</iyy>
+            <iyz>0</iyz>
+            <izz>0.0013891</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='roller_1_8_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='roller_1_8_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="roller_1_8_joint" type="revolute">
+      <child>roller_1_8_link</child>
+      <parent>wheel_1_link</parent>
+    </joint>
+    <link name="roller_1_9_link">
+      <self_collide>false</self_collide>
+      <pose frame='wheel_1_link'>-0.041781 0.049792 0 0.7854 0 2.2689</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>0.124</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.0051893</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0051893</iyy>
+            <iyz>0</iyz>
+            <izz>0.0013891</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='roller_1_9_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='roller_1_9_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/Roller/mecanum_roller.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="roller_1_9_joint" type="revolute">
+      <child>roller_1_9_link</child>
+      <parent>wheel_1_link</parent>
+    </joint>
     <link name="wheel_2_link">
       <self_collide>false</self_collide>
       <pose frame='base_link'>0.25 0.3 0 -1.5708 0 0</pose>
@@ -581,6 +1193,125 @@
     </link>
     <joint name="sick_lidar1_joint" type="fixed">
       <child>sick_lidar1</child>
+      <parent>base_link</parent>
+    </joint>
+    <link name="kinect_v2">
+      <self_collide>false</self_collide>
+      <pose frame='base_link'>0.297 -0.05 0.122015 0 0 0</pose>
+      <static>false</static>
+	    <inertial>
+          <mass>0.5</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.00005</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00005</iyy>
+            <iyz>0</iyz>
+            <izz>0.00005</izz>
+          </inertia>
+      </inertial>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+      <visual name='kinect_v2_visual'>
+        <geometry>
+          <mesh>
+            <uri>meshes/Kinect/kinect_v2.stl</uri>
+            <scale>0.01 0.01 0.01</scale>  <!-- Scale mesh by 1.5 on all axes -->
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0 1</ambient>
+          <diffuse>0.0 0.0 0 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1.0</emissive>
+        </material>
+      </visual>
+      <collision name='kinect_v2_collosion'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/Kinect/kinect_v2.stl</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+              </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+        </surface>
+      </collision>
+      <sensor name="color" type="camera">
+        <pose>0 0 0 0 0 0</pose>
+        <update_rate>15</update_rate>
+        <always_on>0</always_on>
+        <camera>
+          <horizontal_fov>1.20427718</horizontal_fov>
+          <image>
+            <width>848</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>50</far>
+          </clip>
+          <lens>
+            <intrinsics>
+              <fx>615.9603271484375</fx>
+              <fy>616.227294921875</fy>
+              <cx>419.83026123046875</cx>
+              <cy>245.1431427001953</cy>
+              <s>0</s>
+            </intrinsics>
+          </lens>
+        </camera>
+        </sensor>
+        <sensor name="depth" type="depth_camera">
+          <pose>0 0 0 0 0 0</pose>
+          <update_rate>15</update_rate>
+          <always_on>0</always_on>
+          <camera>
+            <horizontal_fov>1.51843645</horizontal_fov>
+            <image>
+              <width>848</width>
+              <height>480</height>
+              <format>R_FLOAT32</format>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>10</far>
+            </clip>
+            <lens>
+            <intrinsics>
+              <fx>421.61578369140625</fx>
+              <fy>421.61578369140625</fy>
+              <cx>422.2854309082031</cx>
+              <cy>236.57237243652344</cy>
+              <s>0</s>
+            </intrinsics>
+            </lens>
+          </camera>
+        </sensor>
+    </link>
+    <joint name="kinect_v2_joint" type="fixed">
+      <child>kinect_v2</child>
       <parent>base_link</parent>
     </joint>
   </model>
