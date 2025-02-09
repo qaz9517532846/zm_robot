@@ -129,6 +129,7 @@
         </surface>
       </collision>
       <sensor name="imu" type="imu">
+        <topic>/imu</topic>
         <update_rate>30</update_rate>
         <visualize>false</visualize>
       </sensor>
@@ -2921,12 +2922,13 @@
         </surface>
       </collision>
       <!-- The Ray sensor itself -->
-      <sensor name="scan_back" type="gpu_lidar">
-        <update_rate>5</update_rate>
+      <sensor name="scan_front" type="gpu_lidar">
+        <topic>sick_lidar0</topic>
+        <update_rate>15</update_rate>
           <lidar>
             <scan>
               <horizontal>
-                <samples>480</samples>
+                <samples>1440</samples>
                 <resolution>1</resolution>
                 <min_angle>-1.47043991089</min_angle>
                 <max_angle>1.47043991089</max_angle>
@@ -3009,11 +3011,12 @@
       </collision>
       <!-- The Ray sensor itself -->
       <sensor name="scan_back" type="gpu_lidar">
-        <update_rate>5</update_rate>
+        <topic>sick_lidar1</topic>
+        <update_rate>15</update_rate>
           <lidar>
             <scan>
               <horizontal>
-                <samples>480</samples>
+                <samples>1440</samples>
                 <resolution>1</resolution>
                 <min_angle>-1.47043991089</min_angle>
                 <max_angle>1.47043991089</max_angle>
@@ -3096,6 +3099,7 @@
       </collision>
       <sensor name="color" type="camera">
         <pose>0 0 0 0 0 0</pose>
+        <topic>/kinect/color</topic>
         <update_rate>15</update_rate>
         <always_on>0</always_on>
         <camera>
@@ -3122,6 +3126,7 @@
         <sensor name="depth" type="depth_camera">
           <pose>0 0 0 0 0 0</pose>
           <update_rate>15</update_rate>
+          <topic>/kinect/depth</topic>
           <always_on>0</always_on>
           <camera>
             <horizontal_fov>1.51843645</horizontal_fov>
