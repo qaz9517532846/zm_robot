@@ -24,6 +24,8 @@ from launch.actions import SetEnvironmentVariable
 
 
 def generate_launch_description():
+    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+
     # Get the launch directory
     zm_robot_gazebo_dir = get_package_share_directory('zm_robot_gazebo')
     
@@ -60,8 +62,27 @@ def generate_launch_description():
         executable='parameter_bridge',
         arguments=['/imu@sensor_msgs/msg/Imu@gz.msgs.IMU',
                    '/sick_lidar0@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
-                   '/sick_lidar1@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan'],
+                   '/sick_lidar1@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
+                   '/kinect/depth@sensor_msgs/msg/Image@gz.msgs.Image',
+                   '/kinect/color@sensor_msgs/msg/Image@gz.msgs.Image',
+                   '/kinect/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
+                   '/model/zm_robot/pose@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V',
+                   '/model/zm_robot/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry',
+                   '/model/zm_robot/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist',
+                   '/world/default/model/zm_robot/joint_state@sensor_msgs/msg/JointState@gz.msgs.Model'],
+        remappings=[('/model/zm_robot/cmd_vel', '/cmd_vel'),
+                    ('/model/zm_robot/odometry', '/odometry'),
+                    ('/world/default/model/zm_robot/joint_state', '/joint_state'),
+                    ('/model/zm_robot/pose', '/tf')],
         output='screen')
+
+    
+    node_joint_state_publisher = Node(
+            package='joint_state_publisher',
+            executable='joint_state_publisher',
+            output='screen',
+            parameters=[{'use_sim_time': use_sim_time}]
+        )
 
     # Create the launch description and populate
     ld = LaunchDescription()
@@ -74,5 +95,6 @@ def generate_launch_description():
     # Add any conditioned actions
     ld.add_action(gazebo)
     ld.add_action(bridge)
+    ##ld.add_action(node_joint_state_publisher)
 
     return ld

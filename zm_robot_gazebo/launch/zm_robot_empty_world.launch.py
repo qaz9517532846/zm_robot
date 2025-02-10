@@ -1,113 +1,78 @@
+# Copyright (c) 2018 Intel Corporation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 import os
 
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, ExecuteProcess
 from launch_ros.actions import Node
-from launch.actions import ExecuteProcess, IncludeLaunchDescription, RegisterEventHandler
-from launch.event_handlers import OnProcessExit
-from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
-
-import xacro
-import yaml
-
-
-def load_file(package_name, file_path):
-    package_path = get_package_share_directory(package_name)
-    absolute_file_path = os.path.join(package_path, file_path)
-    try:
-        with open(absolute_file_path, 'r') as file:
-            return file.read()
-    except EnvironmentError:
-        # parent of IOError, OSError *and* WindowsError where available
-        return None
-
-
-def load_yaml(package_name, file_path):
-    package_path = get_package_share_directory(package_name)
-    absolute_file_path = os.path.join(package_path, file_path)
-    try:
-        with open(absolute_file_path, 'r') as file:
-            return yaml.safe_load(file)
-    except EnvironmentError:
-        # parent of IOError, OSError *and* WindowsError where available
-        return None
+from launch.actions import SetEnvironmentVariable
 
 
 def generate_launch_description():
-    # moveit_cpp.yaml is passed by filename for now since it's node specific
+    # Get the launch directory
+    zm_robot_gazebo_dir = get_package_share_directory('zm_robot_gazebo')
+    
+    # Launch configuration variables specific to simulation
 
-    gazebo = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory('ros_gz_sim'), 'launch'),  
-                    '/gz_sim.launch.py']),
-                    launch_arguments={'gz_args': 'empty.sdf'}.items(),
-             )
+    world = LaunchConfiguration('world')
 
-    zm_robot_description_path = os.path.join(
-        get_package_share_directory('zm_robot_description'))
+    declare_use_sim_time_cmd = DeclareLaunchArgument(
+        'use_sim_time',
+        default_value='True',
+        description='Use simulation (Gazebo) clock if true')
 
-    rviz_config_dir = os.path.join(
-        get_package_share_directory('zm_robot_description'),
-        'config',
-        'zm_robot_demo.rviz'
-    )
+    declare_simulator_cmd = DeclareLaunchArgument(
+        'headless',
+        default_value='False',
+        description='Whether to execute gzclient)')
 
-    xacro_file = os.path.join(zm_robot_description_path,
-                              'urdf',
-                              'zm_robot.urdf.xacro')
+    declare_world_cmd = DeclareLaunchArgument(
+        'world',
+        default_value=os.path.join(zm_robot_gazebo_dir, 'worlds', 'zm_robot_empty.sdf'),
+        description='Full path to world model file to load')
 
-    urdf_file = os.path.join(zm_robot_description_path,
-                              'urdf',
-                              'zm_robot.urdf')
+    model_path = os.path.join(zm_robot_gazebo_dir, 'models')
 
-    xacro_to_urdf = ExecuteProcess(
-        cmd=['xacro', xacro_file, '-o', urdf_file],
-        output='screen',
-        name='xacro_to_urdf'
-    )
+    gazebo_server_cmd_line = [
+        'gz', 'sim', '-r', '-v4', world]
 
-    doc = xacro.parse(open(xacro_file))
-    xacro.process_doc(doc)
-    robot_description_config = doc.toxml()
-    robot_description = {'robot_description': robot_description_config}
+    gazebo = ExecuteProcess(
+        cmd=gazebo_server_cmd_line, output='screen')
 
-    node_robot_state_publisher = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        output='screen',
-        parameters=[robot_description]
-    )
+    # Bridge
+    bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=['/imu@sensor_msgs/msg/Imu@gz.msgs.IMU',
+                   '/sick_lidar0@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
+                   '/sick_lidar1@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan'],
+        output='screen')
 
-    node_joint_state_publisher = Node(
-            package='joint_state_publisher',
-            executable='joint_state_publisher',
-            output='screen',
-        )
+    # Create the launch description and populate
+    ld = LaunchDescription()
 
-    spawn_entity = IncludeLaunchDescription(
-                        PythonLaunchDescriptionSource([os.path.join(
-                            get_package_share_directory('ros_gz_sim'), 'launch'),  
-                            '/gz_spawn_model.launch.py']),
-                            launch_arguments={'world': 'empty',
-                                              'file': urdf_file,
-                                              'entity_name':'zm_robot',
-                                              'x': '0.0',
-                                              'y': '0.0',
-                                              'z': '0.0'}.items(),
-                    )
+    # Declare the launch options
+    ld.add_action(declare_use_sim_time_cmd)
+    ld.add_action(declare_simulator_cmd)
+    ld.add_action(declare_world_cmd)
+    ld.add_action(SetEnvironmentVariable('GZ_SIM_RESOURCE_PATH', model_path))
+    # Add any conditioned actions
+    ld.add_action(gazebo)
+    ld.add_action(bridge)
 
-    display_rviz = Node(package='rviz2', executable='rviz2',
-                        name='rviz2',
-                        arguments=['-d', rviz_config_dir],
-                        output='screen')
-
-    return LaunchDescription([
-      xacro_to_urdf,
-      gazebo,
-      ###node_joint_state_publisher,
-      #node_robot_state_publisher,
-      spawn_entity,
-      ###display_rviz
-    ])
+    return ld

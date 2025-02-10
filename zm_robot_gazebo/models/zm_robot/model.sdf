@@ -3155,7 +3155,7 @@
       <child>kinect_v2</child>
       <parent>base_link</parent>
     </joint>
-    <plugin filename="ignition-gazebo-joint-state-publisher-system" name="ignition::gazebo::systems::JointStatePublisher">
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
       <joint_name>wheel_1_joint</joint_name>
       <joint_name>wheel_2_joint</joint_name>
       <joint_name>wheel_3_joint</joint_name>
@@ -3205,6 +3205,9 @@
       <publish_nested_model_pose>true</publish_nested_model_pose>
       <update_frequency>20</update_frequency>
     </plugin>
+     <plugin
+        filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+      </plugin>
     <plugin filename="gz-sim-mecanum-drive-system" name="gz::sim::systems::MecanumDrive">
       <front_left_joint>wheel_2_joint</front_left_joint>
       <front_right_joint>wheel_3_joint</front_right_joint>
