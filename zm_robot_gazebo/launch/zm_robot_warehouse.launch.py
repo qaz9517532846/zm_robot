@@ -18,6 +18,7 @@ from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, ExecuteProcess
+from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration
 from launch.actions import SetEnvironmentVariable
 
@@ -53,6 +54,15 @@ def generate_launch_description():
     gazebo = ExecuteProcess(
         cmd=gazebo_server_cmd_line, output='screen')
 
+    # Bridge
+    bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=['/imu@sensor_msgs/msg/Imu@gz.msgs.IMU',
+                   '/sick_lidar0@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
+                   '/sick_lidar1@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan'],
+        output='screen')
+
     # Create the launch description and populate
     ld = LaunchDescription()
 
@@ -63,5 +73,6 @@ def generate_launch_description():
     ld.add_action(SetEnvironmentVariable('GZ_SIM_RESOURCE_PATH', model_path))
     # Add any conditioned actions
     ld.add_action(gazebo)
+    ld.add_action(bridge)
 
     return ld
