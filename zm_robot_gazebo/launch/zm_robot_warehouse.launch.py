@@ -76,13 +76,14 @@ def generate_launch_description():
                     ('/model/zm_robot/pose', '/tf')],
         output='screen')
 
-    
-    node_joint_state_publisher = Node(
-            package='joint_state_publisher',
-            executable='joint_state_publisher',
-            output='screen',
-            parameters=[{'use_sim_time': use_sim_time}]
-        )
+    # Bridge
+    tfRemap = Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='tf_remap',
+            remappings=[('zm_robot/odom', 'odom'),
+                        ('zm_robot/base_footprint', 'base_link')],
+            output='screen')
 
     # Create the launch description and populate
     ld = LaunchDescription()
@@ -95,6 +96,6 @@ def generate_launch_description():
     # Add any conditioned actions
     ld.add_action(gazebo)
     ld.add_action(bridge)
-    ##ld.add_action(node_joint_state_publisher)
+    #ld.add_action(tfRemap)
 
     return ld
