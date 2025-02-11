@@ -4,7 +4,7 @@
   <xacro:include filename="$(find zm_robot_description)/urdf/zm_robot_wheel.gazebo"/>
   
   <xacro:macro name="zm_wheel_v4" params="prefix parent origin_x origin_y rotation_x">
-	<joint name="wheel_joint_${prefix}" type="continuous">
+	<joint name="wheel_joint_${prefix}" type="fixed">
 	  <parent link="${parent}"/>
 	  <child link="wheel_${prefix}"/>
 	  <origin xyz="${origin_x} ${origin_y} 0" rpy="${rotation_x} 0 0"/>

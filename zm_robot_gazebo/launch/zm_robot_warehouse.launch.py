@@ -61,29 +61,19 @@ def generate_launch_description():
         package='ros_gz_bridge',
         executable='parameter_bridge',
         arguments=['/imu@sensor_msgs/msg/Imu@gz.msgs.IMU',
-                   '/sick_lidar0@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
-                   '/sick_lidar1@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
+                   '/sick_lidar0/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
+                   '/sick_lidar1/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
                    '/kinect/depth@sensor_msgs/msg/Image@gz.msgs.Image',
                    '/kinect/color@sensor_msgs/msg/Image@gz.msgs.Image',
                    '/kinect/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
                    '/model/zm_robot/pose@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V',
-                   '/model/zm_robot/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry',
+                   '/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry',
                    '/model/zm_robot/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist',
                    '/world/default/model/zm_robot/joint_state@sensor_msgs/msg/JointState@gz.msgs.Model'],
         remappings=[('/model/zm_robot/cmd_vel', '/cmd_vel'),
-                    ('/model/zm_robot/odometry', '/odometry'),
                     ('/world/default/model/zm_robot/joint_state', '/joint_state'),
                     ('/model/zm_robot/pose', '/tf')],
         output='screen')
-
-    # Bridge
-    tfRemap = Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            name='tf_remap',
-            remappings=[('zm_robot/odom', 'odom'),
-                        ('zm_robot/base_footprint', 'base_link')],
-            output='screen')
 
     # Create the launch description and populate
     ld = LaunchDescription()

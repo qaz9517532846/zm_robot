@@ -1,11 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-
-  <xacro:include filename="$(find zm_robot_description)/urdf/zm_robot_roller.transmission.xacro"/>
-  <xacro:include filename="$(find zm_robot_description)/urdf/zm_robot_roller.gazebo"/>
   
   <xacro:macro name="zm_roller_v0" params="prefix parent origin_x origin_y rotation_x rotation_z">
-	<joint name="${prefix}_joint" type="continuous">
+	<joint name="${prefix}_joint" type="fixed">
 	  <parent link="${parent}"/>
 	  <child link="${prefix}"/>
 	  <origin xyz="${origin_x} ${origin_y} 0" rpy="${rotation_x} 0 ${rotation_z}"/>

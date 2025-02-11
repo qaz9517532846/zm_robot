@@ -129,6 +129,7 @@
         </surface>
       </collision>
       <sensor name="imu" type="imu">
+        <gz_frame_id>imu_link</gz_frame_id>
         <topic>/imu</topic>
         <update_rate>30</update_rate>
         <visualize>false</visualize>
@@ -2923,7 +2924,8 @@
       </collision>
       <!-- The Ray sensor itself -->
       <sensor name="scan_front" type="gpu_lidar">
-        <topic>sick_lidar0</topic>
+        <gz_frame_id>sick_lidar0</gz_frame_id>
+        <topic>sick_lidar0/scan</topic>
         <update_rate>15</update_rate>
           <lidar>
             <scan>
@@ -2936,7 +2938,7 @@
             </scan>
             <range>
               <min>0.01</min>
-              <max>5.0</max>
+              <max>30.0</max>
               <resolution>0.01</resolution>
               </range>
           </lidar>
@@ -3011,7 +3013,8 @@
       </collision>
       <!-- The Ray sensor itself -->
       <sensor name="scan_back" type="gpu_lidar">
-        <topic>sick_lidar1</topic>
+        <gz_frame_id>sick_lidar1</gz_frame_id>
+        <topic>sick_lidar1/scan</topic>
         <update_rate>15</update_rate>
           <lidar>
             <scan>
@@ -3024,7 +3027,7 @@
             </scan>
             <range>
               <min>0.01</min>
-              <max>5.0</max>
+              <max>30.0</max>
               <resolution>0.01</resolution>
               </range>
           </lidar>
@@ -3099,6 +3102,7 @@
       </collision>
       <sensor name="color" type="camera">
         <pose>0 0 0 0 0 0</pose>
+        <gz_frame_id>kinect_v2</gz_frame_id>
         <topic>/kinect/color</topic>
         <update_rate>15</update_rate>
         <always_on>0</always_on>
@@ -3125,6 +3129,7 @@
         </sensor>
         <sensor name="depth" type="depth_camera">
           <pose>0 0 0 0 0 0</pose>
+          <gz_frame_id>kinect_v2</gz_frame_id>
           <update_rate>15</update_rate>
           <topic>/kinect/depth</topic>
           <always_on>0</always_on>
@@ -3205,9 +3210,12 @@
       <publish_nested_model_pose>true</publish_nested_model_pose>
       <update_frequency>20</update_frequency>
     </plugin>
-     <plugin
-        filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
-      </plugin>
+    <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+        <odom_frame>odom</odom_frame>
+        <robot_base_frame>base_footprint</robot_base_frame>
+        <odom_publish_frequency>20.0</odom_publish_frequency>
+        <odom_topic>odometry</odom_topic>
+    </plugin>
     <plugin filename="gz-sim-mecanum-drive-system" name="gz::sim::systems::MecanumDrive">
       <front_left_joint>wheel_2_joint</front_left_joint>
       <front_right_joint>wheel_3_joint</front_right_joint>
