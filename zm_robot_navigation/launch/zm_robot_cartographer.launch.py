@@ -8,9 +8,18 @@ from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import ThisLaunchFileDir
 
+import xacro
 
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+
+    xacro_file = os.path.join(get_package_share_directory('zm_robot_description'), 'urdf/', 'zm_robot.urdf.xacro')    
+    assert os.path.exists(xacro_file), "The box_bot.xacro doesnt exist in "+ str(xacro_file)
+
+    robot_description_config = xacro.process_file(xacro_file)
+    robot_desc = robot_description_config.toxml()
+
+
     zm_robot_cartographer_prefix = get_package_share_directory('zm_robot_navigation')
     cartographer_config_dir = LaunchConfiguration('cartographer_config_dir', default=os.path.join(
                                                   zm_robot_cartographer_prefix, 'config'))
@@ -38,14 +47,23 @@ def generate_launch_description():
             description='Use simulation (Gazebo) clock if true'),
 
         Node(
+            package="robot_state_publisher",
+            executable="robot_state_publisher",
+            name="robot_state_publisher",
+            parameters=[
+                {"robot_description": robot_desc}],
+            output="screen"),
+
+        Node(
             package='cartographer_ros',
             executable='cartographer_node',
             name='cartographer_node',
             output='screen',
             parameters=[{'use_sim_time': use_sim_time}],
-            remappings=[("scan_1", "/sick_s30b/laser/scan0"),
-                        ("scan_2", "/sick_s30b/laser/scan1"),
-                        ("imu", "/zm_robot_imu")],
+            remappings=[("scan_1", "/sick_lidar0/scan"),
+                        ("scan_2", "/sick_lidar1/scan"),
+                        ("imu", "/imu"),
+                        ("odom", "/odometry")],
             arguments=['-configuration_directory', cartographer_config_dir,
                        '-configuration_basename', configuration_basename]),
 

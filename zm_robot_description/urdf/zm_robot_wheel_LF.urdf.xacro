@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-
-  <xacro:include filename="$(find zm_robot_description)/urdf/zm_robot_wheel.gazebo"/>
   
   <xacro:macro name="zm_wheel_v2" params="prefix parent origin_x origin_y rotation_x">
 	<joint name="wheel_joint_${prefix}" type="fixed">

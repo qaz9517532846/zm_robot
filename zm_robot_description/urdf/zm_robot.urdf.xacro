@@ -191,12 +191,12 @@
   <!-- IMU -->
   <joint name="IMU_joint " type="fixed">
     <parent link="base_link"/>
-    <child link="IMU_sensor"/>
+    <child link="imu_link"/>
     <origin xyz="0 0 0.08" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
 
-  <link name="IMU_sensor">
+  <link name="imu_link">
     <sensor name="imu" type="imu">
       <update_rate>30</update_rate>
       <visualize>false</visualize>
