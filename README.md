@@ -60,7 +60,7 @@ $ ros2 run zm_robot_teleop zm_robot_teleop_key
 - The zm_robot warehouse environment under Gazebo.
 
 ``` bash
-$ ros2 launch zm_robot_gazebo zm_robot_aws_warehouse.launch.py
+$ ros2 launch zm_robot_gazebo zm_robot_warehouse.launch.py
 ```
 
 ![image](https://github.com/qaz9517532846/zm_robot/blob/ros2-jazzy/image/zm_robot_aws_warehouse.png)

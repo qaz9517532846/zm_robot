@@ -12,7 +12,7 @@ import xacro
 
 
 def generate_launch_description():
-    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
     xacro_file = os.path.join(get_package_share_directory('zm_robot_description'), 'urdf/', 'zm_robot.urdf.xacro')    
     assert os.path.exists(xacro_file), "The box_bot.xacro doesnt exist in "+ str(xacro_file)
@@ -67,14 +67,15 @@ def generate_launch_description():
             executable="robot_state_publisher",
             name="robot_state_publisher",
             parameters=[
-                {"robot_description": robot_desc}],
+                {"robot_description": robot_desc,
+                 "use_sim_time": use_sim_time}],
             output="screen"),
 
         Node(
             package='cartographer_ros',
             executable='cartographer_node',
             name='cartographer_node',
-            output='screen',
+            ##output='screen',
             parameters=[{'use_sim_time': use_sim_time}],
             remappings=[("scan_1", "/sick_lidar0/scan"),
                         ("scan_2", "/sick_lidar1/scan"),

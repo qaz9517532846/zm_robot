@@ -129,7 +129,7 @@
         </surface>
       </collision>
       <sensor name="imu" type="imu">
-        <gz_frame_id>imu_link</gz_frame_id>
+        <gz_frame_id>base_footprint</gz_frame_id>
         <topic>/imu</topic>
         <update_rate>30</update_rate>
         <visualize>false</visualize>

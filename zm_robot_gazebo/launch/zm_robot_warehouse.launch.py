@@ -69,10 +69,12 @@ def generate_launch_description():
                    '/model/zm_robot/pose@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V',
                    '/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry',
                    '/model/zm_robot/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist',
-                   '/world/default/model/zm_robot/joint_state@sensor_msgs/msg/JointState@gz.msgs.Model'],
+                   '/world/default/model/zm_robot/joint_state@sensor_msgs/msg/JointState@gz.msgs.Model',
+                   '/world/default/clock@rosgraph_msgs/msg/Clock@gz.msgs.Clock'],
         remappings=[('/model/zm_robot/cmd_vel', '/cmd_vel'),
                     ('/world/default/model/zm_robot/joint_state', '/joint_state'),
-                    ('/model/zm_robot/pose', '/tf')],
+                    ('/model/zm_robot/pose', '/tf'),
+                    ('/world/default/clock', 'clock')],
         output='screen')
 
     # Create the launch description and populate
