@@ -1093,7 +1093,7 @@
     </joint>
     <link name="roller_2_4_link">
       <self_collide>false</self_collide>
-      <pose frame='wheel_2_link'>-0.0325 0.056291 0 0.7854 0 2.0943</pose>
+      <pose frame='wheel_2_link'>-0.0325 0.056291 0 -0.7854 0 2.0943</pose>
       <static>false</static>
 	    <inertial>
           <mass>0.124</mass>
@@ -2453,7 +2453,7 @@
     </joint>
     <link name="roller_4_4_link">
       <self_collide>false</self_collide>
-      <pose frame='wheel_4_link'>-0.0325 0.056291 0 0.7854 0 2.0943</pose>
+      <pose frame='wheel_4_link'>-0.0325 0.056291 0 -0.7854 0 2.0943</pose>
       <static>false</static>
 	    <inertial>
           <mass>0.124</mass>
