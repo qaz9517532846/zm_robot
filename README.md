@@ -1,6 +1,6 @@
 # zm_robot
 
-The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazebo simulation. It has two 2D-Lidar, four ultrasound, RGB-D camera and Imu sensor. The purpose of this project is to make it easy for people to understand the control method of Omnidirectional Wheel and the establishment of mobile robots in the environment of ROS and Gazebo.
+The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazebo simulation. It has two 2D-Lidar, RGB-D camera and Imu sensor. The purpose of this project is to make it easy for people to understand the control method of Omnidirectional Wheel and the establishment of mobile robots in the environment of ROS and Gazebo.
 
 ------
 
@@ -27,13 +27,6 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under Gazeb
     ``` $ sudo apt-get install -y ros-jazzy-navigation2 ```
     
     ``` $ sudo apt-get install -y ros-jazzy-nav2-bringup ```
-
-
-- clone AWS RoboMaker Small Warehouse World package.
-
-``` bash
-$ git clone https://github.com/Juancams/aws-robomaker-small-warehouse-world
-```
 
 ### Run
 
@@ -80,19 +73,13 @@ $ ros2 service call /write_state cartographer_ros_msgs/srv/WriteState "{filename
 $ ros2 run nav2_map_server map_saver_cli -f ~/map
 ```
 
-- The zm_robot can do navigation and aviod obstacles at warehouse using amcl.
-
-``` bash
-$ ros2 launch zm_robot_navigation zm_robot_navigation2.launch.py
-```
-
 - The zm_robot navigation using cartographer localization.
 
 ``` bash
 $ ros2 launch zm_robot_navigation zm_robot_cartographer_navigation2.launch.py
 ```
 
-![image](https://github.com/qaz9517532846/zm_robot/blob/ros2/image/zm_robot_navigation2.png)
+![image](https://github.com/qaz9517532846/zm_robot/blob/ros2-jazzy/image/zm_robot_navigation2.png)
 
 ------
 
@@ -136,16 +123,12 @@ if __name__ == '__main__':
 | ---                                | ---                                                               | 
 | cmd_vel                            | zm_robot input to move velocity.                                  |
 | joint_states                       | zm_robot joint status topic.                                      |
-| odom                               | zm_robot odomentry topic.                                         |
-| sick_s30b/laser/scan0              | sick laser1 Laserscan.                                            |
-| sick_s30b/laser/scan1              | sick laser2 Laserscan.                                            |
-| kinect_v2/color/image_raw          | Kinect V2 RGB image.                                              |
-| kinect_v2/depth/image_raw          | Kinect V2 Depth image.                                            |
-| zm_robot_imu                       | zm_robot IMU sensor.                                              |
-| ultrasound_1                       | ultrasound on zm_robot left and front.                            |
-| ultrasound_2                       | ultrasound on zm_robot right and front.                           |
-| ultrasound_3                       | ultrasound on zm_robot left and rear.                             |
-| ultrasound_4                       | ultrasound on zm_robot right and rear.                            ||
+| odomentry                          | zm_robot odomentry topic.                                         |
+| sick_lidar0/scan                   | sick laser1 Laserscan.                                            |
+| sick_lidar1/scan                   | sick laser2 Laserscan.                                            |
+| kinect_v2/color                    | Kinect V2 RGB image.                                              |
+| kinect_v2/depth                    | Kinect V2 Depth image.                                            |
+| imu                                | zm_robot IMU sensor.                                              ||
 
 ------
 
@@ -158,7 +141,7 @@ if __name__ == '__main__':
 | ros1-main      | zm_robot ros1-main version add safety function           .                      | August, 2021. |
 | ros1-pid       | zm_robot ros1-pid version using PID controller for zm_robot programing simply.  | July, 2021.   |
 | ros2-foxy      | zm_robot ros2 versoin under ROS 2 Foxy environment.                             | August, 2021. |
-| ros2-jazzy     | zm_robot ros2 versoin under ROS 2 Jazzy environment.                            | Feb., 2025.   ||
+| ros2-jazzy     | zm_robot ros2 versoin under ROS 2 Jazzy environment.                            | February, 2025.   ||
 
 ------
 
@@ -166,17 +149,13 @@ if __name__ == '__main__':
 
 [1]. turtlebot3_teleop, https://github.com/ROBOTIS-GIT/turtlebot3/tree/master/turtlebot3_teleop
 
-[2]. mecanum_sim, https://github.com/joelillo/mecanum_sim
+[2]. Gazebo - Get started. https://gazebosim.org/docs/latest/getstarted/
 
-[3]. Gazebo tutorial - Control plugin. http://gazebosim.org/tutorials?cat=guided_i&tut=guided_i5
+[3]. aws-robomaker-small-warehouse-world. https://github.com/Juancams/aws-robomaker-small-warehouse-world
 
-[4]. Gazebo tutorial - Sensor plugin. http://gazebosim.org/tutorials?tut=ros_gzplugins&cat=connect_ros
+[4]. Cartographer ROS2. https://ros2-industrial-workshop.readthedocs.io/en/latest/_source/navigation/ROS2-Cartographer.html
 
-[5]. aws-robomaker-small-warehouse-world. https://github.com/Juancams/aws-robomaker-small-warehouse-world
-
-[6]. gazebo_mecanum_plugins. https://github.com/qaz9517532846/gazebo_mecanum_plugins
-
-[7]. navigation2. https://github.com/ros-planning/navigation2
+[5]. navigation2. https://github.com/ros-planning/navigation2
 
 ------
 

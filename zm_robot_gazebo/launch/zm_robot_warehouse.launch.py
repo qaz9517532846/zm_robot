@@ -73,7 +73,7 @@ def generate_launch_description():
                    '/world/default/clock@rosgraph_msgs/msg/Clock@gz.msgs.Clock'],
         remappings=[('/model/zm_robot/cmd_vel', '/cmd_vel'),
                     ('/world/default/model/zm_robot/joint_state', '/joint_state'),
-                    ('/model/zm_robot/pose', '/tf'),
+                    ##('/model/zm_robot/pose', '/tf'),
                     ('/world/default/clock', 'clock')],
         output='screen')
 
