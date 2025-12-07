@@ -142,7 +142,7 @@ if __name__ == '__main__':
 | ros1-pid       | zm_robot ros1-pid version using PID controller for zm_robot programing simply.  | July, 2021.   |
 | ros2-foxy      | zm_robot ros2 versoin under ROS 2 Foxy environment.                             | August, 2021. |
 | ros2-jazzy     | zm_robot ros2 versoin under ROS 2 Jazzy environment.                            | February, 2025.   |
-| ros2-isaac     | zm_robot ros2 versoin under ROS 2 Humble and NVIDIA isaac sim                   | December, 2025.   ||
+| ros2-isaac-sim     | zm_robot ros2 versoin under ROS 2 Humble and NVIDIA isaac sim                   | December, 2025.   ||
 
 ------
 
