@@ -45,7 +45,7 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under NVIDI
 
 - Open zm_robot_flat_grid.usd after launching NVIDIA Isaac Sim.
 
-![image](https://github.com/qaz9517532846/zm_robot/blob/ros2-isaac/image/zm_robot_flat_grid.png)
+![image](https://github.com/qaz9517532846/zm_robot/blob/ros2-isaac-sim/image/zm_robot_flat_grid.png)
 
 - This is a zm_robot control using a keyboard.
 
@@ -55,7 +55,7 @@ $ ros2 run zm_robot_teleop zm_robot_teleop_key
 
 - The zm_robot simple environment under NVIDIA Isaac Sim.
 
-![image](https://github.com/qaz9517532846/zm_robot/blob/ros2-isaac/image/zm_robot_simple_room.png)
+![image](https://github.com/qaz9517532846/zm_robot/blob/ros2-isaac-sim/image/zm_robot_simple_room.png)
 
 
 - The zm_robot create a map at simple room.
@@ -64,7 +64,7 @@ $ ros2 run zm_robot_teleop zm_robot_teleop_key
 $ ros2 launch zm_robot_navigation zm_robot_cartographer.launch.py
 ```
 
-![image](https://github.com/qaz9517532846/zm_robot/blob/ros2-isaac/image/zm_robot_cartographer.png)
+![image](https://github.com/qaz9517532846/zm_robot/blob/ros2-isaac-sim/image/zm_robot_cartographer.png)
 
 - Cartographer save map command.
 
@@ -79,7 +79,7 @@ $ ros2 run nav2_map_server map_saver_cli -f ~/map
 $ ros2 launch zm_robot_navigation zm_robot_cartographer_navigation2.launch.py
 ```
 
-![image](https://github.com/qaz9517532846/zm_robot/blob/ros2-isaac/image/zm_robot_navigation2.png)
+![image](https://github.com/qaz9517532846/zm_robot/blob/ros2-isaac-sim/image/zm_robot_navigation2.png)
 
 ------
 
