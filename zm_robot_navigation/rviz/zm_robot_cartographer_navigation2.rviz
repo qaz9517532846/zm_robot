@@ -1,0 +1,674 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Status1
+        - /Path1
+      Splitter Ratio: 0.5
+    Tree Height: 787
+  - Class: rviz_common/Selection
+    Name: Selection
+  - Class: rviz_common/Tool Properties
+    Expanded:
+      - /2D Goal Pose1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+  - Class: rviz_common/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map
+      Update Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map_updates
+      Use Timestamp: false
+      Value: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        IMU_sensor:
+          Value: true
+        base_footprint:
+          Value: true
+        base_link:
+          Value: true
+        kinect_v2:
+          Value: true
+        map:
+          Value: true
+        odom:
+          Value: true
+        roller_1_1:
+          Value: true
+        roller_1_2:
+          Value: true
+        roller_1_3:
+          Value: true
+        roller_1_4:
+          Value: true
+        roller_1_5:
+          Value: true
+        roller_1_6:
+          Value: true
+        roller_1_7:
+          Value: true
+        roller_1_8:
+          Value: true
+        roller_1_9:
+          Value: true
+        roller_2_1:
+          Value: true
+        roller_2_2:
+          Value: true
+        roller_2_3:
+          Value: true
+        roller_2_4:
+          Value: true
+        roller_2_5:
+          Value: true
+        roller_2_6:
+          Value: true
+        roller_2_7:
+          Value: true
+        roller_2_8:
+          Value: true
+        roller_2_9:
+          Value: true
+        roller_3_1:
+          Value: true
+        roller_3_2:
+          Value: true
+        roller_3_3:
+          Value: true
+        roller_3_4:
+          Value: true
+        roller_3_5:
+          Value: true
+        roller_3_6:
+          Value: true
+        roller_3_7:
+          Value: true
+        roller_3_8:
+          Value: true
+        roller_3_9:
+          Value: true
+        roller_4_1:
+          Value: true
+        roller_4_2:
+          Value: true
+        roller_4_3:
+          Value: true
+        roller_4_4:
+          Value: true
+        roller_4_5:
+          Value: true
+        roller_4_6:
+          Value: true
+        roller_4_7:
+          Value: true
+        roller_4_8:
+          Value: true
+        roller_4_9:
+          Value: true
+        sick_lidar0:
+          Value: true
+        sick_lidar1:
+          Value: true
+        wheel_1:
+          Value: true
+        wheel_2:
+          Value: true
+        wheel_3:
+          Value: true
+        wheel_4:
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        map:
+          odom:
+            base_footprint:
+              {}
+            base_link:
+              IMU_sensor:
+                {}
+              kinect_v2:
+                {}
+              sick_lidar0:
+                {}
+              sick_lidar1:
+                {}
+              wheel_1:
+                roller_1_1:
+                  {}
+                roller_1_2:
+                  {}
+                roller_1_3:
+                  {}
+                roller_1_4:
+                  {}
+                roller_1_5:
+                  {}
+                roller_1_6:
+                  {}
+                roller_1_7:
+                  {}
+                roller_1_8:
+                  {}
+                roller_1_9:
+                  {}
+              wheel_2:
+                roller_2_1:
+                  {}
+                roller_2_2:
+                  {}
+                roller_2_3:
+                  {}
+                roller_2_4:
+                  {}
+                roller_2_5:
+                  {}
+                roller_2_6:
+                  {}
+                roller_2_7:
+                  {}
+                roller_2_8:
+                  {}
+                roller_2_9:
+                  {}
+              wheel_3:
+                roller_3_1:
+                  {}
+                roller_3_2:
+                  {}
+                roller_3_3:
+                  {}
+                roller_3_4:
+                  {}
+                roller_3_5:
+                  {}
+                roller_3_6:
+                  {}
+                roller_3_7:
+                  {}
+                roller_3_8:
+                  {}
+                roller_3_9:
+                  {}
+              wheel_4:
+                roller_4_1:
+                  {}
+                roller_4_2:
+                  {}
+                roller_4_3:
+                  {}
+                roller_4_4:
+                  {}
+                roller_4_5:
+                  {}
+                roller_4_6:
+                  {}
+                roller_4_7:
+                  {}
+                roller_4_8:
+                  {}
+                roller_4_9:
+                  {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Collision Enabled: false
+      Description File: ""
+      Description Source: Topic
+      Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: robot_description
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        IMU_sensor:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        Link Tree Style: Links in Alphabetic Order
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        kinect_v2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_1_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_1_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_1_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_1_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_1_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_1_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_1_7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_1_8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_1_9:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_2_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_2_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_2_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_2_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_2_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_2_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_2_7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_2_8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_2_9:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_3_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_3_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_3_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_3_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_3_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_3_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_3_7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_3_8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_3_9:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_4_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_4_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_4_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_4_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_4_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_4_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_4_7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_4_8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        roller_4_9:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sick_lidar0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sick_lidar1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 0.699999988079071
+      Class: rviz_default_plugins/Map
+      Color Scheme: costmap
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /local_costmap/costmap
+      Update Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /local_costmap/costmap_updates
+      Use Timestamp: false
+      Value: true
+    - Alpha: 0.30000001192092896
+      Class: rviz_default_plugins/Map
+      Color Scheme: costmap
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /global_costmap/costmap
+      Update Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /global_costmap/costmap_updates
+      Use Timestamp: false
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /plan
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: MarkerArray
+      Namespaces:
+        Trajectory 0: true
+        Trajectory 1: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /trajectory_node_list
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 255; 255; 255
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+      Line color: 128; 128; 0
+    - Class: rviz_default_plugins/SetInitialPose
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /initialpose
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /goal_pose
+    - Class: rviz_default_plugins/PublishPoint
+      Single click: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /clicked_point
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 7.317599296569824
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: -0.2654675841331482
+        Y: -0.3436205983161926
+        Z: -0.003000489203259349
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 1.5697963237762451
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 3.170389413833618
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1016
+  Hide Left Dock: false
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd0000000400000000000001560000039efc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d0000039e000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f0000039efc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d0000039e000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004420000003efc0100000002fb0000000800540069006d00650100000000000004420000000000000000fb0000000800540069006d00650100000000000004500000000000000000000004c70000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1848
+  X: 72
+  Y: 27
