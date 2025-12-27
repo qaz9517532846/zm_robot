@@ -132,6 +132,13 @@ if __name__ == '__main__':
 
 ------
 
+## Demo:
+
+- zm_robot Mecanum Manual control
+  [![ The zm_robot control under NVIDIA IsaacSim. ]([https://www.youtube.com/watch?v=VIDEO_ID](https://www.youtube.com/watch?v=rabQwstnbsQ))
+
+------
+
 ## History:
 
 | Branch         | Description                                                                     | File Creation |
