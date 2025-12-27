@@ -132,10 +132,12 @@ if __name__ == '__main__':
 
 ------
 
-## Demo:
+## 🎬 Simulation Demo (YouTube)
 
-- zm_robot Mecanum Manual control
-  [![控制 4 機械輪機器人 - NVIDIA IsaacSim](https://img.youtube.com/vi/rabQwstnbsQ/0.jpg)](https://www.youtube.com/watch?v=rabQwstnbsQ)
+Click the image below to watch the demo video:
+
+[![Isaac Sim Mecanum Robot Demo](https://img.youtube.com/vi/rabQwstnbsQ/maxresdefault.jpg)](https://youtu.be/rabQwstnbsQ)
+
 
 ------
 
