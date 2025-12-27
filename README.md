@@ -138,6 +138,10 @@ Click the image below to watch the demo video:
 
 [![Isaac Sim Mecanum Robot Demo](https://img.youtube.com/vi/rabQwstnbsQ/maxresdefault.jpg)](https://youtu.be/rabQwstnbsQ)
 
+[![Isaac Sim Mecanum Robot Mapping](https://img.youtube.com/vi/QpQLJSyjY1c/maxresdefault.jpg)](https://youtu.be/QpQLJSyjY1c)
+
+[![Isaac Sim Mecanum Robot Nav](https://img.youtube.com/vi/EszqV1yoW10/maxresdefault.jpg)](https://youtu.be/EszqV1yoW10)
+
 
 ------
 
