@@ -6,20 +6,20 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under NVIDI
 
 ## System Requirements
 
-- OS : Ubuntu 22.04 / Windows 10
+- OS : Ubuntu 24.04
 - CPU : Intel Core i7 (7th Generation) / AMD Ryzen 5
 - Cores : 4
 - RAM : 32 GB
 - Storage : 50GB SSD
 - GPU : GeForce RTX 4080
 - VRAM : 16GB
-- Driver : Linux: 580.65.06 / Windows: 580.88
+- Driver : Linux: 580.65.06
 
 ------
 
 ## Built with
 
-- ROS Humble under Ubuntu 22.04 LTS
+- ROS Jazzy under Ubuntu 24.04 LTS
 
 ------
 
@@ -33,13 +33,13 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under NVIDI
 
 - Installation ros package.
 
-    ``` $ sudo apt-get install ros-humble-ros-gz-sim ros-humble-xacro```
+    ``` $ sudo apt-get install ros-Jazzy-xacro```
 
-    ``` $ sudo apt-get install -y ros-humble-cartographer-ros ```
+    ``` $ sudo apt-get install -y ros-Jazzy-cartographer-ros ```
   
-    ``` $ sudo apt-get install -y ros-humble-navigation2 ```
+    ``` $ sudo apt-get install -y ros-Jazzy-navigation2 ```
     
-    ``` $ sudo apt-get install -y ros-humble-nav2-bringup ```
+    ``` $ sudo apt-get install -y ros-Jazzy-nav2-bringup ```
 
 ### Run
 
@@ -126,8 +126,8 @@ if __name__ == '__main__':
 | odom                               | zm_robot odomentry topic.                                         |
 | sick_lidar0/scan                   | sick laser1 Laserscan.                                            |
 | sick_lidar1/scan                   | sick laser2 Laserscan.                                            |
-| kinect_v2/color                    | Kinect V2 RGB image.                                              |
-| kinect_v2/depth                    | Kinect V2 Depth image.                                            |
+| kinect_v2/color/image_raw          | Kinect V2 RGB image.                                              |
+| kinect_v2/depth/image_raw          | Kinect V2 Depth image.                                            |
 | imu                                | zm_robot IMU sensor.                                              ||
 
 ------
@@ -155,7 +155,7 @@ Click the image below to watch the demo video:
 | ros1-pid       | zm_robot ros1-pid version using PID controller for zm_robot programing simply.  | July, 2021.   |
 | ros2-foxy      | zm_robot ros2 versoin under ROS 2 Foxy environment.                             | August, 2021. |
 | ros2-jazzy     | zm_robot ros2 versoin under ROS 2 Jazzy environment.                            | February, 2025.   |
-| ros2-isaac-sim     | zm_robot ros2 versoin under ROS 2 Humble and NVIDIA isaac sim                   | December, 2025.   ||
+| ros2-isaac-sim | zm_robot ros2 versoin under ROS 2 Jazzy and NVIDIA isaac sim                    | February, 2026.   ||
 
 ------
 
@@ -169,8 +169,10 @@ Click the image below to watch the demo video:
 
 [5]. navigation2. https://github.com/ros-planning/navigation2
 
+[6]. Isaac ROS. https://nvidia-isaac-ros.github.io/index.html
+
 ------
 
 This repository is for your reference only. copying, patent application, academic journals are strictly prohibited.
 
-Copyright © 2025 ZM Robotics Software Laboratory.
+Copyright © 2026 ZM Robotics Software Laboratory.
