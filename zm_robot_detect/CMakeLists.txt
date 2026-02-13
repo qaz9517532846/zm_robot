@@ -38,4 +38,4 @@ ament_target_dependencies(Image_float2uint
 ament_package()
 
 install(TARGETS Image_float2uint DESTINATION lib/${PROJECT_NAME})
-install(DIRECTORY launch model DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY launch model mesh DESTINATION share/${PROJECT_NAME})
