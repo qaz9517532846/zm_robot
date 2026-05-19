@@ -41,6 +41,9 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under NVIDI
     
     ``` $ sudo apt-get install -y ros-Jazzy-nav2-bringup ```
 
+- Installation NVIDIA VPI
+    - NVIDIA VPI - https://docs.nvidia.com/vpi/installation.html
+
 ### Run
 
 - Open zm_robot_flat_grid.usd after launching NVIDIA Isaac Sim.
