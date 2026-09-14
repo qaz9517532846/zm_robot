@@ -33,13 +33,13 @@ The zm robot is a autonomous mobile robot by 4 mecanum wheel driving under NVIDI
 
 - Installation ros package.
 
-    ``` $ sudo apt-get install ros-Jazzy-xacro```
+    ``` $ sudo apt-get install ros-jazzy-xacro```
 
-    ``` $ sudo apt-get install -y ros-Jazzy-cartographer-ros ```
+    ``` $ sudo apt-get install -y ros-jazzy-cartographer-ros ```
   
-    ``` $ sudo apt-get install -y ros-Jazzy-navigation2 ```
+    ``` $ sudo apt-get install -y ros-jazzy-navigation2 ```
     
-    ``` $ sudo apt-get install -y ros-Jazzy-nav2-bringup ```
+    ``` $ sudo apt-get install -y ros-jazzy-nav2-bringup ```
 
     ``` $ sudo apt-get install ros-jazzy-foxglove-msgs ```
 
