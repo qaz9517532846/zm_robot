@@ -1,0 +1,6 @@
+__pycache__/
+# TensorRT engines are specific to the GPU + TensorRT version they were built with:
+# rebuild with scripts/build_engines.sh instead of committing them.
+models/*.engine
+models/*.engine.log
+models/validation/replay_report*

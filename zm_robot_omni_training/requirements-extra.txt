@@ -1,0 +1,6 @@
+# Packages the training/recording scripts need on top of the Isaac Lab Python environment.
+# Install into a separate directory (the Isaac Lab venv has no pip):
+#   uv pip install --python ~/nvidia/IsaacLab-Arena/.venv/bin/python --target .pydeps --no-deps -r requirements-extra.txt
+stable-baselines3==2.7.1
+gin-config==0.5.0
+diffusers==0.35.2
