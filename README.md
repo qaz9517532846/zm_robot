@@ -160,7 +160,8 @@ Click the image below to watch the demo video:
 | ros1-pid       | zm_robot ros1-pid version using PID controller for zm_robot programing simply.  | July, 2021.   |
 | ros2-foxy      | zm_robot ros2 versoin under ROS 2 Foxy environment.                             | August, 2021. |
 | ros2-jazzy     | zm_robot ros2 versoin under ROS 2 Jazzy environment.                            | February, 2025.   |
-| ros2-isaac-sim | zm_robot ros2 versoin under ROS 2 Jazzy and NVIDIA isaac sim                    | February, 2026.   ||
+| ros2-isaac-sim | zm_robot ros2 versoin under ROS 2 Jazzy and NVIDIA isaac sim                    | February, 2026.   |
+| ros2-isaac-lab-policy | zm_robot ros2 version with an omnidirectional navigation policy trained in NVIDIA Isaac Lab, replacing Nav2 | November, 2026.   ||
 
 ------
 
